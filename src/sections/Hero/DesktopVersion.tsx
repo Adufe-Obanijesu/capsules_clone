@@ -19,7 +19,7 @@ export default function DesktopVersion() {
     }, {scope})
 
     return (
-        <div ref={scope} className="p-2.5 h-screen w-full">
+        <div ref={scope} className="padding h-screen w-full">
 
         <header className="h-full w-full rounded-[60px] overflow-hidden relative">
             <img id="background" src="/images/cap1.webp" alt="capsule" className="object-cover object-center w-full h-full" />

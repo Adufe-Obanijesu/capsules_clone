@@ -1,6 +1,6 @@
 export default function MobileVersion() {
     return (
-        <header className="relative h-screen px-2.5 pt-12.5 pb-25">
+        <header className="relative h-screen padding-x pt-12.5 pb-25">
             <div className="h-full relative z-1 flex flex-col justify-between">
 
                 <div className="px-2.5">

@@ -2,96 +2,117 @@
 
 /* Hide scrollbar for all elements */
 html, body {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-html::-webkit-scrollbar, 
+html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 /* Ensure all elements with scrollable content also hide scrollbars */
 * {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 *::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 @font-face {
-  font-family: "Host_Grotesk";
-  src: url("/public/fonts/Host_Grotesk/Host_Grotesk-normal-400-latin.wBCQJesg.woff2");
-  font-display: swap;
-  font-style: normal;
+    font-family: "Host_Grotesk";
+    src: url("/public/fonts/Host_Grotesk/Host_Grotesk-normal-400-latin.wBCQJesg.woff2");
+    font-display: swap;
+    font-style: normal;
 }
 
 @theme {
-  --color-dark: #181717;
-  --color-lightBrown: #b1a696;
-  --color-middleBrown: #332e2b00;
+    --color-dark: #181717;
+    --color-lightBrown: #b1a696;
+    --color-middleBrown: #332e2b00;
+    --color-darkBrown: #2a2725;
 }
 
 * {
-  font-family: "Host_Grotesk", sans-serif;
+    font-family: "Host_Grotesk", sans-serif;
 }
 
 @layer base {
-  h1 {
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    line-height: 3.125rem;
-    letter-spacing: -0.2px;
-  }
+    h1 {
+        font-size: clamp(2.5rem, 4vw, 4rem);
+        line-height: 3.125rem;
+        letter-spacing: -0.2px;
+    }
 
-  h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 2.75rem;
-    letter-spacing: -0.2px;
-  }
+    h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 2.75rem;
+        letter-spacing: -0.2px;
+    }
 
-  h3 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    line-height: 2.5rem;
-    letter-spacing: -0.2px;
-  }
+    h3 {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        line-height: 2.5rem;
+        letter-spacing: -0.2px;
+    }
 
-  h4 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    line-height: 2.25rem;
-    letter-spacing: -0.2px;
-  }
+    h4 {
+        font-size: clamp(1.5rem, 3vw, 70px);
+        line-height: .9;
+        letter-spacing: -0.2px;
+    }
 
-  h5 {
-    font-size: clamp(1.25rem, 4vw, 1.75rem);
-    line-height: 2rem;
-    letter-spacing: -0.2px;
-  }
+    h5 {
+        font-size: clamp(1.25rem, 4vw, 1.75rem);
+        line-height: 2rem;
+        letter-spacing: -0.2px;
+    }
 
-  h6 {
-    font-size: clamp(1rem, 4vw, 1.5rem);
-    line-height: 1.75rem;
-    letter-spacing: -0.2px;
-  }
+    h6 {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        line-height: 1.75rem;
+        letter-spacing: -0.2px;
+    }
 
-  p {
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.75rem;
-    letter-spacing: -0.2px;
-  }
+    p {
+        font-size: clamp(1rem, 2vw, 1.125rem);
+        line-height: 1.75rem;
+        letter-spacing: -0.2px;
+    }
 }
 
+@utility padding-x {
+    @apply px-2.5
+}
+
+@utility padding-x-md {
+    padding-inline: clamp(20px, 2vw, 54px);
+}
+
+@utility padding-y-md {
+    padding-block: clamp(80px, 8vw, 215px);
+}
+
+@utility padding {
+    @apply p-2.5
+}
 
 @utility bg-gradient-dark {
-  @apply bg-radial-[at_25%_50%] from-lightBrown/20 via-middleBrown via-70% to-black/20;
+    @apply bg-radial-[at_25%_50%] from-lightBrown/20 via-middleBrown via-70% to-black/20;
 }
 
 @utility logo-fluid {
-  width: clamp(350px, 90vw, 1374px);
+    width: clamp(350px, 90vw, 1374px);
 }
 
 @utility logo-fluid-lg {
-  width: clamp(350px, 50vw, 1374px);
+    width: clamp(350px, 50vw, 1374px);
+}
+
+@utility fade-text {
+    font-size: clamp(42px, 5vw, 160px);
+    line-height: 0.9;
 }
