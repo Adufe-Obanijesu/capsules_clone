@@ -12,6 +12,7 @@ import Discover from "./sections/Discover.tsx";
 import Capsules from "./sections/capsules";
 import {useGSAP} from "@gsap/react";
 import Closer from "./sections/Closer.tsx";
+import Why from "./sections/Why";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, ScrollSmoother)
 
@@ -26,6 +27,7 @@ export default function App() {
                 <Capsules/>
                 <Closer/>
             </div>
+            <Why/>
             <div className="h-screen bg-red-500"></div>
         </main>
     )
