@@ -1,18 +1,15 @@
 @import "tailwindcss";
 
-/* Hide scrollbar for all elements */
 html, body {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
     display: none;
 }
 
-/* Ensure all elements with scrollable content also hide scrollbars */
 * {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -34,6 +31,7 @@ body::-webkit-scrollbar {
     --color-lightBrown: #b1a696;
     --color-middleBrown: #332e2b00;
     --color-darkBrown: #2a2725;
+    --color-tertiary: #181717;
 }
 
 * {
@@ -43,43 +41,43 @@ body::-webkit-scrollbar {
 @layer base {
     h1 {
         font-size: clamp(2.5rem, 4vw, 4rem);
-        line-height: 3.125rem;
+        line-height: .9;
         letter-spacing: -0.2px;
     }
 
     h2 {
         font-size: clamp(2rem, 4vw, 3rem);
-        line-height: 2.75rem;
+        line-height: .9;
         letter-spacing: -0.2px;
     }
 
     h3 {
         font-size: clamp(1.75rem, 4vw, 2.5rem);
-        line-height: 2.5rem;
+        line-height: .9;
         letter-spacing: -0.2px;
     }
 
     h4 {
-        font-size: clamp(1.5rem, 3vw, 70px);
+        font-size: clamp(1.5rem, 2.75vw, 70px);
         line-height: .9;
         letter-spacing: -0.2px;
     }
 
     h5 {
         font-size: clamp(1.25rem, 4vw, 1.75rem);
-        line-height: 2rem;
+        line-height: .9;
         letter-spacing: -0.2px;
     }
 
     h6 {
         font-size: clamp(1rem, 4vw, 1.5rem);
-        line-height: 1.75rem;
+        line-height: .9;
         letter-spacing: -0.2px;
     }
 
     p {
         font-size: clamp(1rem, 2vw, 1.125rem);
-        line-height: 1.75rem;
+        line-height: .9;
         letter-spacing: -0.2px;
     }
 }
@@ -88,12 +86,16 @@ body::-webkit-scrollbar {
     @apply px-2.5
 }
 
+@utility -margin-x {
+    @apply -mx-2.5
+}
+
 @utility padding-x-md {
     padding-inline: clamp(20px, 2vw, 54px);
 }
 
 @utility padding-y-md {
-    padding-block: clamp(80px, 8vw, 215px);
+    padding-block: clamp(30px, 8vw, 215px);
 }
 
 @utility padding {
@@ -102,6 +104,10 @@ body::-webkit-scrollbar {
 
 @utility bg-gradient-dark {
     @apply bg-radial-[at_25%_50%] from-lightBrown/20 via-middleBrown via-70% to-black/20;
+}
+
+@utility bg-gradient-brown {
+    @apply bg-gradient-to-b from-darkBrown/25 to-darkBrown;
 }
 
 @utility logo-fluid {
@@ -116,3 +122,19 @@ body::-webkit-scrollbar {
     font-size: clamp(42px, 5vw, 160px);
     line-height: 0.9;
 }
+
+@utility large-text {
+    font-size: clamp(100px, 10vw, 200px);
+}
+
+@utility medium-text {
+    font-size: clamp(50px, 5vw, 100px);
+}
+
+@utility transition-item {
+    @apply transition-all duration-200 ease-out;
+}
+
+/*@utility medium-text {*/
+/*    font-size: clamp(65px, 5vw, 200px);*/
+/*}*/
