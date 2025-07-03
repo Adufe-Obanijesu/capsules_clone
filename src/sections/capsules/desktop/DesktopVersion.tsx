@@ -4,6 +4,7 @@ import gsap from "gsap";
 import {useGSAP} from "@gsap/react";
 import {animate} from "./animation";
 import Card from "./Card.tsx";
+import Marquee from "./Marquee.tsx";
 
 export default function DesktopVersion() {
     const scope = useRef<HTMLDivElement>(null)
@@ -30,7 +31,11 @@ export default function DesktopVersion() {
                     <div className="w-full h-full absolute bg-white opacity-[0.2]"></div>
                     <div id="progress-bar" className="w-full scale-x-[0.33] origin-left h-full absolute bg-white"></div>
                 </div>
+
+                <Marquee/>
+
             </div>
+
         </section>
     )
 }

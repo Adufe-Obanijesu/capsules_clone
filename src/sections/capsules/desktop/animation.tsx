@@ -149,6 +149,9 @@ export function animate(capsules: HTMLElement[]) {
         .to(SELECTORS.firstCapsuleImg, {
             scale: 1,
         }, "<")
+        .to(".capsule-marquee-overlay", {
+            opacity: 1
+        }, "<")
         .set(SELECTORS.firstCapsule, {
             onComplete: () => {
                 firstFadeInTimeline.play()
