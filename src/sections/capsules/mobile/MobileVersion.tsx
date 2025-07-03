@@ -11,12 +11,10 @@ export default function MobileVersion() {
     const [selectedCapsule, setSelectedCapsule] = useState<ICapsule | null>(null)
 
     useGSAP(() => {
-        gsap.to("#wrapper", {
-            xPercent: -100,
-            repeat: -1,
-            ease: "none",
+        gsap.effects.infiniteSlide("#wrapper", {
             duration: 15,
-        })
+            xPercent: -100
+        });
     }, {scope})
 
     function cancel() {

@@ -7,12 +7,10 @@ export default function () {
     const scope = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        gsap.to("#wrapper", {
-            xPercent: -100,
-            repeat: -1,
-            ease: "none",
+        gsap.effects.infiniteSlide("#wrapper", {
             duration: 15,
-        })
+            xPercent: -100
+        });
     }, {scope})
 
     return (
