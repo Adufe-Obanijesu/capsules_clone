@@ -69,7 +69,7 @@ export default function Button({capsule}: Props) {
                 </button>
 
 
-                <Details capsule={capsule} isOpen={isOpen}/>
+                <Details capsule={capsule}/>
 
                 <div
                     className={`details-overlay${capsule.id} fixed bg-tertiary z-60 w-full h-full top-0 left-0 opacity-0 pointer-events-none`}
