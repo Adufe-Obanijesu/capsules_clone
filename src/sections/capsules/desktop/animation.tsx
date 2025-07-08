@@ -140,6 +140,7 @@ export function animate(capsules: HTMLElement[]) {
             pin: true,
             anticipatePin: 1,
             pinSpacing: true,
+            refreshPriority: 1,
         }
     })
         .to(SELECTORS.firstCapsuleDiv, {
@@ -174,7 +175,7 @@ export function animate(capsules: HTMLElement[]) {
         }
     });
 
-    masterTimeline.to(SELECTORS.secondCapsule, {}, ">.15");
+    masterTimeline.set(SELECTORS.secondCapsule, {}, ">.2");
 
     return masterTimeline;
 }

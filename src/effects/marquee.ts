@@ -1,8 +1,15 @@
 import gsap from "gsap";
 
+interface IConfig {
+    xPercent?: number,
+    duration?: number,
+    ease?: string,
+    // direction: "left" | "right"
+}
+
 gsap.registerEffect({
     name: "infiniteSlide",
-    effect: (targets: any, config: any) => {
+    effect: (targets: gsap.TweenTarget, config: IConfig) => {
         return gsap.to(targets, {
             xPercent: config.xPercent || -100,
             repeat: -1,

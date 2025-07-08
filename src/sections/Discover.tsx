@@ -48,7 +48,7 @@ export default function Discover() {
         <section ref={scope} className="relative padding-x-md padding-y-md text-white">
             <div className="space-y-12 z-1 relative">
                 <h6>Discover available Capsules®</h6>
-                <h1 className="xl:large-text text-[60px]">
+                <h1 className="xl:xl-text text-[60px]">
                     Choose the one you like best
                 </h1>
 

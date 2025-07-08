@@ -15,7 +15,7 @@ export default function DesktopVersion() {
     }, {scope})
 
     return (
-        <section ref={scope} className="relative space-y-16 pl-2 pr-4">
+        <section ref={scope} className="space-y-16 pl-2 pr-4">
 
             <div id="capsule-wrapper" className="relative w-full h-[98vh] rounded-[30px] pb-[1%]">
 

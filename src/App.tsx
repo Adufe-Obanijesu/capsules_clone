@@ -3,6 +3,8 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger"
 import ScrollSmoother from "gsap/ScrollSmoother"
 import SplitText from "gsap/SplitText"
+import GSDevTools from "gsap/GSDevTools"
+import TextPlugin from "gsap/TextPlugin"
 
 // Effects
 import "./effects"
@@ -13,21 +15,30 @@ import Capsules from "./sections/capsules";
 import {useGSAP} from "@gsap/react";
 import Closer from "./sections/Closer.tsx";
 import Why from "./sections/Why";
+import Adventure from "./sections/Adventure";
 
-gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, ScrollSmoother)
+gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, ScrollSmoother, GSDevTools, TextPlugin)
 
 export default function App() {
 
+    useGSAP(() => {
+        ScrollSmoother.create({
+            smooth: 1,
+            effects: true,
+        });
+    })
+
     return (
         <main id="smooth-content" className="bg-dark min-h-screen">
-            <Hero/>
+            {/*<Hero/>*/}
             <div className="bg-gradient-brown">
-                <Welcome/>
+                {/*<Welcome/>*/}
                 <Discover/>
-                <Capsules/>
+                {/*<Capsules/>*/}
                 <Closer/>
             </div>
             <Why/>
+            <Adventure/>
             <div className="h-screen bg-red-500"></div>
         </main>
     )

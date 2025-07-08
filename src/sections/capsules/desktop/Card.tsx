@@ -18,7 +18,7 @@ export default function Card({capsule}: { capsule: ICapsule }) {
                          src={capsule.img}/>
                     <div className="left-8 flex justify-between items-center w-full absolute">
                         <h1
-                            className="text-white medium-text invisible leading-[1.2]">
+                            className="text-white lg-text invisible leading-[1.2]">
                             {capsule.name}
                         </h1>
                     </div>
