@@ -43,12 +43,12 @@ export default function Welcome() {
                         className="relative overflow-hidden rounded-[70px] xl:rounded-full w-1/2 h-[123px] xl:w-[255px] xl:h-[177px] 2xl:w-[453px] 2xl:h-[313px]">
                         <img
                             alt="Welcome Image 1" className="object-cover object-center absolute w-full h-full"
-                            src="/public/images/welcome-1.webp"/>
+                            src="/images/welcome-1.webp"/>
                     </div>
                     <div
                         className="relative overflow-hidden rounded-[70px] xl:rounded-full w-1/2 h-[123px] xl:w-[255px] xl:h-[177px] 2xl:w-[453px] 2xl:h-[313px]">
                         <img
-                            alt="Welcome Image 2" src="/public/images/welcome-2.webp"
+                            alt="Welcome Image 2" src="/images/welcome-2.webp"
                             className="object-cover object-center absolute w-full h-full"
                         />
                     </div>

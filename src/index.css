@@ -21,7 +21,7 @@ body::-webkit-scrollbar {
 
 @font-face {
     font-family: "Host_Grotesk";
-    src: url("/public/fonts/Host_Grotesk/Host_Grotesk-normal-400-latin.wBCQJesg.woff2");
+    src: url("/fonts/Host_Grotesk/Host_Grotesk-normal-400-latin.wBCQJesg.woff2");
     font-display: swap;
     font-style: normal;
 }
@@ -122,6 +122,10 @@ body::-webkit-scrollbar {
     width: clamp(350px, 50vw, 1374px);
 }
 
+@utility logo-fluid-md {
+    width: clamp(240px, 25vw, 1000px);
+}
+
 @utility fade-text {
     font-size: clamp(42px, 5vw, 160px);
     line-height: 0.9;
@@ -141,6 +145,10 @@ body::-webkit-scrollbar {
 
 @utility transition-item {
     @apply transition-all duration-200 ease-out;
+}
+
+@utility center-absolute {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
 /*GSDevTools*/

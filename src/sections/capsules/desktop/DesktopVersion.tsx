@@ -27,7 +27,7 @@ export default function DesktopVersion() {
                     className="font-medium text-white absolute right-7 top-0 bottom-0 flex items-center mix-blend-exclusion z-10 invisible">(Scroll)
                 </h1>
 
-                <div id="progress" className="w-[430px] h-[.1px] z-10 absolute bottom-14 right-7 invisible">
+                <div id="progress" className="w-[430px] h-[1px] z-10 absolute bottom-14 right-7 invisible">
                     <div className="w-full h-full absolute bg-white opacity-[0.2]"></div>
                     <div id="progress-bar" className="w-full scale-x-[0.33] origin-left h-full absolute bg-white"></div>
                 </div>

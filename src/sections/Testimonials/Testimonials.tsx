@@ -98,7 +98,7 @@ export default function Testimonials() {
     }, [index])
 
     return (
-        <section id="testimonials" className="text-white padding-x xl:px-8">
+        <section id="testimonials" className="text-white padding-x xl:px-8 min-h-[420px] xl:min-h-[700px]">
             <h6 className="text-xs">Discover available Capsules®</h6>
             <div className="my-10">
                 <div className="relative">
@@ -133,7 +133,7 @@ export default function Testimonials() {
                                                 Icon={IoArrowForwardSharp}/>
                                     </div>
 
-                                    <div className="w-80 h-[1.5px] relative progress">
+                                    <div className="w-80 h-[1px] relative progress">
                                         <div className="absolute w-full bg-white h-full opacity-[0.2]"/>
                                         <div className="absolute w-full scale-x-33 bg-white h-full origin-left"/>
                                     </div>
