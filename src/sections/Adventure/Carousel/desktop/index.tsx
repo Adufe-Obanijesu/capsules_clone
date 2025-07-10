@@ -22,7 +22,8 @@ export default function DesktopCarousel() {
                 start: "top 1.5%",
                 end: `+=${distance}px`,
                 scrub: 1,
-                pin: true
+                pin: true,
+                pinSpacing: true
             }
         })
             .to(container.current, {
