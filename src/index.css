@@ -94,6 +94,10 @@ body::-webkit-scrollbar {
     padding-inline: clamp(20px, 2vw, 54px);
 }
 
+@utility -margin-x-md {
+    margin-inline: clamp(-20px, -2vw, -54px);
+}
+
 @utility padding-y-md {
     padding-block: clamp(30px, 8vw, 215px);
 }

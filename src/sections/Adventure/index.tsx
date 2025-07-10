@@ -1,9 +1,10 @@
 import {useRef} from "react";
-import {adventures, type IAdventure} from "../../data/adventure.ts";
+import {adventures, type IAdventure} from "../../data/adventure.tsx";
 import {useMediaQuery} from "react-responsive";
 import {useGSAP} from "@gsap/react";
 import SplitText from "gsap/SplitText";
 import gsap from "gsap";
+import Carousel from "./Carousel";
 
 export default function Adventure() {
 
@@ -23,7 +24,6 @@ export default function Adventure() {
 
                 return gsap.timeline({
                     scrollTrigger: {
-                        markers: true,
                         trigger: "#adventure h6:nth-child(1)",
                         start: isDesktop ? "top: 80%" : "top 85%",
                         end: "top 30%",
@@ -53,8 +53,8 @@ export default function Adventure() {
     }, {scope, dependencies: [isDesktop]})
 
     return (
-        <section ref={scope} className="relative padding-x-md padding-y-md text-white">
-            <div id="adventure" className="space-y-12 z-1 relative">
+        <section ref={scope} className="relative padding-x padding-y-md text-white">
+            <div id="adventure" className="space-y-12 z-1 relative padding-x">
                 <h6>Discover available Capsules®</h6>
                 <h1 className="xl:xl-text text-[60px]">
                     Discover the desert activities
@@ -87,6 +87,8 @@ export default function Adventure() {
                     </div>
                 </div>
             </div>
+
+            <Carousel/>
         </section>
     )
 }

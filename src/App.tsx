@@ -30,11 +30,11 @@ export default function App() {
 
     return (
         <main id="smooth-content" className="bg-dark min-h-screen">
-            {/*<Hero/>*/}
+            <Hero/>
             <div className="bg-gradient-brown">
-                {/*<Welcome/>*/}
+                <Welcome/>
                 <Discover/>
-                {/*<Capsules/>*/}
+                <Capsules/>
                 <Closer/>
             </div>
             <Why/>

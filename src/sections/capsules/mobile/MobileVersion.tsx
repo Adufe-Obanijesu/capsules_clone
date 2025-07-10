@@ -22,7 +22,7 @@ export default function MobileVersion() {
     }
 
     return (
-        <section ref={scope} className="relative padding-x padding-y-md">
+        <div ref={scope} className="relative padding-x padding-y-md">
 
             <div aria-hidden className="mb-16 -margin-x">
                 <div className="overflow-x-hidden w-screen">
@@ -50,6 +50,6 @@ export default function MobileVersion() {
             </div>
 
             <Details capsule={selectedCapsule} cancel={cancel}/>
-        </section>
+        </div>
     )
 }
