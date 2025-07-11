@@ -18,6 +18,7 @@ import Why from "./sections/Why";
 import Adventure from "./sections/Adventure";
 import Testimonials from "./sections/Testimonials/Testimonials.tsx";
 import CTA from "./sections/CTA.tsx";
+import Footer from "./sections/footer";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, ScrollSmoother, GSDevTools, TextPlugin)
 
@@ -43,6 +44,7 @@ export default function App() {
             <Adventure/>
             <Testimonials/>
             <CTA/>
+            <Footer/>
             <div className="h-screen bg-dark"></div>
         </main>
     )

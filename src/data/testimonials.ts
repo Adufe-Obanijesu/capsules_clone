@@ -3,7 +3,7 @@ export interface ITestimonial {
     name: string,
     location: string,
     img: string,
-    desc: string,
+    desc: React.ReactNode,
 }
 
 export const testimonials: ITestimonial[] = [
