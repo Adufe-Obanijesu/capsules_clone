@@ -8,12 +8,14 @@ type Variant = "light-overlay" | "white-overlay"
 interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
     variant?: Variant
+    isActive?: boolean
 }
 
 export default function AnimatedButton({
                                            children,
                                            className,
                                            variant = "light-overlay",
+                                           isActive = false,
                                            ...props
                                        }: AnimatedButtonProps) {
     const btnRef = useRef<HTMLButtonElement>(null)
@@ -68,8 +70,8 @@ export default function AnimatedButton({
         >
             <div
                 className={cn(
-                    "overlay absolute h-full w-full scale-[0] rounded-full will-change-transform",
-                    overlayStyles[variant]
+                    "overlay absolute h-full w-full scale-0 rounded-full will-change-transform",
+                    overlayStyles[variant], {"scale-100": isActive}
                 )}
             />
             <div className="content relative z-10">{children}</div>
