@@ -1,3 +1,5 @@
+import AnimatedUnderlineText from "../components/AnimatedUnderlineText.tsx";
+
 export default function Closer() {
     return (
         <section className="text-white text-center py-28 padding-x flex justify-center">
@@ -6,9 +8,9 @@ export default function Closer() {
                 <p className="text-xs">Closer than you think</p>
                 <h1 className="leading-[1]">
                     Our Capsules® are located near Los Angeles with easy <br/>
-                    <span className="text-lightBrown">
-                    access by road.
-                </span>
+                    <AnimatedUnderlineText id="closer-underlined" color="lightBrown" hoverColor="white">
+                        access by road.
+                    </AnimatedUnderlineText>
                 </h1>
             </div>
         </section>

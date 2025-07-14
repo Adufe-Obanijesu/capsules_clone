@@ -2,6 +2,7 @@ import type {ICapsule} from "../../../data/capsules.ts";
 import {useGSAP} from "@gsap/react";
 import {useRef} from "react";
 import gsap from "gsap"
+import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText.tsx";
 
 interface Props {
     capsule: ICapsule;
@@ -122,10 +123,10 @@ export default function Details({capsule}: Props) {
 
                         <div
                             className="text-[14px] leading-[18px] tracking-[-0.2px] text-lightBrown text-left mt-[18px] underline">
-                            <a className="cursor-pointer"><span
-                                className="relative inline-flex overflow-hidden group text-white hover:text-lightBrown"
-                                onMouseEnter={onHover} onMouseLeave={onLeave}>Ready to reserve?<div
-                                className="absolute bottom-0 h-[5%] w-full bg-white group-hover:bg-lightBrown left-0"></div></span></a>
+
+                            <AnimatedUnderlineText id={`capsule-details-${capsule.id}`}>
+                                Ready to reserve?
+                            </AnimatedUnderlineText>
                         </div>
 
                     </div>

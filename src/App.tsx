@@ -37,15 +37,14 @@ export default function App() {
             <div className="bg-gradient-brown">
                 <Welcome/>
                 <Discover/>
-                <Capsules/>
+                {/*<Capsules/>*/}
                 <Closer/>
             </div>
-            <Why/>
+            {/*<Why/>*/}
             <Adventure/>
             <Testimonials/>
             <CTA/>
             <Footer/>
-            <div className="h-screen bg-dark"></div>
         </main>
     )
 }

@@ -13,7 +13,7 @@ export default function Why() {
     useGSAP(() => {
         const mm = gsap.matchMedia()
         const timeline = gsap.timeline({repeat: -1})
-            .to("#wrapper", {
+            .to("#why-marquee-container", {
                 xPercent: -100,
                 duration: 12,
                 ease: "none",

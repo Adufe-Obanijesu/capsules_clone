@@ -4,8 +4,8 @@ import gsap from "gsap";
 export default function Marquee() {
 
     useGSAP(() => {
-        const timeline = gsap.timeline({repeat: -1, paused: true})
-            .to("#wrapper", {
+        const timeline = gsap.timeline({repeat: -1})
+            .to("#footer-marquee-container", {
                 xPercent: -100,
                 duration: 12,
                 ease: "none",
@@ -34,12 +34,6 @@ export default function Marquee() {
                         timeline.timeScale(self.direction);
                     }, 5);
 
-                    // Rotate * when scrolled
-                    gsap.set(".footer-marquee-wrapper svg", {
-                        transformOrigin: "center center",
-                        rotation: self.progress * 90
-                    })
-
                     if (self.direction === 1) {
                         timeline.timeScale(1)
                     } else if (self.direction === -1) {
@@ -55,20 +49,20 @@ export default function Marquee() {
     });
 
     return (
-        <div className="footer-marquee-wrapper overflow-x-hidden w-screen -margin-x relative z-0 xl:-z-1">
-            <div id="wrapper" className="flex xl:translate-x-[-100%] will-change-transform">
+        <div className="footer-marquee-wrapper overflow-x-hidden w-screen -mx-8 relative z-0 xl:-z-1 text-white">
+            <div id="footer-marquee-container" className="flex xl:translate-x-[-100%] will-change-transform">
                 <div className="min-w-screen">
-                    <h1 className="w-full text-center whitespace-nowrap text-[clamp(2rem,12.5vw,12rem)] flex items-start justify-center leading-[1.2]">
+                    <h1 className="w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
                         Book your capsule
                     </h1>
                 </div>
                 <div className="min-w-screen">
-                    <h1 className="w-full text-center whitespace-nowrap text-[clamp(2rem,12.5vw,12rem)] flex items-start justify-center leading-[1.2]">
+                    <h1 className="w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
                         Book your capsule
                     </h1>
                 </div>
                 <div className="min-w-screen">
-                    <h1 className="w-full text-center whitespace-nowrap text-[clamp(2rem,12.5vw,12rem)] flex items-start justify-center leading-[1.2]">
+                    <h1 className="w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
 
                         Book your capsule
                     </h1>

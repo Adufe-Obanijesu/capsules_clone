@@ -9,6 +9,7 @@ export default function CTA() {
     useGSAP(() => {
         gsap.to("#cta img", {
             scale: 1,
+            ease: "power3",
             scrollTrigger: {
                 trigger: "#cta",
                 start: "top bottom",

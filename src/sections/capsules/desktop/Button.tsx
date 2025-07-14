@@ -60,15 +60,6 @@ export default function Button({capsule}: Props) {
     return (
         <div ref={scope}>
             <div id={`capsule-button-${capsule.id}`} className="relative flex items-center">
-                {/*<button id={`terraceCapsuleDetails${capsule.id}`} aria-label="Terrace Capsule Details"*/}
-                {/*        className="group relative z-100 w-9 h-9 hover:opacity-[0.9] rounded-full bg-lightBrown flex justify-center items-center scale-0 invisible cursor-pointer"*/}
-                {/*        onClick={() => setIsOpen(prev => !prev)}>*/}
-                {/*    <div*/}
-                {/*        className={cn("w-full h-full absolute top-0 left-0 bg-white rounded-full scale-0 group-hover:scale-100 origin-center transition-item", {"scale-100": isOpen})}></div>*/}
-                {/*    <GoPlus fontSize={24}*/}
-                {/*            className={cn("text-darkBrown z-5 transition-item")}/>*/}
-                {/*</button>*/}
-
                 <AnimatedButton isActive={isOpen} variant="white-overlay" id={`terraceCapsuleDetails${capsule.id}`}
                                 className="z-100 invisible scale-0"
                                 aria-label="Terrace Capsule Details"

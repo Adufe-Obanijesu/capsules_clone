@@ -4,7 +4,7 @@ export default function Marquee() {
 
     return (
         <div className="why-marquee-wrapper overflow-x-hidden w-screen -margin-x relative z-0 xl:-z-1">
-            <div id="wrapper" className="flex xl:translate-x-[-100%] will-change-transform">
+            <div id="why-marquee-container" className="flex xl:translate-x-[-100%] will-change-transform">
                 <div className="min-w-screen">
                     <h1 className="w-full text-center whitespace-nowrap text-[clamp(2rem,12.5vw,12rem)] flex items-start justify-center leading-[1.2]">
                         <span>

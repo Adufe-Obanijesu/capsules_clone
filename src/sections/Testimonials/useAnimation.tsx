@@ -54,6 +54,19 @@ export default function useAnimation() {
         isMounted.current = true
     })
 
+    // Animate out when scrolling away
+    useGSAP(() => {
+        gsap.to("#testimonials", {
+            opacity: 0,
+            scrollTrigger: {
+                trigger: "#testimonials",
+                start: "bottom+=1% bottom",
+                end: "bottom 80%",
+                scrub: 1,
+            }
+        })
+    })
+
     function animateInOut({mode, heading, image, about, testimonial}: IAnimateInOut) {
         const tl = gsap.timeline()
 
