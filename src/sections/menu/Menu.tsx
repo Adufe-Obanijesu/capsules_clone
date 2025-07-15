@@ -21,7 +21,7 @@ export default function Menu() {
                     </ul>
 
                     <div className="flex flex-col xl:flex-row xl:items-center gap-6">
-                        <h6 className="invisible translate-x-5 text-white order-1 xl:order-2 xl:text-sm text-[clamp(1rem, 4vw, 1.5rem)]">
+                        <h6 className="invisible xl:translate-x-5 text-white order-1 xl:order-2 xl:text-sm text-[clamp(1rem, 4vw, 1.5rem)]">
                             <span className="xl:hidden">
                             Meet
                             Capsules®-modern and cozy <br/>houses,
@@ -37,7 +37,7 @@ export default function Menu() {
                         <div className="flex items-center order-2 xl:order-1">
                             {
                                 socials.map(({id, Icon}) => <AnimatedButton variant="white-outline" key={id}
-                                                                            className="invisible social scale-0 h-14 w-14 xl:h-12 xl:w-12"><Icon
+                                                                            className="invisible social xl:scale-0 h-14 w-14 xl:h-12 xl:w-12"><Icon
                                     className="xl:text-xl text-2xl"/></AnimatedButton>)
                             }
                         </div>
@@ -46,7 +46,7 @@ export default function Menu() {
 
                 <div
                     id="menu-image"
-                    className="invisible translate-x-full relative overflow-hidden h-[300px] xl:w-[400px] mt-2 mr-2 xl:h-[calc(100vh-36px)] rounded-[40px]">
+                    className="invisible xl:translate-x-full relative overflow-hidden h-[300px] xl:w-[400px] mt-2 mr-2 xl:h-[calc(100vh-36px)] rounded-[40px]">
                     <img src="/images/cap1.webp" alt="menu"
                          className="scale-140 w-full h-full object-cover object-center"/>
                     <div
