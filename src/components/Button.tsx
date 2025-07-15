@@ -3,7 +3,7 @@ import {useGSAP} from "@gsap/react"
 import gsap from "gsap"
 import {cn} from "../utils/tailwind.ts";
 
-type Variant = "light-overlay" | "white-overlay"
+type Variant = "light-overlay" | "white-overlay" | "white-outline"
 
 interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
@@ -33,7 +33,7 @@ export default function AnimatedButton({
         timeline.current = gsap.timeline({paused: true, defaults: {duration: 0.25}})
             .fromTo(overlay, {scale: 0}, {scale: 1, ease: "power2.in"})
 
-        if (variant === "light-overlay") {
+        if (variant !== "white-overlay") {
             timeline.current.to(content, {color: "var(--color-tertiary)"}, "<")
         }
     }, [])
@@ -47,11 +47,13 @@ export default function AnimatedButton({
     const variantStyles = {
         "light-overlay": "border-lightBrown bg-transparent text-lightBrown",
         "white-overlay": "border-lightBrown bg-lightBrown text-darkBrown",
+        "white-outline": "border-white bg-transparent text-white",
     }
 
     const overlayStyles = {
         "light-overlay": "bg-lightBrown",
         "white-overlay": "bg-white",
+        "white-outline": "bg-lightBrown",
     }
 
     return (

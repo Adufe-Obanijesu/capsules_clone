@@ -23,7 +23,7 @@ export default function Welcome() {
     }, {scope})
 
     return (
-        <section ref={scope} className="padding-x-md padding-y-md">
+        <section id="welcome-section" ref={scope} className="padding-x-md padding-y-md">
             <div className="relative">
 
                 <h2 className="text-darkBrown fade-text">Welcome to a world of wild California desert with Capsule®,

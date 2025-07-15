@@ -1,7 +1,5 @@
 import type {ICapsule} from "../../../data/capsules.ts";
-import {useGSAP} from "@gsap/react";
 import {useRef} from "react";
-import gsap from "gsap"
 import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText.tsx";
 
 interface Props {
@@ -11,24 +9,6 @@ interface Props {
 export default function Details({capsule}: Props) {
 
     const scope = useRef<HTMLDivElement>(null)
-    const tl = useRef(gsap.timeline({paused: true}))
-
-    const {contextSafe} = useGSAP(() => {
-        tl.current
-            .fromTo("#details_wrapper span .absolute", {xPercent: 0}, {
-                xPercent: 100
-            })
-            .addLabel("reverse")
-            .fromTo("#details_wrapper span .absolute", {xPercent: -100}, {xPercent: 0, immediateRender: false})
-    })
-
-    const onHover = contextSafe(() => {
-        tl.current.tweenFromTo(0, "reverse")
-    })
-
-    const onLeave = contextSafe(() => {
-        tl.current.tweenFromTo("reverse", tl.current.totalDuration())
-    })
 
     return (
         <div ref={scope} className="padding relative">

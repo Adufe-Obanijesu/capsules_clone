@@ -19,6 +19,8 @@ import Adventure from "./sections/Adventure";
 import Testimonials from "./sections/Testimonials/Testimonials.tsx";
 import CTA from "./sections/CTA.tsx";
 import Footer from "./sections/footer";
+import Navbar from "./sections/navigation/Navbar.tsx";
+import MenuButton from "./sections/menu/MenuButton.tsx";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, ScrollSmoother, GSDevTools, TextPlugin)
 
@@ -32,19 +34,23 @@ export default function App() {
     })
 
     return (
-        <main id="smooth-content" className="bg-dark min-h-screen">
-            <Hero/>
-            <div className="bg-gradient-brown">
-                <Welcome/>
-                <Discover/>
-                {/*<Capsules/>*/}
-                <Closer/>
+        <main>
+            <Navbar/>
+            <MenuButton/>
+            <div id="smooth-content" className="bg-dark min-h-screen">
+                <Hero/>
+                <div className="bg-gradient-brown">
+                    <Welcome/>
+                    <Discover/>
+                    <Capsules/>
+                    <Closer/>
+                </div>
+                <Why/>
+                <Adventure/>
+                <Testimonials/>
+                <CTA/>
+                <Footer/>
             </div>
-            {/*<Why/>*/}
-            <Adventure/>
-            <Testimonials/>
-            <CTA/>
-            <Footer/>
         </main>
     )
 }

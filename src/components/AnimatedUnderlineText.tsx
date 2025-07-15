@@ -7,7 +7,8 @@ interface Props {
     id: string
     children: React.ReactNode;
     color?: "white" | "lightBrown";
-    classes?: "white" | "lightBrown";
+    hoverColor?: "white" | "lightBrown";
+    classes?: string;
 }
 
 export default function AnimatedUnderlineText({

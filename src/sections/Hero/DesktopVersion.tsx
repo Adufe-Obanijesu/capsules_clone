@@ -21,26 +21,27 @@ export default function DesktopVersion() {
     return (
         <div ref={scope} className="padding h-screen w-full">
 
-        <header className="h-full w-full rounded-[60px] overflow-hidden relative">
-            <img id="background" src="/images/cap1.webp" alt="capsule" className="object-cover object-center w-full h-full" />
+            <header className="hero-header h-full w-full rounded-[40px] overflow-hidden relative">
+                <img id="background" src="/images/cap1.webp" alt="capsule"
+                     className="object-cover object-center w-full h-full"/>
 
-            <div className="h-full absolute inset-0 p-7.5 z-1 flex flex-col justify-between">
+                <div className="h-full absolute inset-0 p-7.5 z-1 flex flex-col justify-between">
 
-                    <img src="/logo.svg" alt="logo" className="aspect-[4.28/1] logo-fluid-lg" />
+                    <img src="/logo.svg" alt="logo" className="aspect-[4.28/1] logo-fluid-lg"/>
 
-                <div className="flex justify-between items-center">
-                    <h1 className="font-medium mt-[20px] text-white">
-                        Closer to <br /> Nature-Closer<br /> to Yourself
-                    </h1>
+                    <div className="flex justify-between items-center">
+                        <h1 className="font-medium mt-[20px] text-white">
+                            Closer to <br/> Nature-Closer<br/> to Yourself
+                        </h1>
 
-                    <h6 className="font-semibold text-white mb-[30px]">
-                        Spend unforgettable and remarkable time <br />in the Californian desert with-Capsules
-                    </h6>
+                        <h6 className="font-semibold text-white mb-[30px]">
+                            Spend unforgettable and remarkable time <br/>in the Californian desert with-Capsules
+                        </h6>
 
+                    </div>
                 </div>
-            </div>
 
-        </header>
+            </header>
 
         </div>
     )

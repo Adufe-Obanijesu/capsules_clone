@@ -29,7 +29,7 @@ body::-webkit-scrollbar {
 @theme {
     --color-dark: #181717;
     --color-lightBrown: #b1a696;
-    --color-middleBrown: #332e2b00;
+    --color-middleBrown: #332e2b;
     --color-darkBrown: #2a2725;
     --color-tertiary: #181717;
 }

@@ -14,7 +14,7 @@ export default function Discover() {
 
     useGSAP(() => {
 
-        new SplitText("h1", {
+        new SplitText("#discover h1", {
             type: "lines", mask: "lines", autoSplit: true, onSplit: (self) => {
 
                 gsap.set(self.lines, {
@@ -24,7 +24,7 @@ export default function Discover() {
 
                 return gsap.timeline({
                     scrollTrigger: {
-                        trigger: "h6:nth-child(1)",
+                        trigger: "#discover h6:nth-child(1)",
                         start: isDesktop ? "top: 80%" : "top 85%",
                         endTrigger: "#title",
                         end: "bottom bottom",
@@ -32,7 +32,7 @@ export default function Discover() {
                     },
                     ease: "none"
                 })
-                    .from("h6:nth-child(1)", {
+                    .from("#discover h6:nth-child(1)", {
                         opacity: 0,
                         duration: .2
                     })
@@ -46,7 +46,7 @@ export default function Discover() {
 
     return (
         <section ref={scope} className="relative padding-x-md padding-y-md text-white">
-            <div className="space-y-12 z-1 relative">
+            <div id="discover" className="space-y-12 z-1 relative">
                 <h6>Discover available Capsules®</h6>
                 <h1 className="xl:xl-text text-[60px]">
                     Choose the one you like best

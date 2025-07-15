@@ -38,7 +38,8 @@ export default function Footer() {
             <div className="flex justify-between">
                 <div className="flex items-center">
                     {
-                        socials.map(({id, Icon}) => <AnimatedButton key={id} className="h-14 w-14 xl:h-10 xl:w-10"><Icon
+                        socials.map(({id, Icon}) => <AnimatedButton variant="white-outline" key={id}
+                                                                    className="h-14 w-14 xl:h-10 xl:w-10"><Icon
                             className="xl:text-xl text-2xl"/></AnimatedButton>)
                     }
                 </div>
@@ -63,9 +64,6 @@ export default function Footer() {
                 className="text-white" href="/"> 2025</a></span></div>
 
             <div className="-mx-8">
-                {/*<h1 className="text-[22vw]">*/}
-                {/*    Capsules®*/}
-                {/*</h1>*/}
                 <FooterLogo/>
             </div>
         </footer>
