@@ -25,7 +25,7 @@ export default function Marquee() {
     })
 
     return (
-        <div className="overflow-x-hidden w-[calc(100vw-28px)]">
+        <div className="overflow-hidden w-[calc(100vw-28px)]">
             <div id="menu-marquee-wrapper" className="flex text-white">
                 <div className="">
                     <h1 className="text-[17vw]">Capsules®</h1>

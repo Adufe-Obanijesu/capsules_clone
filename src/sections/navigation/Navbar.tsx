@@ -2,8 +2,10 @@ import {MdArrowOutward} from "react-icons/md";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
+import {IconButton} from "../../components/Button.tsx";
+import type {IReserveProps} from "../../types/Reserve.ts";
 
-export default function Navbar() {
+export default function Navbar({setIsOpen}: Omit<IReserveProps, "isOpen">) {
 
     useGSAP(() => {
 
@@ -57,22 +59,7 @@ export default function Navbar() {
                     <div>
                         <img src="/mini_logo.svg" className="h-6.5" alt="logo"/>
                     </div>
-                    <button type="button"
-                            className="bg-gray-100 h-11 rounded-full p-[3px] flex justify-center items-center cursor-pointer group text-sm">
-                        <div
-                            className="ml-4  mr-2 text-darkBrown text-[14px] overflow-hidden relative w-full">
-                            <div
-                                className="w-full group-hover:-translate-y-full transition duration-300 ease-in-out">Reserve
-                            </div>
-                            <div
-                                className="absolute w-full group-hover:-translate-y-full transition duration-300 ease-in-out">Reserve
-                            </div>
-                        </div>
-                        <div
-                            className="h-full aspect-square bg-darkBrown rounded-full w-11 flex justify-center items-center text-lightBrown">
-                            <MdArrowOutward fontSize={24}/>
-                        </div>
-                    </button>
+                    <IconButton text="Reserve" Icon={MdArrowOutward} onClick={() => setIsOpen(true)}/>
 
                 </div>
             </nav>

@@ -23,6 +23,7 @@ export default function animation({
     }
 
     const openMenuTl = gsap.timeline({defaults: {ease: "sine"}})
+        .set("#menu-section", {pointerEvents: "auto"}, 0)
         .to("#menu-image", {
             autoAlpha: 1,
             x: 0

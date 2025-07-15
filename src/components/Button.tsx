@@ -2,8 +2,9 @@ import {useRef} from "react"
 import {useGSAP} from "@gsap/react"
 import gsap from "gsap"
 import {cn} from "../utils/tailwind.ts";
+import type {IconType} from "react-icons";
 
-type Variant = "light-overlay" | "white-overlay" | "white-outline"
+type Variant = "light-overlay" | "white-overlay" | "white-outline" | "dark"
 
 interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
@@ -48,12 +49,14 @@ export default function AnimatedButton({
         "light-overlay": "border-lightBrown bg-transparent text-lightBrown",
         "white-overlay": "border-lightBrown bg-lightBrown text-darkBrown",
         "white-outline": "border-white bg-transparent text-white",
+        "dark": "border-tertiary bg-tertiary text-white",
     }
 
     const overlayStyles = {
         "light-overlay": "bg-lightBrown",
         "white-overlay": "bg-white",
         "white-outline": "bg-lightBrown",
+        "dark": "bg-lightBrown",
     }
 
     return (
@@ -77,6 +80,32 @@ export default function AnimatedButton({
                 )}
             />
             <div className="content relative z-10">{children}</div>
+        </button>
+    )
+}
+
+interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    text: string,
+    Icon: IconType
+}
+
+export function IconButton({text, Icon, ...props}: IconButtonProps) {
+    return (
+        <button type="button"
+                className="bg-gray-100 h-11 rounded-full p-[3px] flex justify-center items-center cursor-pointer group text-sm" {...props}>
+            <div
+                className="ml-4  mr-2 text-darkBrown text-[14px] overflow-hidden relative w-full">
+                <div
+                    className="w-full group-hover:-translate-y-full transition duration-300 ease-in-out">{text}
+                </div>
+                <div
+                    className="absolute w-full group-hover:-translate-y-full transition duration-300 ease-in-out">{text}
+                </div>
+            </div>
+            <div
+                className="h-full aspect-square bg-darkBrown rounded-full w-11 flex justify-center items-center text-lightBrown">
+                <Icon fontSize={24}/>
+            </div>
         </button>
     )
 }

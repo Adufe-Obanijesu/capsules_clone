@@ -46,7 +46,7 @@ export default function Details({capsule}: Props) {
                                 <div
                                     className="tracking-[-0.2px] font-normal text-white">{capsule?.details.sq_footage}
                                 </div>
-                                <div className="absolute bottom-0 @h-[1] w-full bg-white opacity-[0.2]"></div>
+                                <div className="absolute bottom-0 w-full bg-white opacity-[0.2]"></div>
                             </div>
                             <div
                                 className="flex justify-between pb-1 border-b-[1px] border-white/20 relative select-none">
@@ -56,7 +56,7 @@ export default function Details({capsule}: Props) {
                                 <div
                                     className="tracking-[-0.2px] font-normal text-white">{capsule?.details.bed}
                                 </div>
-                                <div className="absolute bottom-0 @h-[1] w-full bg-white opacity-[0.2]"></div>
+                                <div className="absolute bottom-0 w-full bg-white opacity-[0.2]"></div>
                             </div>
                             <div
                                 className="flex justify-between pb-1 border-b-[1px] border-white/20 relative select-none">
@@ -67,7 +67,7 @@ export default function Details({capsule}: Props) {
                                 <div
                                     className="tracking-[-0.2px] font-normal text-white">{capsule?.details.shifting_window ? "Available" : "None"}
                                 </div>
-                                <div className="absolute bottom-0 @h-[1] w-full bg-white opacity-[0.2]"></div>
+                                <div className="absolute bottom-0 w-full bg-white opacity-[0.2]"></div>
                             </div>
                             <div
                                 className="flex justify-between pb-1 border-b-[1px] border-white/20 relative select-none">
@@ -78,7 +78,7 @@ export default function Details({capsule}: Props) {
                                 <div
                                     className="tracking-[-0.2px] font-normal text-white">{capsule?.details.air_condition ? "Available" : "None"}
                                 </div>
-                                <div className="absolute bottom-0 @h-[1] w-full bg-white opacity-[0.2]"></div>
+                                <div className="absolute bottom-0 w-full bg-white opacity-[0.2]"></div>
                             </div>
                             <div
                                 className="flex justify-between pb-1 border-b-[1px] border-white/20 relative select-none">
@@ -88,7 +88,7 @@ export default function Details({capsule}: Props) {
                                 <div
                                     className="tracking-[-0.2px] font-normal text-white">{capsule?.details.jacuzzi ? "Available" : "None"}
                                 </div>
-                                <div className="absolute bottom-0 @h-[1] w-full bg-white opacity-[0.2]"></div>
+                                <div className="absolute bottom-0 w-full bg-white opacity-[0.2]"></div>
                             </div>
                             <div
                                 className="flex justify-between pb-1 border-b-[1px] border-white/20 relative select-none">
@@ -110,7 +110,7 @@ export default function Details({capsule}: Props) {
                         </div>
 
                     </div>
-                    <button className="flex-1 flex items-end">
+                    <div className="flex-1 flex items-end">
                         <div
                             className="relative overflow-hidden w-full h-16 rounded-full px-[24px]">
                             <div
@@ -121,11 +121,11 @@ export default function Details({capsule}: Props) {
                                 </div>
                                 <div
                                     className="text-[14px] font-semibold leading-[18px] tracking-[-0.2px] text-lightBrown">
-                                    <span className="text-white">2250.00 USD</span> / Night
+                                    <span className="text-white">{capsule.details.cost.toFixed(2)} USD</span> / Night
                                 </div>
                             </div>
                         </div>
-                    </button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,8 +1,9 @@
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import {useRef} from "react";
+import type {IReserveProps} from "../types/Reserve.ts";
 
-export default function CTA() {
+export default function CTA({setIsOpen}: Omit<IReserveProps, "isOpen">) {
 
     const scope = useRef<HTMLDivElement>(null)
 
@@ -22,7 +23,8 @@ export default function CTA() {
     return (
         <section ref={scope} className="padding h-150 xl:h-screen w-full">
 
-            <div id="cta" className="h-full w-full rounded-[60px] overflow-hidden relative">
+            <div id="cta" className="h-full w-full rounded-[60px] overflow-hidden relative"
+                 onClick={() => setIsOpen(true)}>
                 <img src="/images/cap2.webp" alt="capsule"
                      className="object-cover object-center w-full h-full scale-120"/>
 

@@ -21,10 +21,14 @@ import CTA from "./sections/CTA.tsx";
 import Footer from "./sections/footer";
 import Navbar from "./sections/navigation/Navbar.tsx";
 import MenuButton from "./sections/menu/MenuButton.tsx";
+import Reserve from "./sections/reserve";
+import {useState} from "react";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, ScrollSmoother, GSDevTools, TextPlugin)
 
 export default function App() {
+
+    const [isOpenReserve, setIsOpenReserve] = useState(false)
 
     useGSAP(() => {
         ScrollSmoother.create({
@@ -35,8 +39,9 @@ export default function App() {
 
     return (
         <main>
-            <Navbar/>
+            <Navbar setIsOpen={setIsOpenReserve}/>
             <MenuButton/>
+            <Reserve isOpen={isOpenReserve} setIsOpen={setIsOpenReserve}/>
             <div id="smooth-content" className="bg-dark min-h-screen">
                 <Hero/>
                 <div className="bg-gradient-brown">
@@ -48,8 +53,8 @@ export default function App() {
                 <Why/>
                 <Adventure/>
                 <Testimonials/>
-                <CTA/>
-                <Footer/>
+                <CTA setIsOpen={setIsOpenReserve}/>
+                <Footer setIsOpen={setIsOpenReserve}/>
             </div>
         </main>
     )

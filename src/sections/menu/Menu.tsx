@@ -6,11 +6,11 @@ import Marquee from "./Marquee.tsx";
 
 export default function Menu() {
     return (
-        <section className="fixed inset-0 p-2.5 z-30 h-screen w-screen">
+        <section id="menu-section" className="fixed inset-0 p-2.5 z-30 h-screen w-screen pointer-events-none">
             <div id="menu-container"
                  className="relative z-40 h-full flex flex-col xl:flex-row bg-middleBrown xl:rounded-[1000px] xl:scale-x-0 scale-y-0">
 
-                <div className="px-6 py-12 flex-1 flex flex-col justify-between">
+                <div className="px-6 py-12 flex-1 flex flex-col gap-4 justify-between">
                     <ul>
                         {
                             menus.map((menu, index) => (
@@ -46,7 +46,7 @@ export default function Menu() {
 
                 <div
                     id="menu-image"
-                    className="invisible xl:translate-x-full relative overflow-hidden h-[300px] xl:w-[400px] mt-2 mr-2 xl:h-[calc(100vh-36px)] rounded-[40px]">
+                    className="invisible xl:translate-x-full relative overflow-hidden max-h-[300px] h-full xl:w-[400px] mt-2 mr-2 xl:h-[calc(100vh-36px)] rounded-[40px]">
                     <img src="/images/cap1.webp" alt="menu"
                          className="scale-140 w-full h-full object-cover object-center"/>
                     <div

@@ -5,15 +5,18 @@ import Link from "./Link.tsx";
 import AnimatedUnderlineText from "../../components/AnimatedUnderlineText.tsx";
 import AnimatedButton from "../../components/Button.tsx";
 import FooterLogo from "../../components/FooterLogo.tsx";
+import type {IReserveProps} from "../../types/Reserve.ts";
 
-export default function Footer() {
+export default function Footer({setIsOpen}: Omit<IReserveProps, "isOpen">) {
     return (
         <footer className="px-8 space-y-8">
             <SubTitle classes="text-lightBrown">
                 Interested in an amazing adventure?
                 <br/>Reserve one of our Capsules®
             </SubTitle>
-            <Marquee/>
+            <div onClick={() => setIsOpen(true)}>
+                <Marquee/>
+            </div>
 
             <div
                 className="md:flex md:flex-row-reverse md:justify-between md:items-center md:leading-[2.2vw] md:text-[1.9vw] text-[20px] leading-[22px]">
