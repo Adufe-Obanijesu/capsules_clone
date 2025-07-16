@@ -7,73 +7,128 @@ import gsap from "gsap"
 import type {IReserveProps} from "../../types/Reserve.ts";
 import FirstStep from "./steps/FirstStep.tsx";
 import SecondStep from "./steps/SecondStep.tsx";
+import {useMediaQuery} from "react-responsive";
+import {cn} from "../../utils/tailwind.ts";
 
 export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
     const scope = useRef<HTMLDivElement>(null)
     const tl = useRef<gsap.core.Timeline>(null)
+    const tlMobile = useRef<gsap.core.Timeline>(null)
     const [step, setStep] = useState(1)
+    const isMobile = useMediaQuery({
+        maxWidth: 1279
+    })
 
     const duration = .5
 
     const {contextSafe} = useGSAP(() => {
 
-        tl.current = gsap.timeline({paused: true, defaults: {ease: "sine"}})
-            .to("#reserve-overlay", {
-                opacity: .95,
-                pointerEvents: "auto",
-                duration
-            })
-            .to("#reserve-wrapper", {
-                transformOrigin: "center right",
-                scaleX: 1,
-                duration
-            }, "<")
-            .to("#reserve-wrapper #close-btn", {
-                opacity: 1,
-                duration
-            }, "<")
-            .addLabel("fade_in")
-            .to("#reserve-wrapper #tray-bg", {
-                scale: 1,
-                duration
-            }, "-=10%")
-            .to("#reserve-wrapper .content", {
-                autoAlpha: 1,
-                duration
-            }, "-=10%")
+        const mm = gsap.matchMedia()
+
+        mm.add("(min-width: 1280px)", () => {
+            tl.current = gsap.timeline({paused: true, defaults: {ease: "sine"}})
+                .to("#reserve-overlay", {
+                    opacity: .95,
+                    pointerEvents: "auto",
+                    duration
+                })
+                .to("#reserve-wrapper", {
+                    transformOrigin: "center right",
+                    scaleX: 1,
+                    duration
+                }, "<")
+                .to("#reserve-wrapper #close-btn", {
+                    opacity: 1,
+                    duration
+                }, "<")
+                .addLabel("fade_in")
+                .to("#reserve-wrapper #tray-bg", {
+                    scale: 1,
+                    duration
+                }, "-=10%")
+                .to("#reserve-wrapper .content", {
+                    autoAlpha: 1,
+                    duration
+                }, "-=10%")
+        })
+
 
     }, {scope})
 
+    useGSAP(() => {
+        if (isMobile) {
+            tlMobile.current = gsap.timeline({paused: true})
+                .to("#reserve-wrapper", {
+                    opacity: 1,
+                    pointerEvents: "auto"
+                })
+                .to("#reserve-overlay", {
+                    opacity: 1,
+                    pointerEvents: "auto"
+                }, "<")
+        }
+    }, {scope})
+
     useEffect(() => {
+        if (isMobile && tlMobile.current) {
+            if (isOpen) tlMobile.current.play()
+            else {
+                tlMobile.current.reverse()
+                if (step === 2) {
+                    gsap.delayedCall(1, () => {
+                        gsap.set("#reserve-wrapper #first-step", {
+                            display: "flex"
+                        })
+                        gsap.set("#reserve-wrapper #second-step", {
+                            display: "none"
+                        })
+
+                    })
+                    setStep(1)
+                }
+            }
+            return
+        }
         if (!tl.current) return
         if (isOpen) tl.current.play()
         else {
-            const reverseTl = tl.current.reverse(step === 2 ? tl.current.totalDuration() : undefined)
+            const mm = gsap.matchMedia()
 
-            if (step === 2) {
-                gsap.delayedCall(reverseTl.totalDuration(), () => {
-                    gsap.set("#reserve-wrapper #first-step", {
-                        display: "flex"
-                    })
-                    gsap.set("#reserve-wrapper #second-step", {
-                        display: "none"
-                    })
+            mm.add("(min-width: 1280px)", () => {
+                if (!tl.current) return
 
-                })
-                setStep(1)
-            }
+                const reverseTl = tl.current.reverse(step === 2 ? tl.current.totalDuration() : undefined)
+
+                if (step === 2) {
+                    gsap.delayedCall(reverseTl.totalDuration(), () => {
+                        gsap.set("#reserve-wrapper #first-step", {
+                            display: "flex"
+                        })
+                        gsap.set("#reserve-wrapper #second-step", {
+                            display: "none"
+                        })
+
+                    })
+                    setStep(1)
+                }
+            })
 
         }
-    }, [isOpen]);
+    }, [isOpen, isMobile]);
 
     const next = contextSafe(() => {
-        if (!tl.current) return
         setStep(2)
-        gsap.timeline()
-            .add(tl.current.tweenFromTo(tl.current.totalDuration(), "fade_in"))
-            .set("#reserve-wrapper #first-step", {
-                display: "none"
-            })
+        const mm = gsap.matchMedia()
+
+        const timeline = gsap.timeline()
+        mm.add("(min-width: 1280px)", () => {
+            if (!tl.current) return
+            timeline.add(tl.current.tweenFromTo(tl.current.totalDuration(), "fade_in"))
+        })
+
+        timeline.set("#reserve-wrapper #first-step", {
+            display: "none"
+        })
             .set("#reserve-wrapper #second-step", {
                 display: "flex"
             })
@@ -91,8 +146,8 @@ export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
                  onClick={() => setIsOpen(false)}/>
 
             <div id="reserve-wrapper"
-                 className="will-change-transform fixed z-50 bottom-1/100 top-1/100 rounded-[40px] right-2.5 w-95 flex flex-col pt-6 pb-2 bg-darkBrown scale-x-0">
-                <div id="close-btn" className="fixed opacity-0 px-6">
+                 className={cn("will-change-transform pointer-events-none xl:pointer-events-auto fixed z-50 bottom-1/100 top-1/100 rounded-[40px] right-2.5 xl:w-95 flex flex-col pt-6 pb-2 bg-darkBrown xl:scale-x-0", {"opacity-0 left-2.5": isMobile})}>
+                <div id="close-btn" className="fixed xl:opacity-0 px-6">
                     <AnimatedButton variant="dark" onClick={() => setIsOpen(false)}>
                         <FaTimes/>
                     </AnimatedButton>

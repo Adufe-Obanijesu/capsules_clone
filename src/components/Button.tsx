@@ -87,15 +87,16 @@ export default function AnimatedButton({
 interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     text: string,
     className?: string,
-    Icon: IconType
+    Icon: IconType,
+    minimizeOnMobile?: boolean
 }
 
-export function IconButton({text, Icon, className, ...props}: IconButtonProps) {
+export function IconButton({text, Icon, className, minimizeOnMobile = false, ...props}: IconButtonProps) {
     return (
         <button type="button"
-                className={cn("bg-gray-100 h-11 rounded-full p-[3px] flex justify-center items-center cursor-pointer group text-sm", className)} {...props}>
+                className={cn("bg-gray-100 h-11 rounded-full p-[3px] flex justify-center items-center cursor-pointer group text-sm", className, {"xl:bg-transparent xl:p-0": minimizeOnMobile})} {...props}>
             <div
-                className="ml-4  mr-2 text-darkBrown text-sm overflow-hidden relative w-full">
+                className={cn("ml-4 mr-2 text-darkBrown text-sm overflow-hidden relative w-full", {"hidden xl:block": minimizeOnMobile})}>
                 <div
                     className="w-full group-hover:-translate-y-full transition duration-300 ease-in-out">{text}
                 </div>
@@ -104,7 +105,7 @@ export function IconButton({text, Icon, className, ...props}: IconButtonProps) {
                 </div>
             </div>
             <div
-                className="h-full aspect-square bg-darkBrown rounded-full w-11 flex justify-center items-center text-lightBrown">
+                className={cn("h-full aspect-square bg-darkBrown rounded-full w-11 flex justify-center items-center text-lightBrown", {"bg-white text-tertiary": minimizeOnMobile})}>
                 <Icon fontSize={24}/>
             </div>
         </button>

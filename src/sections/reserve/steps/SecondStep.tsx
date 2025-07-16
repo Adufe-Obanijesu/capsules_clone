@@ -8,7 +8,7 @@ export default function SecondStep() {
             id="second-step"
             className="hidden mt-10 rounded-4xl overflow-y-scroll scrollbar-hide relative h-full px-2 overflow-auto overscroll-contain flex-col gap-1">
 
-            <div className="px-6 content invisible space-y-4">
+            <div className="px-6 content xl:invisible space-y-4">
 
                 <div className="mt-[20px]">
                     <div>
@@ -31,7 +31,7 @@ export default function SecondStep() {
 
             </div>
 
-            <div className="content invisible flex-1 flex items-end">
+            <div className="content xl:invisible flex-1 flex items-end">
                 <div className="rounded-[40px] max-h-60 w-full overflow-hidden relative">
                     <img src="/images/cap1.webp" alt="capsules" className="h-full w-full object-cover object-center"/>
                     <div className="center-absolute">

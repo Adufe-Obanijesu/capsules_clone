@@ -1,6 +1,7 @@
 export interface ICapsule {
     id: number,
     name: string,
+    altName: string,
     description: string,
     img: string,
     details: {
@@ -18,6 +19,7 @@ export const capsules: ICapsule[] = [
     {
         id: 1,
         name: "Classic Capsule®",
+        altName: "Classic C®",
         description: "Classic Capsule® boasts refined aesthetics and a modern interior, creating an intimate retreat in a desert landscape.",
         img: "/images/cap1.webp",
         details: {
@@ -33,6 +35,7 @@ export const capsules: ICapsule[] = [
     {
         id: 2,
         name: "Terrace Capsule®",
+        altName: "Terrace C®",
         description: "The most prestige capsule with the biggest terrace and jacuzzi with an amazing view of Los Angeles.",
         img: "/images/cap2.webp",
         details: {
@@ -47,7 +50,8 @@ export const capsules: ICapsule[] = [
     },
     {
         id: 3,
-        name: "Dessert Capsule®",
+        name: "Desert Capsule®",
+        altName: "Desert C®",
         description: "With its striking architecture and upscale amenities, Desert Capsule® offers an exclusive retreat in the heart of the desert",
         img: "/images/cap3.webp",
         details: {

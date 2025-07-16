@@ -4,16 +4,20 @@ import {useState} from "react";
 import {capsules} from "../../../data/capsules.ts";
 
 import {IconButton} from "../../../components/Button.tsx";
+import {useMediaQuery} from "react-responsive";
 
 export default function FirstStep({next}: { next: () => void }) {
     const [selectedCapsule, setSelectedCapsule] = useState(capsules[0])
+    const isMobile = useMediaQuery({
+        maxWidth: 1279
+    })
 
     return (
         <div
             id="first-step"
             className="mt-10 rounded-4xl overflow-y-scroll scrollbar-hide relative h-full px-2 overflow-auto overscroll-contain flex flex-col gap-1">
 
-            <div className="px-6 content invisible space-y-4">
+            <div className="px-6 content xl:invisible space-y-4">
 
                 <div className="mt-[20px]">
                     <div>
@@ -49,8 +53,8 @@ export default function FirstStep({next}: { next: () => void }) {
                     className="relative overflow-hidden w-full h-16 rounded-full pl-6 pr-2.5">
                     <div
                         id="tray-bg"
-                        className="scale-x-0 opacity- origin-left absolute top-0 left-0 bg-black/50 rounded-full w-full h-full -z-1"></div>
-                    <div className="content invisible flex justify-between items-center h-full">
+                        className="xl:scale-x-0 origin-left absolute top-0 left-0 bg-black/50 rounded-full w-full h-full -z-1"></div>
+                    <div className="content xl:invisible flex justify-between items-center h-full">
                         <div
                             className="font-semibold">
                             <p className=" text-lightBrown text-xs">Stay</p>
@@ -62,7 +66,8 @@ export default function FirstStep({next}: { next: () => void }) {
                             <p className=" text-white text-xs">15.07 - 20.07</p>
                         </div>
 
-                        <IconButton text="Next" Icon={MdOutlineArrowForward} onClick={next}/>
+                        <IconButton text="Next" Icon={MdOutlineArrowForward} onClick={next}
+                                    minimizeOnMobile={isMobile}/>
                     </div>
                 </div>
             </div>
