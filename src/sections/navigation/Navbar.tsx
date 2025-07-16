@@ -52,14 +52,15 @@ export default function Navbar({setIsOpen}: Omit<IReserveProps, "isOpen">) {
 
     return (
         <div id="navbar">
-            <nav className="fixed top-8 left-0 w-full px-4 xl:px-8 z-20"
+            <nav className="fixed top-8 left-0 w-full px-4 xl:px-8 z-20 pointer-events-none"
             >
                 <div className="flex justify-between items-center">
 
                     <div>
-                        <img src="/mini_logo.svg" className="h-6.5" alt="logo"/>
+                        <img src="/mini_logo.svg" className="h-6.5 pointer-events-auto" alt="logo"/>
                     </div>
-                    <IconButton text="Reserve" Icon={MdArrowOutward} onClick={() => setIsOpen(true)}/>
+                    <IconButton text="Reserve" Icon={MdArrowOutward} className="pointer-events-auto"
+                                onClick={() => setIsOpen(true)}/>
 
                 </div>
             </nav>

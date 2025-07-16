@@ -1,4 +1,7 @@
 import AnimatedUnderlineText from "../components/AnimatedUnderlineText.tsx";
+import {CursorButton} from "../components/Button.tsx";
+import {MdArrowOutward} from "react-icons/md";
+import CustomCursor from "../components/CustomCursor.tsx";
 
 export default function Closer() {
     return (
@@ -8,9 +11,14 @@ export default function Closer() {
                 <p className="text-xs">Closer than you think</p>
                 <h1 className="leading-[1]">
                     Our Capsules® are located near Los Angeles with easy <br/>
-                    <AnimatedUnderlineText id="closer-underlined" color="lightBrown" hoverColor="white">
-                        access by road.
-                    </AnimatedUnderlineText>
+                    <CustomCursor
+                        cursorHide={false}
+                        cursor={<CursorButton text="Show the Map" Icon={MdArrowOutward}/>}
+                    >
+                        <AnimatedUnderlineText id="closer-underlined" color="lightBrown" hoverColor="white">
+                            access by road.
+                        </AnimatedUnderlineText>
+                    </CustomCursor>
                 </h1>
             </div>
         </section>

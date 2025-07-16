@@ -30,19 +30,19 @@ export default function App() {
 
     const [isOpenReserve, setIsOpenReserve] = useState(false)
 
-    useGSAP(() => {
-        ScrollSmoother.create({
-            smooth: 1,
-            effects: true,
-        });
-    })
+    // useGSAP(() => {
+    //     ScrollSmoother.create({
+    //         smooth: 1,
+    //         effects: true,
+    //     });
+    // })
 
     return (
         <main>
             <Navbar setIsOpen={setIsOpenReserve}/>
             <MenuButton/>
             <Reserve isOpen={isOpenReserve} setIsOpen={setIsOpenReserve}/>
-            <div id="smooth-content" className="bg-dark min-h-screen">
+            <div className="bg-dark min-h-screen">
                 <Hero/>
                 <div className="bg-gradient-brown">
                     <Welcome/>

@@ -86,15 +86,16 @@ export default function AnimatedButton({
 
 interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     text: string,
+    className?: string,
     Icon: IconType
 }
 
-export function IconButton({text, Icon, ...props}: IconButtonProps) {
+export function IconButton({text, Icon, className, ...props}: IconButtonProps) {
     return (
         <button type="button"
-                className="bg-gray-100 h-11 rounded-full p-[3px] flex justify-center items-center cursor-pointer group text-sm" {...props}>
+                className={cn("bg-gray-100 h-11 rounded-full p-[3px] flex justify-center items-center cursor-pointer group text-sm", className)} {...props}>
             <div
-                className="ml-4  mr-2 text-darkBrown text-[14px] overflow-hidden relative w-full">
+                className="ml-4  mr-2 text-darkBrown text-sm overflow-hidden relative w-full">
                 <div
                     className="w-full group-hover:-translate-y-full transition duration-300 ease-in-out">{text}
                 </div>
@@ -104,6 +105,24 @@ export function IconButton({text, Icon, ...props}: IconButtonProps) {
             </div>
             <div
                 className="h-full aspect-square bg-darkBrown rounded-full w-11 flex justify-center items-center text-lightBrown">
+                <Icon fontSize={24}/>
+            </div>
+        </button>
+    )
+}
+
+export function CursorButton({text, Icon, ...props}: IconButtonProps) {
+    return (
+        <button type="button"
+                className="bg-gray-100/90  rounded-full p-3 flex justify-center items-center cursor-pointer text-sm" {...props}>
+            <div
+                className="ml-2 mr-1 text-darkBrown text-sm w-full">
+                <div
+                    className="w-full">{text}
+                </div>
+            </div>
+            <div
+                className="h-full aspect-square bg-gray-50 rounded-full w-20 flex justify-center items-center text-tertiary">
                 <Icon fontSize={24}/>
             </div>
         </button>
