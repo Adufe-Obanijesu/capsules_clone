@@ -43,9 +43,9 @@ export default function MenuButton({isOpenMap, setIsOpenMap}: Props) {
         }
 
         if (isOpenMap) {
-            svgTimeline.current.restart()
+            svgTimeline.current?.restart()
         } else {
-            svgTimeline.current.reverse()
+            svgTimeline.current?.reverse()
         }
     }, [isOpenMap]);
 

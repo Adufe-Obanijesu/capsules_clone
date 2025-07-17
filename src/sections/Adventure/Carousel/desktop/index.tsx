@@ -23,7 +23,6 @@ export default function DesktopCarousel() {
                 end: `+=${distance}px`,
                 scrub: 1,
                 pin: true,
-                pinSpacing: true,
                 refreshPriority: 1
             }
         })
@@ -36,7 +35,7 @@ export default function DesktopCarousel() {
                 objectPosition: "-120px 0px",
             }, "<")
 
-    }, {scope, dependencies: [container.current, scope.current]})
+    }, {scope})
 
     return (
         <div ref={scope} className="mt-12.5 overflow-hidden -mx-2.5">
@@ -55,7 +54,7 @@ function Card({activity}: { activity: TActivity }) {
         <div className="h-[97vh] w-[85vw] min-w-[85vw] rounded-[40px] px-6 py-10 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full"><img
                 alt="Activity"
-                className="scale-140 object-cover object-center absolute w-full h-full z-[-1]"
+                className="scale-140 object-cover absolute w-full h-full z-[-1]"
                 src={activity.img}/></div>
             <div className="w-full h-full">
                 <div className="w-full h-full flex flex-col justify-between right-0">
