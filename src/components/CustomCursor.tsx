@@ -36,7 +36,6 @@ export default function CustomCursor({
 
         const handleMouseMove = (e: MouseEvent) => {
             if (isHovering.current) {
-                console.log(e.clientX, e.clientY)
                 gsap.to(cursorElement, {
                     x: e.clientX,
                     y: e.clientY,

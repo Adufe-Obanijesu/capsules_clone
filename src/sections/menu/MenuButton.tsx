@@ -1,13 +1,21 @@
 import {useEffect, useRef, useState} from "react";
 import {useGSAP} from "@gsap/react";
 import Menu from "./Menu.tsx";
-import animation from "./animation.ts";
+import animation, {animateSVG} from "./animation.ts";
 
-export default function MenuButton() {
+interface Props {
+    isOpenMap: boolean
+    setIsOpenMap: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function MenuButton({isOpenMap, setIsOpenMap}: Props) {
 
     const [isOpen, setIsOpen] = useState(false)
     const hoverTimeline = useRef<gsap.core.Timeline>(null)
     const moveWrapperTimeline = useRef<gsap.core.Timeline>(null)
+    const svgTimeline = useRef<gsap.core.Timeline>(null)
+
+    const hasRendered = useRef(false)
 
     const {contextSafe} = useGSAP(() => animation({hoverTimeline, moveWrapperTimeline}))
 
@@ -27,12 +35,34 @@ export default function MenuButton() {
         }
     }, [isOpen]);
 
+    useEffect(() => {
+        if (!hasRendered.current) {
+            hasRendered.current = true
+            svgTimeline.current = animateSVG()
+            return
+        }
+
+        if (isOpenMap) {
+            svgTimeline.current.restart()
+        } else {
+            svgTimeline.current.reverse()
+        }
+    }, [isOpenMap]);
+
+    const click = () => {
+        if (isOpenMap) {
+            setIsOpenMap(false)
+            return
+        }
+        setIsOpen(prev => !prev)
+    }
+
     return (
         <div>
             <div id="menu" className="fixed left-1/2 -translate-x-1/2 bottom-8 z-50">
                 <button type="button"
                         className="bg-white h-11 rounded-[50px] p-[3px] flex justify-center items-center cursor-pointer group"
-                        onClick={() => setIsOpen(prev => !prev)} onMouseEnter={onHover} onMouseLeave={onLeave}>
+                        onClick={click} onMouseEnter={onHover} onMouseLeave={onLeave}>
                     <div
                         className="overflow-hidden ml-[15px] text-darkBrown text-xs  mr-[10px] font-medium relative h-4">
 

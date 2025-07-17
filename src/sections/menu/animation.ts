@@ -6,6 +6,26 @@ interface IAnimation {
     moveWrapperTimeline: React.RefObject<gsap.core.Timeline | null>,
 }
 
+export function animateSVG() {
+    return gsap.timeline()
+        .to("#text-wrapper", {y: 0, yPercent: -100})
+        .set("#menu .close-text:first-child", {zIndex: 1})
+        .set("#menu .menu-text:nth-child(2)", {zIndex: 0}, "<")
+        .to("#top-line", {
+            y: 6,
+            rotate: 45,
+            transformOrigin: "center",
+        }, 0)
+        .to("#menu #bottom-line", {
+            y: -6,
+            rotate: -45,
+            transformOrigin: "center",
+        }, 0)
+        .to("#menu #middle-line", {
+            opacity: 0,
+        }, 0)
+}
+
 export default function animation({
                                       hoverTimeline,
                                       moveWrapperTimeline
@@ -47,22 +67,7 @@ export default function animation({
         }, 0)
 
     moveWrapperTimeline.current = gsap.timeline({paused: true, defaults: {ease: "sine"}})
-        .to("#text-wrapper", {y: 0, yPercent: -100})
-        .to("#menu .close-text:first-child", {zIndex: 1})
-        .to("#menu .menu-text:nth-child(2)", {zIndex: 0}, "<")
-        .to("#top-line", {
-            y: 6,
-            rotate: 45,
-            transformOrigin: "center",
-        }, 0)
-        .to("#menu #bottom-line", {
-            y: -6,
-            rotate: -45,
-            transformOrigin: "center",
-        }, 0)
-        .to("#menu #middle-line", {
-            opacity: 0,
-        }, 0)
+        .add(animateSVG())
         .set("body", {overflow: "hidden"}, 0)
         .to("#menu-overlay", {
             opacity: 1

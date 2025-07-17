@@ -1,9 +1,9 @@
 import {cn} from "../utils/tailwind.ts";
-import {useRef} from "react";
+import {type HTMLAttributes, useRef} from "react";
 import gsap from "gsap";
 import {useGSAP} from "@gsap/react";
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLButtonElement> {
     id: string
     children: React.ReactNode;
     color?: "white" | "lightBrown";
@@ -16,7 +16,8 @@ export default function AnimatedUnderlineText({
                                                   children,
                                                   color = "white",
                                                   hoverColor = "lightBrown",
-                                                  classes
+                                                  classes,
+                                                  ...props
                                               }: Props) {
 
     const tl = useRef(gsap.timeline({paused: true}))
@@ -39,7 +40,7 @@ export default function AnimatedUnderlineText({
     })
 
     return (
-        <span id={id} className="cursor-pointer">
+        <span id={id} className="cursor-pointer" {...props}>
             <span
                 className={cn("relative inline-flex overflow-hidden group ", `text-${color}`, `hover:text-${hoverColor}`, classes)}
                 onMouseEnter={onHover} onMouseLeave={onLeave}>

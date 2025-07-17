@@ -155,6 +155,10 @@ body::-webkit-scrollbar {
     @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
+.circle-clip-path {
+    clip-path: circle(0% at 50% 50%);
+}
+
 button {
     @apply cursor-pointer;
 }

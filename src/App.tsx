@@ -23,12 +23,14 @@ import Navbar from "./sections/navigation/Navbar.tsx";
 import MenuButton from "./sections/menu/MenuButton.tsx";
 import Reserve from "./sections/reserve";
 import {useState} from "react";
+import Map from "./sections/map";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, ScrollSmoother, GSDevTools, TextPlugin)
 
 export default function App() {
 
     const [isOpenReserve, setIsOpenReserve] = useState(false)
+    const [isOpenMap, setIsOpenMap] = useState(false)
 
     // useGSAP(() => {
     //     ScrollSmoother.create({
@@ -40,7 +42,7 @@ export default function App() {
     return (
         <main>
             <Navbar setIsOpen={setIsOpenReserve}/>
-            <MenuButton/>
+            <MenuButton isOpenMap={isOpenMap} setIsOpenMap={setIsOpenMap}/>
             <Reserve isOpen={isOpenReserve} setIsOpen={setIsOpenReserve}/>
             <div className="bg-dark min-h-screen">
                 <Hero/>
@@ -48,13 +50,14 @@ export default function App() {
                     <Welcome/>
                     <Discover/>
                     <Capsules/>
-                    <Closer/>
+                    <Closer setIsOpenMap={setIsOpenMap}/>
                 </div>
                 <Why/>
                 <Adventure/>
                 <Testimonials/>
                 <CTA setIsOpen={setIsOpenReserve}/>
                 <Footer setIsOpen={setIsOpenReserve}/>
+                <Map isOpenMap={isOpenMap}/>
             </div>
         </main>
     )

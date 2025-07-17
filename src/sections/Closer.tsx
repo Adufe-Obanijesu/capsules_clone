@@ -3,7 +3,7 @@ import {CursorButton} from "../components/Button.tsx";
 import {MdArrowOutward} from "react-icons/md";
 import CustomCursor from "../components/CustomCursor.tsx";
 
-export default function Closer() {
+export default function Closer({setIsOpenMap}: { setIsOpenMap: React.Dispatch<React.SetStateAction<boolean>> }) {
     return (
         <section className="text-white text-center py-28 padding-x flex justify-center">
             <div className="xl:w-[750px] lg:w-3/5 md:w-2/3 space-y-4">
@@ -15,7 +15,9 @@ export default function Closer() {
                         cursorHide={false}
                         cursor={<CursorButton text="Show the Map" Icon={MdArrowOutward}/>}
                     >
-                        <AnimatedUnderlineText id="closer-underlined" color="lightBrown" hoverColor="white">
+                        <AnimatedUnderlineText id="closer-underlined" color="lightBrown" hoverColor="white"
+                                               onClick={() => setIsOpenMap(true)}
+                        >
                             access by road.
                         </AnimatedUnderlineText>
                     </CustomCursor>
