@@ -1,7 +1,6 @@
 import Hero from "./sections/Hero/Hero.tsx";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger"
-import ScrollSmoother from "gsap/ScrollSmoother"
 import SplitText from "gsap/SplitText"
 import GSDevTools from "gsap/GSDevTools"
 import TextPlugin from "gsap/TextPlugin"
@@ -25,19 +24,12 @@ import Reserve from "./sections/reserve";
 import {useState} from "react";
 import Map from "./sections/map";
 
-gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, ScrollSmoother, GSDevTools, TextPlugin)
+gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, GSDevTools, TextPlugin)
 
 export default function App() {
 
     const [isOpenReserve, setIsOpenReserve] = useState(false)
     const [isOpenMap, setIsOpenMap] = useState(false)
-
-    // useGSAP(() => {
-    //     ScrollSmoother.create({
-    //         smooth: 1,
-    //         effects: true,
-    //     });
-    // })
 
     return (
         <main>

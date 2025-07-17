@@ -69,9 +69,9 @@ export function animation() {
         }
     }
 
-    gsap.defaults({duration: 1, ease: "power2.inOut"})
     const timeline = gsap.timeline({
-        scrollTrigger: st
+        scrollTrigger: st,
+        defaults: {duration: 1, ease: "power2.inOut"}
     })
         .addPause()
         .to(cardContainers[0], fadeOut

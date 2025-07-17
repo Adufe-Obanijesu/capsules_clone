@@ -13,7 +13,6 @@ export default function useAnimation() {
 
     useGSAP(() => {
         isMounted.current = false
-        gsap.defaults({duration: .3, ease: "power1.in"})
 
         const testimonials: HTMLElement[] = gsap.utils.toArray("#testimonials .testimonial") as HTMLElement[]
         testimonialsRef.current = testimonials
@@ -58,6 +57,8 @@ export default function useAnimation() {
     useGSAP(() => {
         gsap.to("#testimonials", {
             opacity: 0,
+            duration: .3,
+            ease: "power1.in",
             scrollTrigger: {
                 trigger: "#testimonials",
                 start: "bottom+=1% bottom",
@@ -68,7 +69,7 @@ export default function useAnimation() {
     })
 
     function animateInOut({mode, heading, image, about, testimonial}: IAnimateInOut) {
-        const tl = gsap.timeline()
+        const tl = gsap.timeline({defaults: {duration: .3, ease: "power1.in"}})
 
         if (mode === "in") {
             tl.set(testimonial, {
@@ -108,7 +109,7 @@ export default function useAnimation() {
         const nextImg = testimonialsRef.current[index].querySelector(".avatar")
         const nextAbout = testimonialsRef.current[index].querySelector("p")
 
-        gsap.timeline()
+        gsap.timeline({defaults: {duration: .3, ease: "power1.in"}})
             .add(animateInOut({
                 mode: "out",
                 heading: currentHeading.lines,
