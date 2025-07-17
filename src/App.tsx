@@ -21,8 +21,9 @@ import Footer from "./sections/footer";
 import Navbar from "./sections/navigation/Navbar.tsx";
 import MenuButton from "./sections/menu/MenuButton.tsx";
 import Reserve from "./sections/reserve";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Map from "./sections/map";
+import {useMediaQuery} from "react-responsive";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, GSDevTools, TextPlugin)
 
@@ -30,6 +31,17 @@ export default function App() {
 
     const [isOpenReserve, setIsOpenReserve] = useState(false)
     const [isOpenMap, setIsOpenMap] = useState(false)
+
+    const isMobile = useMediaQuery({maxWidth: 1279});
+    const prev = useRef(isMobile);
+
+    useEffect(() => {
+        if (prev.current !== isMobile) {
+            window.location.reload();
+        }
+        prev.current = isMobile;
+    }, [isMobile]);
+
 
     return (
         <main>
