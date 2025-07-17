@@ -58,7 +58,7 @@ export function animation() {
         start: "top 1%",
         end: "bottom 1%",
         pin: true,
-        refreshPriority: 0,
+        refreshPriority: 1,
         onUpdate: (self: ScrollTrigger) => {
 
             if (self.direction === -1) {

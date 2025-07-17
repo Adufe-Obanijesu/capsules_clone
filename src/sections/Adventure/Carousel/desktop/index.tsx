@@ -18,12 +18,14 @@ export default function DesktopCarousel() {
 
         gsap.timeline({
             scrollTrigger: {
+                markers: true,
                 trigger: container.current,
                 start: "top 1.5%",
                 end: `+=${distance}px`,
                 scrub: 1,
                 pin: true,
-                pinSpacing: true
+                pinSpacing: true,
+                refreshPriority: 1
             }
         })
             .to(container.current, {

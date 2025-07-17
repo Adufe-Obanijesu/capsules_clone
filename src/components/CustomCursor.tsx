@@ -31,6 +31,7 @@ export default function CustomCursor({
             scale: 0.5,
             xPercent: -50,
             yPercent: -50,
+            x: -300,
             pointerEvents: 'none'
         });
 

@@ -140,7 +140,7 @@ export function animate(capsules: HTMLElement[]) {
             pin: true,
             anticipatePin: 1,
             pinSpacing: true,
-            refreshPriority: 1,
+            refreshPriority: 1
         }
     })
         .to(SELECTORS.firstCapsuleDiv, {
