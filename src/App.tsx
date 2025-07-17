@@ -24,6 +24,7 @@ import Reserve from "./sections/reserve";
 import {useEffect, useRef, useState} from "react";
 import Map from "./sections/map";
 import {useMediaQuery} from "react-responsive";
+import Loader from "./sections/Loader.tsx";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, GSDevTools, TextPlugin)
 
@@ -44,12 +45,14 @@ export default function App() {
 
 
     return (
-        <main>
+        <main className="bg-darkBrown relative">
             <Navbar setIsOpen={setIsOpenReserve}/>
-            <MenuButton isOpenMap={isOpenMap} setIsOpenMap={setIsOpenMap}/>
             <Reserve isOpen={isOpenReserve} setIsOpen={setIsOpenReserve}/>
+            <MenuButton isOpenMap={isOpenMap} setIsOpenMap={setIsOpenMap}/>
             <div className="bg-dark min-h-screen">
-                <Hero/>
+                <Loader>
+                    <Hero/>
+                </Loader>
                 <div className="bg-gradient-brown">
                     <Welcome/>
                     <Discover/>

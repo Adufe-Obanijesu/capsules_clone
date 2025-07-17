@@ -23,7 +23,7 @@ export default function DesktopVersion() {
 
             <header className="hero-header h-full w-full rounded-[40px] overflow-hidden relative">
                 <img id="background" src="/images/cap1.webp" alt="capsule"
-                     className="object-cover object-center w-full h-full"/>
+                     className="object-cover object-center w-full h-full scale-110"/>
 
                 <div className="h-full absolute inset-0 p-7.5 z-1 flex flex-col justify-between">
 
