@@ -42,7 +42,9 @@ export default function Map({isOpenMap}: Props) {
     return (
         <section>
             <div id="map" className="circle-clip-path w-screen h-screen fixed top-0 left-0 pointer-events-none z-40">
-                <MapSection/>
+                {
+                    isOpenMap && <MapSection/>
+                }
                 <div className="p-4">
                     <Info/>
                 </div>
