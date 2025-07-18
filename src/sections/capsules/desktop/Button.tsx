@@ -6,6 +6,7 @@ import gsap from "gsap";
 import {cn} from "../../../utils/tailwind.ts";
 import {useGSAP} from "@gsap/react";
 import AnimatedButton from "../../../components/Button.tsx";
+import useEscapeKey from "../../../hooks/useEscapeKey.tsx";
 
 interface Props {
     capsule: ICapsule,
@@ -14,6 +15,10 @@ interface Props {
 export default function Button({capsule}: Props) {
 
     const [isOpen, setIsOpen] = useState(false)
+
+    useEscapeKey(() => {
+        setIsOpen(false)
+    })
 
 
     const scope = useRef<HTMLDivElement>(null)

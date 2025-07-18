@@ -9,8 +9,8 @@ const option: IAzureMapOptions = {
     },
 }
 export default function MapSection() {
-    return (
 
+    return (
         <AzureMapsProvider>
             <div style={{height: '100vh', width: "100vw", position: "absolute", left: 0, top: 0}}>
                 <AzureMap options={option}/>

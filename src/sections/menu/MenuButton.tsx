@@ -3,6 +3,7 @@ import {useGSAP} from "@gsap/react";
 import Menu from "./Menu.tsx";
 import animation, {animateSVG} from "./animation.ts";
 import {usePageReady} from "../../hooks/usePageReady.tsx";
+import useEscapeKey from "../../hooks/useEscapeKey.tsx";
 
 interface Props {
     isOpenMap: boolean
@@ -12,6 +13,11 @@ interface Props {
 export default function MenuButton({isOpenMap, setIsOpenMap}: Props) {
 
     const [isOpen, setIsOpen] = useState(false)
+
+    useEscapeKey(() => {
+        setIsOpen(false)
+    })
+
     const hoverTimeline = useRef<gsap.core.Timeline>(null)
     const moveWrapperTimeline = useRef<gsap.core.Timeline>(null)
     const svgTimeline = useRef<gsap.core.Timeline>(null)
@@ -21,7 +27,7 @@ export default function MenuButton({isOpenMap, setIsOpenMap}: Props) {
 
     const {contextSafe} = useGSAP(() => {
         if (!ready) return
-        
+
         animation({hoverTimeline, moveWrapperTimeline})
     }, [ready])
 

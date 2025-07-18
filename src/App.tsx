@@ -20,6 +20,7 @@ import MenuButton from "./sections/menu/MenuButton.tsx";
 import Reserve from "./sections/reserve";
 import Loader from "./sections/Loader.tsx";
 import useLenis from "./hooks/useLenis.tsx";
+import useEscapeKey from "./hooks/useEscapeKey.tsx";
 
 
 const Discover = lazy(() => import("./sections/Discover"));
@@ -40,6 +41,11 @@ export default function App() {
     const [isOpenReserve, setIsOpenReserve] = useState(false)
     const [isOpenMap, setIsOpenMap] = useState(false)
 
+    useEscapeKey(() => {
+        setIsOpenMap(false)
+        setIsOpenReserve(false)
+    })
+
     const isMobile = useMediaQuery({maxWidth: 1279});
     const prev = useRef(isMobile);
 
@@ -56,6 +62,9 @@ export default function App() {
             <Navbar setIsOpen={setIsOpenReserve}/>
             <Reserve isOpen={isOpenReserve} setIsOpen={setIsOpenReserve}/>
             <MenuButton isOpenMap={isOpenMap} setIsOpenMap={setIsOpenMap}/>
+            <LazySectionWrapper>
+                <Map isOpenMap={isOpenMap}/>
+            </LazySectionWrapper>
             <div className="bg-dark min-h-screen">
                 <Loader>
                     <Hero/>
@@ -74,7 +83,6 @@ export default function App() {
                     <LazySectionWrapper><Testimonials/></LazySectionWrapper>
                     <LazySectionWrapper><CTA setIsOpen={setIsOpenReserve}/></LazySectionWrapper>
                     <LazySectionWrapper><Footer setIsOpen={setIsOpenReserve}/></LazySectionWrapper>
-                    <LazySectionWrapper><Map isOpenMap={isOpenMap}/></LazySectionWrapper>
                 </Suspense>
             </div>
         </main>
