@@ -28,6 +28,7 @@ import MenuButton from "./sections/menu/MenuButton.tsx";
 import Reserve from "./sections/reserve";
 // import Map from "./sections/map";
 import Loader from "./sections/Loader.tsx";
+import useLenis from "./hooks/useLenis.tsx";
 
 
 const Discover = lazy(() => import("./sections/Discover"));
@@ -44,7 +45,7 @@ const Map = lazy(() => import("./sections/map"));
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, GSDevTools, TextPlugin)
 
 export default function App() {
-
+    useLenis()
     const [isOpenReserve, setIsOpenReserve] = useState(false)
     const [isOpenMap, setIsOpenMap] = useState(false)
 

@@ -1,29 +1,34 @@
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import {useRef} from "react";
+import {usePageReady} from "../../hooks/usePageReady.tsx";
 
 export default function DesktopVersion() {
 
     const scope = useRef<HTMLDivElement>(null)
+    const ready = usePageReady();
 
     useGSAP(() => {
+        if (!ready) return
+
         gsap.to("#hero-background", {
             scale: 1.1,
             scrollTrigger: {
-                trigger: "#hero-background",
+                markers: true,
+                trigger: ".hero-header",
                 start: "top top",
                 end: "bottom top",
                 scrub: 1,
             }
         })
-    }, {scope})
+    }, {scope, dependencies: [ready]})
 
     return (
         <div ref={scope} className="padding h-screen w-full">
 
             <header className="hero-header h-full w-full rounded-[40px] overflow-hidden relative">
                 <img id="hero-background" src="/images/cap1.webp" alt="capsule"
-                     className="object-cover object-center w-full h-full scale-110" fetchPriority="high"
+                     className="object-cover object-center w-full h-full" fetchPriority="high"
                      loading="eager"/>
 
                 <div className="h-full absolute inset-0 p-7.5 z-1 flex flex-col justify-between">

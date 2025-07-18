@@ -12,6 +12,7 @@
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@react-google-maps/api": "^2.20.7",
+    "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/vite": "^4.1.11",
     "@types/lodash-es": "^4.17.12",
     "clsx": "^2.1.1",
