@@ -22,11 +22,11 @@ export default function Button({capsule}: Props) {
     useGSAP(() => {
         tl.current
             .set("body", {overflow: "hidden"})
-            .set(`#capsule-button-${capsule.id} #details_wrapper`, {
+            .set(`#capsule-button-${capsule.id} .details_wrapper`, {
                 transformOrigin: "bottom left",
                 scale: 0,
             })
-            .to(`#capsule-button-${capsule.id} #details_wrapper`, {
+            .to(`#capsule-button-${capsule.id} .details_wrapper`, {
                 scale: 1
             })
             .to(`#capsule-button-${capsule.id} #terraceCapsuleDetails${capsule.id}`, {
@@ -40,10 +40,10 @@ export default function Button({capsule}: Props) {
             .to(`#capsule-button-${capsule.id} #terraceCapsuleDetails${capsule.id}`, {
                 backgroundColor: "white",
             }, "<")
-            .to(`#capsule-button-${capsule.id} #details_wrapper button .absolute`, {
-                scaleX: 1,
-                autoAlpha: 1
-            }, ">-5%")
+            // .to(`#capsule-button-${capsule.id} .details_wrapper button .absolute`, {
+            //     scaleX: 1,
+            //     autoAlpha: 1
+            // }, ">-5%")
             .to(`#capsule-button-${capsule.id} .invisible`, {
                 autoAlpha: 1
             })

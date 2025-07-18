@@ -129,8 +129,6 @@ export function animate(capsules: HTMLElement[]) {
         }
     });
 
-    gsap.set(".capsule", {willChange: "transform, opacity, scale"});
-
     const masterTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#capsule-wrapper",
@@ -175,7 +173,7 @@ export function animate(capsules: HTMLElement[]) {
         }
     });
 
-    masterTimeline.set(SELECTORS.secondCapsule, {}, ">.2");
+    masterTimeline.set(otherCapsules[1], {}, ">.2");
 
     return masterTimeline;
 }

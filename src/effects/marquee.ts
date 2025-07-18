@@ -16,7 +16,6 @@ gsap.registerEffect({
             repeat: -1,
             ease: config.ease || "none",
             duration: config.duration || 15,
-            invalidateOnRefresh: true,
             ...config
         });
     },

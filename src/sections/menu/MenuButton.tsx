@@ -2,6 +2,7 @@ import {useEffect, useRef, useState} from "react";
 import {useGSAP} from "@gsap/react";
 import Menu from "./Menu.tsx";
 import animation, {animateSVG} from "./animation.ts";
+import {usePageReady} from "../../hooks/usePageReady.tsx";
 
 interface Props {
     isOpenMap: boolean
@@ -14,10 +15,15 @@ export default function MenuButton({isOpenMap, setIsOpenMap}: Props) {
     const hoverTimeline = useRef<gsap.core.Timeline>(null)
     const moveWrapperTimeline = useRef<gsap.core.Timeline>(null)
     const svgTimeline = useRef<gsap.core.Timeline>(null)
+    const ready = usePageReady();
 
     const hasRendered = useRef(false)
 
-    const {contextSafe} = useGSAP(() => animation({hoverTimeline, moveWrapperTimeline}))
+    const {contextSafe} = useGSAP(() => {
+        if (!ready) return
+        
+        animation({hoverTimeline, moveWrapperTimeline})
+    }, [ready])
 
     const onHover = contextSafe(() => {
         hoverTimeline.current?.play()

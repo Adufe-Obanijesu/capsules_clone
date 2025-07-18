@@ -5,14 +5,19 @@ import {useGSAP} from "@gsap/react";
 import {animate} from "./animation";
 import Card from "./Card.tsx";
 import Marquee from "./Marquee.tsx";
+import {usePageReady} from "../../../hooks/usePageReady.tsx";
 
 export default function DesktopVersion() {
     const scope = useRef<HTMLDivElement>(null)
 
+    const ready = usePageReady();
+
     useGSAP(() => {
+        if (!ready) return
+
         const capsuleElements = gsap.utils.toArray(".capsule") as HTMLElement[];
         animate(capsuleElements);
-    }, {scope})
+    }, {scope, dependencies: [ready]})
 
     return (
         <section ref={scope} className="space-y-16 pl-2 pr-4">

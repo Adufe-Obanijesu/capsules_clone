@@ -50,7 +50,7 @@ export default function Marquee() {
 
     return (
         <div className="footer-marquee-wrapper overflow-x-hidden w-screen -mx-8 relative z-0 xl:-z-1 text-white">
-            <div id="footer-marquee-container" className="flex xl:translate-x-[-100%] will-change-transform">
+            <div id="footer-marquee-container" className="flex xl:translate-x-[-100%]">
                 <div className="min-w-screen">
                     <h1 className="w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
                         Book your capsule

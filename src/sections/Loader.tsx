@@ -2,13 +2,33 @@ import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
 import SplitText from "gsap/SplitText"
 import {useMediaQuery} from "react-responsive";
+import {usePageReady} from "../hooks/usePageReady.tsx";
+import {useRef, useState} from "react";
 
 export default function Loader({children}: { children: React.ReactNode }) {
+    const ready = usePageReady();
     const isMobile = useMediaQuery({maxWidth: 1279});
+    const intervalRef = useRef<NodeJS.Timer>(null);
+    const [scaleTo, setScaleTo] = useState(.3)
 
     const clip = isMobile ? "inset(calc(50vh - 40px) calc(50vw - 100px) round calc(50vw - 100px))" : "inset(calc(50vh - 40px) calc(50vw - 280px) round calc(50vw - 280px))"
 
     useGSAP(() => {
+        if (!ready) {
+            intervalRef.current = setInterval(() => {
+                gsap.to("#loader .bg-white", {
+                    transformOrigin: "center left",
+                    scale: `+=${scaleTo}`
+                });
+                setScaleTo(prev => prev * .5)
+            }, 2000);
+            return
+        }
+
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+        }
 
         const split = SplitText.create("#loader p", {
             type: "lines",
@@ -19,7 +39,6 @@ export default function Loader({children}: { children: React.ReactNode }) {
             .to("#loader .bg-white", {
                 transformOrigin: "center left",
                 scale: 1,
-                duration: 2
             })
             .to("#loader-clip-path", {
                 transformOrigin: "center center",
@@ -39,13 +58,16 @@ export default function Loader({children}: { children: React.ReactNode }) {
             .to("#menu, #navbar", {
                 opacity: 1
             })
-    })
+
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+        }
+    }, [ready])
 
     return (
         <div id="loader" className="">
             <div id="loader-clip-path" className="h-screen w-screen z-200" style={{
                 clipPath: clip,
-                willChange: "clip-path"
             }}>
                 {children}
             </div>

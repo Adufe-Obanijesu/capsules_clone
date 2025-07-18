@@ -75,7 +75,7 @@ export default function AnimatedButton({
         >
             <div
                 className={cn(
-                    "overlay absolute h-full w-full scale-0 rounded-full will-change-transform",
+                    "overlay absolute h-full w-full scale-0 rounded-full",
                     overlayStyles[variant], {"scale-100": isActive}
                 )}
             />

@@ -13,8 +13,8 @@ export default function Details({capsule}: Props) {
     return (
         <div ref={scope} className="padding relative">
 
-            <div id="details_wrapper"
-                 className="will-change-transform scale-0 fixed z-500 bottom-20 rounded-[40px] left-4 w-95 h-[calc(100vh-110px)] flex flex-col padding bg-darkBrown">
+            <div
+                className="details_wrapper scale-0 fixed z-500 bottom-20 rounded-[40px] left-4 w-95 h-[calc(100vh-110px)] flex flex-col padding bg-darkBrown">
                 <div
                     className="rounded-4xl overflow-y-scroll scrollbar-hide relative h-full px-2 touch-auto overflow-auto overscroll-contain flex flex-col gap-1">
                     <div className="invisible">

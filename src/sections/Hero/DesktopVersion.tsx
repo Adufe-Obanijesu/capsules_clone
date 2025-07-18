@@ -7,10 +7,10 @@ export default function DesktopVersion() {
     const scope = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        gsap.to("#background", {
+        gsap.to("#hero-background", {
             scale: 1.1,
             scrollTrigger: {
-                trigger: "#background",
+                trigger: "#hero-background",
                 start: "top top",
                 end: "bottom top",
                 scrub: 1,
@@ -22,7 +22,7 @@ export default function DesktopVersion() {
         <div ref={scope} className="padding h-screen w-full">
 
             <header className="hero-header h-full w-full rounded-[40px] overflow-hidden relative">
-                <img id="background" src="/images/cap1.webp" alt="capsule"
+                <img id="hero-background" src="/images/cap1.webp" alt="capsule"
                      className="object-cover object-center w-full h-full scale-110"/>
 
                 <div className="h-full absolute inset-0 p-7.5 z-1 flex flex-col justify-between">
