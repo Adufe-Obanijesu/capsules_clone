@@ -5,7 +5,7 @@ import SplitText from "gsap/SplitText"
 import GSDevTools from "gsap/GSDevTools"
 import TextPlugin from "gsap/TextPlugin"
 import {useGSAP} from "@gsap/react";
-import {useEffect, useRef, useState} from "react";
+import {createContext, useEffect, useRef, useState} from "react";
 import {useMediaQuery} from "react-responsive";
 import {lazy, Suspense} from "react";
 
@@ -21,6 +21,8 @@ import Reserve from "./sections/reserve";
 import Loader from "./sections/Loader.tsx";
 import useLenis from "./hooks/useLenis.tsx";
 import useEscapeKey from "./hooks/useEscapeKey.tsx";
+import type {IReserveContext} from "./types/Reserve.ts";
+import {capsules} from "./data/capsules.ts";
 
 
 const Discover = lazy(() => import("./sections/Discover"));
@@ -36,10 +38,13 @@ const Map = lazy(() => import("./sections/map"));
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, GSDevTools, TextPlugin)
 
+export const ReserveCtx = createContext<IReserveContext>({})
+
 export default function App() {
     useLenis()
     const [isOpenReserve, setIsOpenReserve] = useState(false)
     const [isOpenMap, setIsOpenMap] = useState(false)
+    const [selectedCapsule, setSelectedCapsule] = useState(capsules[0])
 
     useEscapeKey(() => {
         setIsOpenMap(false)
@@ -58,33 +63,40 @@ export default function App() {
 
 
     return (
-        <main className="bg-darkBrown relative antialiased">
-            <Navbar setIsOpen={setIsOpenReserve}/>
-            <Reserve isOpen={isOpenReserve} setIsOpen={setIsOpenReserve}/>
-            <MenuButton isOpenMap={isOpenMap} setIsOpenMap={setIsOpenMap}/>
-            <LazySectionWrapper>
-                <Map isOpenMap={isOpenMap}/>
-            </LazySectionWrapper>
-            <div className="bg-dark min-h-screen">
-                <Loader>
-                    <Hero/>
-                </Loader>
-                <div className="bg-gradient-brown">
-                    <Welcome/>
+        <ReserveCtx.Provider value={{
+            isOpenReserve,
+            setIsOpenReserve,
+            selectedCapsule,
+            setSelectedCapsule
+        }}>
+            <main className="bg-darkBrown relative antialiased">
+                <Navbar setIsOpen={setIsOpenReserve}/>
+                <Reserve isOpen={isOpenReserve} setIsOpen={setIsOpenReserve}/>
+                <MenuButton isOpenMap={isOpenMap} setIsOpenMap={setIsOpenMap}/>
+                <LazySectionWrapper>
+                    <Map isOpenMap={isOpenMap}/>
+                </LazySectionWrapper>
+                <div className="bg-dark min-h-screen">
+                    <Loader>
+                        <Hero/>
+                    </Loader>
+                    <div className="bg-gradient-brown">
+                        <Welcome/>
+                        <Suspense fallback={null}>
+                            <LazySectionWrapper><Discover/></LazySectionWrapper>
+                            <LazySectionWrapper pinning><Capsules/></LazySectionWrapper>
+                            <LazySectionWrapper><Closer setIsOpenMap={setIsOpenMap}/></LazySectionWrapper>
+                        </Suspense>
+                    </div>
                     <Suspense fallback={null}>
-                        <LazySectionWrapper><Discover/></LazySectionWrapper>
-                        <LazySectionWrapper pinning><Capsules/></LazySectionWrapper>
-                        <LazySectionWrapper><Closer setIsOpenMap={setIsOpenMap}/></LazySectionWrapper>
+                        <LazySectionWrapper pinning><Why/></LazySectionWrapper>
+                        <LazySectionWrapper pinning><Adventure/></LazySectionWrapper>
+                        <LazySectionWrapper><Testimonials/></LazySectionWrapper>
+                        <LazySectionWrapper><CTA setIsOpen={setIsOpenReserve}/></LazySectionWrapper>
+                        <LazySectionWrapper><Footer setIsOpen={setIsOpenReserve}/></LazySectionWrapper>
                     </Suspense>
                 </div>
-                <Suspense fallback={null}>
-                    <LazySectionWrapper pinning><Why/></LazySectionWrapper>
-                    <LazySectionWrapper pinning><Adventure/></LazySectionWrapper>
-                    <LazySectionWrapper><Testimonials/></LazySectionWrapper>
-                    <LazySectionWrapper><CTA setIsOpen={setIsOpenReserve}/></LazySectionWrapper>
-                    <LazySectionWrapper><Footer setIsOpen={setIsOpenReserve}/></LazySectionWrapper>
-                </Suspense>
-            </div>
-        </main>
+            </main>
+        </ReserveCtx.Provider>
     )
 }

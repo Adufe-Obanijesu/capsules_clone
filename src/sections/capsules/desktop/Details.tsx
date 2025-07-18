@@ -4,9 +4,10 @@ import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText.tsx
 
 interface Props {
     capsule: ICapsule;
+    reserve: () => void
 }
 
-export default function Details({capsule}: Props) {
+export default function Details({capsule, reserve}: Props) {
 
     const scope = useRef<HTMLDivElement>(null)
 
@@ -104,13 +105,13 @@ export default function Details({capsule}: Props) {
                         <div
                             className="text-[14px] leading-[18px] tracking-[-0.2px] text-lightBrown text-left mt-[18px] underline">
 
-                            <AnimatedUnderlineText id={`capsule-details-${capsule.id}`}>
+                            <AnimatedUnderlineText id={`capsule-details-${capsule.id}`} onClick={reserve}>
                                 Ready to reserve?
                             </AnimatedUnderlineText>
                         </div>
 
                     </div>
-                    <div className="flex-1 flex items-end">
+                    <div className="details-pricing flex-1 flex items-end">
                         <div
                             className="relative overflow-hidden w-full h-16 rounded-full px-[24px]">
                             <div

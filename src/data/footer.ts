@@ -43,18 +43,22 @@ export const footerLinks: IFooterLink[] = [
 export const socials = [
     {
         id: 1,
-        Icon: LiaLinkedin
+        Icon: LiaLinkedin,
+        href: "https://www.linkedin.com/company/moyra"
     },
     {
         id: 2,
-        Icon: FaInstagram
+        Icon: FaInstagram,
+        href: "https://www.instagram.com/moyra_lab"
     },
     {
         id: 3,
-        Icon: FaDribbble
+        Icon: FaDribbble,
+        href: "https://dribbble.com/moyra-co"
     },
     {
         id: 4,
-        Icon: FaBehance
+        Icon: FaBehance,
+        href: "https://www.behance.net/moyra-co"
     },
 ]

@@ -1,19 +1,20 @@
 import {GoPlus} from "react-icons/go";
 import type {ICapsule} from "../../../data/capsules.ts";
 import Details from "./Details.tsx";
-import {useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import gsap from "gsap";
 import {cn} from "../../../utils/tailwind.ts";
 import {useGSAP} from "@gsap/react";
 import AnimatedButton from "../../../components/Button.tsx";
 import useEscapeKey from "../../../hooks/useEscapeKey.tsx";
+import {ReserveCtx} from "../../../App.tsx";
 
 interface Props {
     capsule: ICapsule,
 }
 
 export default function Button({capsule}: Props) {
-
+    const {setIsOpenReserve, setSelectedCapsule} = useContext(ReserveCtx)
     const [isOpen, setIsOpen] = useState(false)
 
     useEscapeKey(() => {
@@ -45,14 +46,22 @@ export default function Button({capsule}: Props) {
             .to(`#capsule-button-${capsule.id} #terraceCapsuleDetails${capsule.id}`, {
                 backgroundColor: "white",
             }, "<")
-            // .to(`#capsule-button-${capsule.id} .details_wrapper button .absolute`, {
-            //     scaleX: 1,
-            //     autoAlpha: 1
-            // }, ">-5%")
+            .to(`#capsule-button-${capsule.id} .details_wrapper .details-pricing .absolute`, {
+                scaleX: 1,
+                autoAlpha: 1
+            }, ">-5%")
             .to(`#capsule-button-${capsule.id} .invisible`, {
                 autoAlpha: 1
             })
     }, {})
+
+    function reserve() {
+        setIsOpen(false)
+        gsap.delayedCall(tl.current.totalDuration() || 1000, () => {
+            setIsOpenReserve(true)
+            setSelectedCapsule(capsule)
+        })
+    }
 
     useEffect(() => {
         if (isOpen) {
@@ -74,7 +83,7 @@ export default function Button({capsule}: Props) {
                 </AnimatedButton>
 
 
-                <Details capsule={capsule}/>
+                <Details capsule={capsule} reserve={reserve}/>
 
                 <div
                     className={`details-overlay${capsule.id} fixed bg-tertiary z-60 w-full h-full top-0 left-0 opacity-0 pointer-events-none`}

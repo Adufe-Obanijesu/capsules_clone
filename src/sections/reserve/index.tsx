@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import AnimatedButton from "../../components/Button.tsx";
 
 import {FaTimes} from "react-icons/fa";
@@ -10,6 +10,7 @@ import SecondStep from "./steps/SecondStep.tsx";
 import {useMediaQuery} from "react-responsive";
 import {cn} from "../../utils/tailwind.ts";
 import {capsules} from "../../data/capsules.ts";
+import {ReserveCtx} from "../../App.tsx";
 
 export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
     const scope = useRef<HTMLDivElement>(null)
@@ -19,7 +20,8 @@ export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
     const isMobile = useMediaQuery({
         maxWidth: 1279
     })
-    const [selectedCapsule, setSelectedCapsule] = useState(capsules[0])
+
+    const {selectedCapsule, setSelectedCapsule} = useContext(ReserveCtx)
 
     const duration = .5
 

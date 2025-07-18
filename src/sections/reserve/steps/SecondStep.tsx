@@ -22,12 +22,17 @@ export default function SecondStep({selectedCapsule}: { selectedCapsule: ICapsul
                     className="text-xs font-semibold text-lightBrown mt-5">
                     This website is just the concept work done by Moyra— a premium digital lab. If you like this project
                     and would like to outsource something similar, don’t hesitate to contact us. Click the below button
-                    or use our email: <AnimatedUnderlineText id="reserve-email">hello@moyra.co</AnimatedUnderlineText>
+                    or use our email: <a href="mailto:hello@moyra.co"><AnimatedUnderlineText
+                    id="reserve-email">hello@moyra.co</AnimatedUnderlineText></a>
                 </div>
 
                 <div className="flex gap-2">
-                    <IconButton text="Inquiry" Icon={MdArrowOutward}/>
-                    <IconButton text="Moyra" Icon={MdArrowOutward}/>
+                    <a href="https://moyra.co/inquiry">
+                        <IconButton text="Inquiry" Icon={MdArrowOutward}/>
+                    </a>
+                    <a href="https://moyra.co">
+                        <IconButton text="Moyra" Icon={MdArrowOutward}/>
+                    </a>
                 </div>
 
             </div>

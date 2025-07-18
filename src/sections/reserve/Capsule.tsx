@@ -19,10 +19,10 @@ export default function Capsule({capsule, isSelected, setSelectedCapsule}: Props
                 <picture className="relative z-1">
                     <source srcSet={capsule.img} media="(min-width: 1240px)"/>
                     <img alt="" loading="lazy"
-                         className="h-16 object-cover z-20 md:h-full md:w-full md:scale-100 md:object-cover rounded-[14px] md:rounded-[1.4vw]"
+                         className="h-16 object-cover z-20 md:w-full md:scale-100 md:object-cover rounded-[14px] md:rounded-[1.4vw]"
                          src={capsule.imgMobile}/>
                 </picture>
-                <p className={cn("capitalize text-sm z-20 transition-colors group-hover:text-tertiary", {"text-tertiary": isSelected})}>{capsule.altName}</p>
+                <p className={cn("text-center w-full capitalize text-sm z-20 transition-colors group-hover:text-tertiary", {"text-tertiary": isSelected})}>{capsule.altName}</p>
             </div>
         </button>
     )

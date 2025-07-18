@@ -36,6 +36,7 @@ export default function AnimatedButton({
 
         if (variant !== "white-overlay") {
             timeline.current.to(content, {color: "var(--color-tertiary)"}, "<")
+                .to(button, {borderColor: "var(--color-lightBrown)"}, "<")
         }
     }, [])
 

@@ -32,18 +32,26 @@ export default function Footer({setIsOpen}: Omit<IReserveProps, "isOpen">) {
                     <div className="mt-5 xl:sm-text md-text leading-[1]">If you would like to outsource a similar
                         website
                         project-
-                        <AnimatedUnderlineText id="closer-underlined" color="white" hoverColor="lightBrown">
-                            contact us.
-                        </AnimatedUnderlineText></div>
+                        <a href="https://moyra.co/">
+                            <AnimatedUnderlineText id="closer-underlined" color="white" hoverColor="lightBrown">
+                                contact us.
+                            </AnimatedUnderlineText>
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <div className="flex justify-between">
                 <div className="flex items-center">
                     {
-                        socials.map(({id, Icon}) => <AnimatedButton variant="white-outline" key={id}
-                                                                    className="h-14 w-14 xl:h-10 xl:w-10"><Icon
-                            className="xl:text-xl text-2xl"/></AnimatedButton>)
+                        socials.map(({id, Icon, href}) => (
+                                <a href={href} key={id}>
+                                    <AnimatedButton variant="white-outline"
+                                                    className="h-14 w-14 xl:h-10 xl:w-10"><Icon
+                                        className="xl:text-xl text-2xl"/></AnimatedButton>
+                                </a>
+                            )
+                        )
                     }
                 </div>
 
@@ -57,8 +65,8 @@ export default function Footer({setIsOpen}: Omit<IReserveProps, "isOpen">) {
 
             <div className="flex flex-col gap-0.5 justify-between text-sm xl:flex-row">
                 <span
-                    className="text-lightBrown">Website made by-<AnimatedUnderlineText
-                    id="footer-brand">Moyra.co</AnimatedUnderlineText>
+                    className="text-lightBrown">Website made by-<a href="https://moyra.co/"><AnimatedUnderlineText
+                    id="footer-brand">Moyra.co</AnimatedUnderlineText></a>
             </span>
                 <span
                     className="hidden md:block text-lightBrown">This website is using <span
