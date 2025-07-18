@@ -10,7 +10,7 @@ export default function Card({capsule, setSelectedCapsule}: Props) {
     return <div>
         <div className="relative overflow-hidden w-full aspect-[1.4/1] rounded-[30px]"><img alt={capsule.name}
                                                                                             className="object-cover object-center absolute w-full h-full"
-                                                                                            src={capsule.img}
+                                                                                            src={capsule.imgMobile}
                                                                                             loading="lazy"/>
             <button
                 className="w-[52px] h-[52px] hover:opacity-[0.9] right-[10px] bottom-[10px] absolute rounded-full bg-lightBrown flex justify-center items-center z-1 cursor-pointer"

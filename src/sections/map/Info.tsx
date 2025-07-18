@@ -16,6 +16,7 @@ export default function Info() {
                     </p>
                 </AnimatedUnderlineText>
                 <div className="flex gap-2">
+
                     <img src="/images/cap1-mobile.webp" loading="lazy" alt="capsule"
                          className="h-15 w-24 rounded-lg object-center object-cover"/>
                     <img src="/images/activities-2.webp" loading="lazy" alt="capsule"

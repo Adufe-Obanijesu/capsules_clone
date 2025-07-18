@@ -27,9 +27,12 @@ export default function DesktopVersion() {
         <div ref={scope} className="padding h-screen w-full">
 
             <header className="hero-header h-full w-full rounded-[40px] overflow-hidden relative">
-                <img id="hero-background" src="/images/cap1.webp" alt="capsule"
-                     className="object-cover object-center w-full h-full" fetchPriority="high"
-                     loading="eager"/>
+                <picture>
+                    <source srcSet="/images/cap1.webp" media="(min-width: 640px)"/>
+                    <img id="hero-background" src="/images/cap1-mobile.webp" alt="capsule"
+                         className="object-cover object-center w-full h-full" fetchPriority="high"
+                         loading="eager"/>
+                </picture>
 
                 <div className="h-full absolute inset-0 p-7.5 z-1 flex flex-col justify-between">
 

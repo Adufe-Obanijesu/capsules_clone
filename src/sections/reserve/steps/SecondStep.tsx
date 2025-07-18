@@ -33,8 +33,11 @@ export default function SecondStep() {
 
             <div className="content xl:invisible flex-1 flex items-end">
                 <div className="rounded-[40px] max-h-60 w-full overflow-hidden relative">
-                    <img loading="lazy" src="/images/cap1.webp" alt="capsules"
-                         className="h-full w-full object-cover object-center"/>
+                    <picture>
+                        <source srcSet="/images/cap1.webp" media="(min-width: 640px)"/>
+                        <img loading="lazy" src="/images/cap1-mobile.webp" alt="capsules"
+                             className="h-full w-full object-cover object-center"/>
+                    </picture>
                     <div className="center-absolute">
                         <h2 className="text-white font-medium">
                             Capsules®

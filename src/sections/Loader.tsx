@@ -76,7 +76,7 @@ export default function Loader({children}: { children: React.ReactNode }) {
                 <div
                     className="relative overflow-hidden bg-middleBrown text-white rounded-full xl:w-140 xl:h-40 w-50 h-20 flex justify-center items-center">
                     <div className="absolute top-0 left-0 h-full w-full scale-x-0 bg-white"/>
-                    <h2 className="mix-blend-difference">Capsules®</h2>
+                    <h2 className="mix-blend-difference text-2xl xl:text-[clamp(2rem,4vw,3rem)]">Capsules®</h2>
                 </div>
             </div>
 
