@@ -14,7 +14,6 @@ export default function DesktopVersion() {
         gsap.to("#hero-background", {
             scale: 1.1,
             scrollTrigger: {
-                markers: true,
                 trigger: ".hero-header",
                 start: "top top",
                 end: "bottom top",

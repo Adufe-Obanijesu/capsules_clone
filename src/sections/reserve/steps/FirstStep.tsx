@@ -4,6 +4,7 @@ import {capsules, type ICapsule} from "../../../data/capsules.ts";
 
 import {IconButton} from "../../../components/Button.tsx";
 import {useMediaQuery} from "react-responsive";
+import DateInput from "../../../components/DateInput.tsx";
 
 interface Props {
     next: () => void
@@ -21,7 +22,7 @@ export default function FirstStep({next, selectedCapsule, setSelectedCapsule}: P
             id="first-step"
             className="mt-10 rounded-4xl overflow-y-scroll scrollbar-hide relative h-full px-2 overflow-auto overscroll-contain flex flex-col gap-1">
 
-            <div className="px-6 content xl:invisible space-y-4">
+            <div className="px-6 content xl:invisible space-y-6">
 
                 <div className="mt-[20px]">
                     <div>
@@ -50,6 +51,12 @@ export default function FirstStep({next, selectedCapsule, setSelectedCapsule}: P
 
                 <p className="text-white font-semibold text-xs">(2) How long you would like to stay and
                     when?</p>
+
+                <div className="flex items-center justify-between gap-2 text-lightBrown">
+                    <DateInput/>
+                    -
+                    <DateInput/>
+                </div>
 
             </div>
             <div className="px-6 flex-1 flex items-end">

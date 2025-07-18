@@ -15,18 +15,9 @@ import "./effects"
 // Sections
 import Welcome from "./sections/Welcome.tsx";
 import {LazySectionWrapper} from "./components/LazySectionWrapper";
-// import Discover from "./sections/Discover.tsx";
-// import Capsules from "./sections/capsules";
-// import Closer from "./sections/Closer.tsx";
-// import Why from "./sections/Why";
-// import Adventure from "./sections/Adventure";
-// import Testimonials from "./sections/Testimonials/Testimonials.tsx";
-// import CTA from "./sections/CTA.tsx";
-// import Footer from "./sections/footer";
 import Navbar from "./sections/navigation/Navbar.tsx";
 import MenuButton from "./sections/menu/MenuButton.tsx";
 import Reserve from "./sections/reserve";
-// import Map from "./sections/map";
 import Loader from "./sections/Loader.tsx";
 import useLenis from "./hooks/useLenis.tsx";
 

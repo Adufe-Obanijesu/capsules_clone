@@ -36,6 +36,7 @@ body::-webkit-scrollbar {
     --color-middleBrown: #332e2b;
     --color-darkBrown: #2a2725;
     --color-tertiary: #181717;
+    --breakpoint-xl: 1280px;
 }
 
 * {
