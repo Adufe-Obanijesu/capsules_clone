@@ -9,7 +9,6 @@ import FirstStep from "./steps/FirstStep.tsx";
 import SecondStep from "./steps/SecondStep.tsx";
 import {useMediaQuery} from "react-responsive";
 import {cn} from "../../utils/tailwind.ts";
-import {capsules} from "../../data/capsules.ts";
 import {ReserveCtx} from "../../App.tsx";
 
 export default function Reserve({isOpen, setIsOpen}: IReserveProps) {

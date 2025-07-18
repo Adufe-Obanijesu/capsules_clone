@@ -38,7 +38,14 @@ const Map = lazy(() => import("./sections/map"));
 
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, GSDevTools, TextPlugin)
 
-export const ReserveCtx = createContext<IReserveContext>({})
+export const ReserveCtx = createContext<IReserveContext>({
+    isOpenReserve: false,
+    setIsOpenReserve: () => {
+    },
+    selectedCapsule: capsules[0],
+    setSelectedCapsule: () => {
+    },
+})
 
 export default function App() {
     useLenis()
