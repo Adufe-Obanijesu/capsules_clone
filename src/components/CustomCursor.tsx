@@ -81,17 +81,14 @@ export default function CustomCursor({
         <div className="relative">
             <div
                 ref={containerRef}
-                className={cn("relative inline-block", {"block": block})}
-                style={{
-                    cursor: cursorHide ? 'none' : 'auto'
-                }}
+                className={cn("relative inline-block", {"block": block}, {"xl:cursor-none cursor-auto": cursorHide})}
             >
                 {children}
             </div>
 
             <div
                 ref={cursorRef}
-                className="fixed top-0 left-0 z-50 pointer-events-none"
+                className="fixed top-0 left-0 z-50 pointer-events-none hidden xl:block"
             >
                 {cursor}
             </div>
