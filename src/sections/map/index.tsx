@@ -1,20 +1,12 @@
 import Info from "./Info.tsx";
-import {useEffect, useRef} from "react";
+import {lazy, useEffect, useRef} from "react";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
-import {AuthenticationType, AzureMap, AzureMapsProvider, type IAzureMapOptions} from "react-azure-maps";
-import 'azure-maps-control/dist/atlas.min.css'
-import MapController from "./MapController.tsx";
+
+const MapSection = lazy(() => import('./Map.tsx'));
 
 interface Props {
     isOpenMap: boolean
-}
-
-const option: IAzureMapOptions = {
-    authOptions: {
-        authType: AuthenticationType.subscriptionKey,
-        subscriptionKey: import.meta.env.VITE_PRIMARY_KEY
-    },
 }
 
 export default function Map({isOpenMap}: Props) {
@@ -50,13 +42,7 @@ export default function Map({isOpenMap}: Props) {
     return (
         <section>
             <div id="map" className="circle-clip-path w-screen h-screen fixed top-0 left-0 pointer-events-none z-40">
-                <AzureMapsProvider>
-                    <div style={{height: '100vh', width: "100vw", position: "absolute", left: 0, top: 0}}>
-                        <AzureMap options={option}/>
-                        <MapController/>
-                    </div>
-                </AzureMapsProvider>
-
+                <MapSection/>
                 <div className="p-4">
                     <Info/>
                 </div>

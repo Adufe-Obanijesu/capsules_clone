@@ -18,7 +18,7 @@ export default function DesktopCarousel() {
 
         gsap.timeline({
             scrollTrigger: {
-                trigger: container.current,
+                trigger: "#activities",
                 start: "top 1.5%",
                 end: `+=${distance}px`,
                 scrub: 1,
@@ -39,11 +39,14 @@ export default function DesktopCarousel() {
 
     return (
         <div ref={scope} className="mt-12.5 overflow-hidden -mx-2.5">
-            <div ref={container} id="activities"
-                 className="flex gap-2.5 w-max overflow-x-scroll xl:overflow-x-hidden px-2.5">
-                {
-                    activities.map((activity) => <Card key={activity.id} activity={activity}/>)
-                }
+            <div id="activities">
+
+                <div ref={container}
+                     className="flex gap-2.5 w-max overflow-x-scroll xl:overflow-x-hidden px-2.5">
+                    {
+                        activities.map((activity) => <Card key={activity.id} activity={activity}/>)
+                    }
+                </div>
             </div>
         </div>
     )
