@@ -9,6 +9,7 @@ import FirstStep from "./steps/FirstStep.tsx";
 import SecondStep from "./steps/SecondStep.tsx";
 import {useMediaQuery} from "react-responsive";
 import {cn} from "../../utils/tailwind.ts";
+import {capsules} from "../../data/capsules.ts";
 
 export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
     const scope = useRef<HTMLDivElement>(null)
@@ -18,6 +19,7 @@ export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
     const isMobile = useMediaQuery({
         maxWidth: 1279
     })
+    const [selectedCapsule, setSelectedCapsule] = useState(capsules[0])
 
     const duration = .5
 
@@ -153,8 +155,8 @@ export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
                     </AnimatedButton>
                 </div>
 
-                <FirstStep next={next}/>
-                <SecondStep/>
+                <FirstStep next={next} selectedCapsule={selectedCapsule} setSelectedCapsule={setSelectedCapsule}/>
+                <SecondStep selectedCapsule={selectedCapsule}/>
             </div>
         </div>
     )

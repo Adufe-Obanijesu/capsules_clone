@@ -1,8 +1,9 @@
 import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText.tsx";
 import {IconButton} from "../../../components/Button.tsx";
 import {MdArrowOutward} from "react-icons/md";
+import type {ICapsule} from "../../../data/capsules.ts";
 
-export default function SecondStep() {
+export default function SecondStep({selectedCapsule}: { selectedCapsule: ICapsule }) {
     return (
         <div
             id="second-step"
@@ -34,8 +35,8 @@ export default function SecondStep() {
             <div className="content xl:invisible flex-1 flex items-end">
                 <div className="rounded-[40px] max-h-60 w-full overflow-hidden relative">
                     <picture>
-                        <source srcSet="/images/cap1.webp" media="(min-width: 640px)"/>
-                        <img loading="lazy" src="/images/cap1-mobile.webp" alt="capsules"
+                        <source srcSet={selectedCapsule.img} media="(min-width: 640px)"/>
+                        <img loading="lazy" src={selectedCapsule.imgMobile} alt="capsules"
                              className="h-full w-full object-cover object-center"/>
                     </picture>
                     <div className="center-absolute">

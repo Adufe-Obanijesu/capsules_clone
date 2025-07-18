@@ -1,13 +1,17 @@
 import Capsule from "../Capsule.tsx";
 import {MdOutlineArrowForward} from "react-icons/md";
-import {useState} from "react";
-import {capsules} from "../../../data/capsules.ts";
+import {capsules, type ICapsule} from "../../../data/capsules.ts";
 
 import {IconButton} from "../../../components/Button.tsx";
 import {useMediaQuery} from "react-responsive";
 
-export default function FirstStep({next}: { next: () => void }) {
-    const [selectedCapsule, setSelectedCapsule] = useState(capsules[0])
+interface Props {
+    next: () => void
+    selectedCapsule: ICapsule
+    setSelectedCapsule: React.Dispatch<React.SetStateAction<ICapsule>>
+}
+
+export default function FirstStep({next, selectedCapsule, setSelectedCapsule}: Props) {
     const isMobile = useMediaQuery({
         maxWidth: 1279
     })
