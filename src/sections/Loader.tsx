@@ -8,7 +8,7 @@ import {useRef, useState} from "react";
 export default function Loader({children}: { children: React.ReactNode }) {
     const ready = usePageReady();
     const isMobile = useMediaQuery({maxWidth: 1279});
-    const intervalRef = useRef<NodeJS.Timer>(null);
+    const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
     const [scaleTo, setScaleTo] = useState(.3)
 
     const clip = isMobile ? "inset(calc(50vh - 40px) calc(50vw - 100px) round calc(50vw - 100px))" : "inset(calc(50vh - 40px) calc(50vw - 280px) round calc(50vw - 280px))"
