@@ -35,7 +35,7 @@ export default function SecondStep({selectedCapsule}: { selectedCapsule: ICapsul
             <div className="content xl:invisible flex-1 flex items-end">
                 <div className="rounded-[40px] max-h-60 w-full overflow-hidden relative">
                     <picture>
-                        <source srcSet={selectedCapsule.img} media="(min-width: 640px)"/>
+                        <source srcSet={selectedCapsule.img} media="(min-width: 1240px)"/>
                         <img loading="lazy" src={selectedCapsule.imgMobile} alt="capsules"
                              className="h-full w-full object-cover object-center"/>
                     </picture>

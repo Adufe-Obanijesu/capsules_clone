@@ -20,7 +20,7 @@ export default function MobileVersion() {
 
                         <div className="w-full h-[45vh] relative overflow-hidden rounded-[30px] bg-black">
                             <picture>
-                                <source srcSet="/images/cap1.webp" media="(min-width: 640px)"/>
+                                <source srcSet="/images/cap1.webp" media="(min-width: 1240px)"/>
                                 <img src="/images/cap1-mobile.webp" alt="capsule"
                                      className="object-cover object-center absolute w-full h-full xl:scale-[1.4]"
                                      fetchPriority="high" loading="eager"/>

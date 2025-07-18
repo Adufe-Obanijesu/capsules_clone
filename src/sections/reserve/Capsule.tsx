@@ -17,7 +17,7 @@ export default function Capsule({capsule, isSelected, setSelectedCapsule}: Props
                 <div
                     className={cn("h-full w-full bg-lightBrown absolute inset-0 z-0 scale-0 origin-left xl:origin-center rounded-full transition duration-300 group-hover:scale-110 group-hover:md:scale-130 -ml-4 xl:ml-0", {"bg-white scale-130 ": isSelected})}/>
                 <picture>
-                    <source srcSet={capsule.img} media="(min-width: 640px)"/>
+                    <source srcSet={capsule.img} media="(min-width: 1240px)"/>
                     <img alt="" loading="lazy"
                          className="h-16 object-cover z-20 md:h-full md:w-full md:scale-100 md:object-cover rounded-[14px] md:rounded-[1.4vw]"
                          src={capsule.imgMobile}/>
