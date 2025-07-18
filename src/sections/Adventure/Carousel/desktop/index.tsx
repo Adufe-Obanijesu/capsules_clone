@@ -55,7 +55,7 @@ function Card({activity}: { activity: TActivity }) {
             <div className="absolute top-0 left-0 w-full h-full"><img
                 alt="Activity"
                 className="scale-140 object-cover absolute w-full h-full z-[-1]"
-                src={activity.img}/></div>
+                src={activity.img} loading="lazy"/></div>
             <div className="w-full h-full">
                 <div className="w-full h-full flex flex-col justify-between right-0">
                     <div className="flex justify-between">

@@ -45,7 +45,7 @@ export default function Card({details, whys, multiple = false}: Props) {
             <div
                 className="h-[256px] w-[calc(100%+10px] relative rounded-[30px] overflow-hidden -margin-x xl:hidden">
                 <img className="object-cover object-center absolute w-full scale-[1.4] h-full"
-                     src={details.img} alt={details.title}/></div>
+                     src={details.img} alt={details.title} loading="lazy"/></div>
         </div>
     )
 }

@@ -30,7 +30,7 @@ export default function Details({capsule}: Props) {
                             <div className="w-[114px] h-[58px] relative rounded-[23px] overflow-hidden"><img
                                 alt={capsule?.name}
                                 className="object-cover object-center absolute w-full h-full"
-                                src={capsule?.img}/></div>
+                                src={capsule?.img} loading="lazy"/></div>
                         </div>
                         <div
                             className="text-xs font-semibold leading-[18px] tracking-[-0.2px] text-lightBrown mt-5">{capsule?.description}

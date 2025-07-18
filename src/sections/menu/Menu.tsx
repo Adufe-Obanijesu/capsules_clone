@@ -47,7 +47,7 @@ export default function Menu() {
                 <div
                     id="menu-image"
                     className="invisible xl:translate-x-full relative overflow-hidden max-h-[300px] h-full xl:w-[400px] mt-2 mr-2 xl:max-h-[calc(100vh-36px)] rounded-[40px]">
-                    <img src="/images/cap1.webp" alt="menu"
+                    <img src="/images/cap1.webp" alt="menu" loading="lazy"
                          className="scale-140 w-full h-full object-cover object-center"/>
                     <div
                         className="flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

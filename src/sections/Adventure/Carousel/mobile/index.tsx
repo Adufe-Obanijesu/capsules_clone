@@ -16,7 +16,7 @@ function Card({activity}: { activity: TActivity }) {
     return (
         <div className="flex-none w-[80vw]">
             <div className="flex relative flex-col w-full h-[256px] rounded-[30px] overflow-hidden"><img
-                src={activity.img} className="h-full w-full object-cover" alt="activity"/>
+                src={activity.img} className="h-full w-full object-cover" alt="activity" loading="lazy"/>
                 <div
                     className="border-[2px] border-white px-[11px] py-[10px] h-[34px] rounded-full flex justify-center items-center absolute right-[20px] top-[20px]">
                     <div

@@ -20,9 +20,9 @@ export default function DesktopVersion() {
                 <div className="relative right-side">
                     <div
                         className="image-container image-with-clip absolute inset-0 overflow-hidden rounded-[30px] h-[98vh] z-3 ">
-                        <img src={why[0].img} alt="capsule"
+                        <img src={why[0].img} alt="capsule" loading="lazy"
                              className="absolute inset-0 z-1 object-cover object-center w-full h-full"/>
-                        <img src={why[1].img} alt="capsule"
+                        <img src={why[1].img} alt="capsule" loading="lazy"
                              className="absolute inset-0 object-cover object-center w-full h-full scale-[1.4]"/>
                     </div>
                     <div className="card-container absolute inset-0 z-2 translate-y-[110%] ">
@@ -30,7 +30,7 @@ export default function DesktopVersion() {
                     </div>
                     <div
                         className="image-container absolute inset-0 overflow-hidden rounded-[30px] h-[98vh] z-1 translate-y-[110%]">
-                        <img src={why[2].img} alt="capsule"
+                        <img src={why[2].img} alt="capsule" loading="lazy"
                              className="object-cover object-center w-full h-full scale-[1.4]"/>
                     </div>
                 </div>

@@ -5,7 +5,8 @@ export default function MobileVersion() {
                 <div className="h-full relative z-1 flex flex-col justify-between">
 
                     <div className="px-2.5">
-                        <img src="/logo.svg" alt="logo" className="aspect-[4.28/1] logo-fluid"/>
+                        <img src="/logo.svg" alt="logo" className="aspect-[4.28/1] logo-fluid" fetchPriority="high"
+                             loading="eager"/>
 
                         <p className="text-[23px] leading-[26px] tracking-[-0.2px] font-medium mt-[20px] text-lightBrown">
                             Closer to <br/> Nature-Closer<br/> to Yourself
@@ -19,7 +20,8 @@ export default function MobileVersion() {
 
                         <div className="w-full h-[45vh] relative overflow-hidden rounded-[30px] bg-black">
                             <img src="/images/cap1.webp" alt="capsule"
-                                 className="object-cover object-center absolute w-full h-full xl:scale-[1.4]"/>
+                                 className="object-cover object-center absolute w-full h-full xl:scale-[1.4]"
+                                 fetchPriority="high" loading="eager"/>
                         </div>
                     </div>
                 </div>

@@ -30,12 +30,12 @@ export default function MobileVersion() {
 
                         <div className="min-w-screen padding-x">
 
-                            <img src="/logo.svg" alt="logo" className="aspect-[4.28/1]"/>
+                            <img src="/logo.svg" loading="lazy" alt="logo" className="aspect-[4.28/1]"/>
                         </div>
 
                         <div className="min-w-screen padding-x">
 
-                            <img src="/logo.svg" alt="logo" className="aspect-[4.28/1]"/>
+                            <img src="/logo.svg" loading="lazy" alt="logo" className="aspect-[4.28/1]"/>
                         </div>
                     </div>
                 </div>

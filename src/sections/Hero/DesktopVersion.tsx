@@ -23,11 +23,13 @@ export default function DesktopVersion() {
 
             <header className="hero-header h-full w-full rounded-[40px] overflow-hidden relative">
                 <img id="hero-background" src="/images/cap1.webp" alt="capsule"
-                     className="object-cover object-center w-full h-full scale-110"/>
+                     className="object-cover object-center w-full h-full scale-110" fetchPriority="high"
+                     loading="eager"/>
 
                 <div className="h-full absolute inset-0 p-7.5 z-1 flex flex-col justify-between">
 
-                    <img src="/logo.svg" alt="logo" className="aspect-[4.28/1] logo-fluid-lg"/>
+                    <img src="/logo.svg" alt="logo" loading="eager" fetchPriority="high"
+                         className="aspect-[4.28/1] logo-fluid-lg"/>
 
                     <div className="flex justify-between items-center">
                         <h1 className="font-medium mt-[20px] text-white">

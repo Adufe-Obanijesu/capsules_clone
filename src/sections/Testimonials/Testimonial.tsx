@@ -11,7 +11,7 @@ export default function Testimonial({testimonial}: { testimonial: ITestimonial }
                 <div className="flex items-center gap-4">
                     <div className="avatar w-14 h-14 rounded-full relative overflow-hidden"><img
                         alt={testimonial.name}
-                        className="object-cover object-center absolute w-full h-full "
+                        className="object-cover object-center absolute w-full h-full" loading="lazy"
                         src={testimonial.img}/>
                     </div>
                     <div className="flex flex-col">

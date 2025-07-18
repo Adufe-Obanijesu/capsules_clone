@@ -15,7 +15,7 @@ export default function Card({capsule}: { capsule: ICapsule }) {
                     className={cn(`h-full w-full rounded-[40px] overflow-hidden flex justify-center items-center`, {"scale-45 rounded-[200px] overflow-hidden": capsule.id === 1})}>
                     <img alt="Terrace Capsule"
                          className="object-cover object-center absolute w-full h-full scale-[1.4]"
-                         src={capsule.img}/>
+                         src={capsule.img} loading="lazy"/>
                     <div className="left-8 flex justify-between items-center w-full absolute">
                         <h1
                             className="text-white lg-text invisible leading-[1.2]">

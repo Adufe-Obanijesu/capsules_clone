@@ -32,7 +32,7 @@ export default function CTA({setIsOpen}: Omit<IReserveProps, "isOpen">) {
 
                 <div id="cta" className="h-full w-full rounded-[60px] overflow-hidden relative"
                      onClick={() => setIsOpen(true)}>
-                    <img src="/images/cap2.webp" alt="capsule"
+                    <img src="/images/cap2.webp" loading="lazy" alt="capsule"
                          className="object-cover object-center w-full h-full scale-120"/>
 
                     <div className="h-full absolute inset-0 p-7.5 z-1 flex flex-col justify-end">
