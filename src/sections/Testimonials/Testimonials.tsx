@@ -3,7 +3,6 @@ import {IoArrowBackSharp, IoArrowForwardSharp} from "react-icons/io5";
 import AnimatedButton from "../../components/Button.tsx";
 import Testimonial from "./Testimonial.tsx";
 import useAnimation from "./useAnimation.tsx";
-import SubTitle from "../../components/SubTitle.tsx";
 
 export default function Testimonials() {
 
@@ -11,9 +10,7 @@ export default function Testimonials() {
 
     return (
         <section id="testimonials" className="text-white padding-x xl:px-8">
-            <SubTitle>
-                Do people like us?
-            </SubTitle>
+            <h2 className="sub-heading">Do people like us?</h2>
             <div className="my-10 space-y-12">
                 <div className="grid grid-cols-1 grid-rows-1 gap-8">
                     {

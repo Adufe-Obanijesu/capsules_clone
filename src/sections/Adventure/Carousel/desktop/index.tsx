@@ -55,23 +55,23 @@ export default function DesktopCarousel() {
 function Card({activity}: { activity: TActivity }) {
     return (
         <div className="h-[97vh] w-[85vw] min-w-[85vw] rounded-[40px] px-6 py-10 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full"><img
+            <div className="absolute top-0 left-0 w-full h-full z-0"><img
                 alt="Activity"
-                className="scale-140 object-cover absolute w-full h-full z-[-1]"
+                className="scale-140 object-cover absolute w-full h-full z-0"
                 src={activity.img} loading="lazy"/></div>
-            <div className="w-full h-full">
+            <div className="w-full h-full relative z-1">
                 <div className="w-full h-full flex flex-col justify-between right-0">
                     <div className="flex justify-between">
-                        <h3
-                            className="text-white font-medium">{activity.title}
-                        </h3>
+                        <h2
+                            className="heading-3 text-white font-medium">{activity.title}
+                        </h2>
                         <div>
 
                             <div
                                 className="border px-2 py-1 border-white rounded-full flex justify-center items-center">
-                                <p
+                                <span
                                     className="text-sm font-semibold text-white">{activity.difficulty}
-                                </p>
+                                </span>
                             </div>
                         </div>
                     </div>

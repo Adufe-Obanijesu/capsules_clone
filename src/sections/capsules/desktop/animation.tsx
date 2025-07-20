@@ -42,7 +42,7 @@ function createFadeOutTimeline(
 }
 
 function prepareCapsuleElements(capsule: HTMLElement) {
-    const heading = capsule.querySelector("h1") as HTMLElement;
+    const heading = capsule.querySelector("#capsule-wrapper .capsule-heading") as HTMLElement;
     const paragraph = capsule.querySelector("p") as HTMLElement;
     const button = capsule.querySelector("button") as HTMLElement;
     const overlay = capsule.querySelector(".overlay") as HTMLElement;

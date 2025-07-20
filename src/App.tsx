@@ -9,9 +9,16 @@ import {useGSAP} from "@gsap/react";
 import {createContext, useEffect, useRef, useState} from "react";
 import {useMediaQuery} from "react-responsive";
 import {lazy, Suspense} from "react";
+import type {IReserveContext} from "./types/Reserve.ts";
+import {capsules} from "./data/capsules.ts";
 
 // Effects
 import "./effects"
+
+// Hooks
+import useLenis from "./hooks/useLenis.tsx";
+import useEscapeKey from "./hooks/useEscapeKey.tsx";
+
 
 // Sections
 import Welcome from "./sections/Welcome.tsx";
@@ -20,12 +27,8 @@ import Navbar from "./sections/navigation/Navbar.tsx";
 import MenuButton from "./sections/menu/MenuButton.tsx";
 import Reserve from "./sections/reserve";
 import Loader from "./sections/Loader.tsx";
-import useLenis from "./hooks/useLenis.tsx";
-import useEscapeKey from "./hooks/useEscapeKey.tsx";
-import type {IReserveContext} from "./types/Reserve.ts";
-import {capsules} from "./data/capsules.ts";
 
-
+// Lazy loaded sections
 const Discover = lazy(() => import("./sections/Discover"));
 const Capsules = lazy(() => import("./sections/capsules"));
 const Closer = lazy(() => import("./sections/Closer"));

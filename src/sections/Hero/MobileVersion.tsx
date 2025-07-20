@@ -1,7 +1,7 @@
 export default function MobileVersion() {
     return (
         <div>
-            <header className="hero-header relative h-screen padding-x pt-12.5 pb-25">
+            <div className="hero-header relative h-screen padding-x pt-12.5 pb-25">
                 <div className="h-full relative z-1 flex flex-col justify-between">
 
                     <div className="px-2.5">
@@ -30,7 +30,7 @@ export default function MobileVersion() {
                 </div>
 
                 <div className="absolute inset-0 bg-gradient-dark"/>
-            </header>
+            </div>
         </div>
     )
 }

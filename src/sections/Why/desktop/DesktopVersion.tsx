@@ -8,7 +8,7 @@ export default function DesktopVersion() {
 
     const scope = useRef<HTMLDivElement>(null)
 
-    useGSAP(() => animation, {})
+    useGSAP(() => animation)
 
     return (
         <section ref={scope} className="bg-tertiary py-[1vh] z-1 relative">

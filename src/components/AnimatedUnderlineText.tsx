@@ -3,7 +3,7 @@ import {type HTMLAttributes, useRef} from "react";
 import gsap from "gsap";
 import {useGSAP} from "@gsap/react";
 
-interface Props extends HTMLAttributes<HTMLButtonElement> {
+interface Props extends HTMLAttributes<HTMLDivElement> {
     id: string
     children: React.ReactNode;
     color?: "white" | "lightBrown";
@@ -24,11 +24,11 @@ export default function AnimatedUnderlineText({
 
     const {contextSafe} = useGSAP(() => {
         tl.current
-            .fromTo(`#${id} span .absolute`, {xPercent: 0}, {
+            .fromTo(`#${id} .absolute`, {xPercent: 0}, {
                 xPercent: 100
             })
             .addLabel("reverse")
-            .fromTo(`#${id} span .absolute`, {xPercent: -100}, {xPercent: 0, immediateRender: false})
+            .fromTo(`#${id} .absolute`, {xPercent: -100}, {xPercent: 0, immediateRender: false})
     })
 
     const onHover = contextSafe(() => {
@@ -40,14 +40,14 @@ export default function AnimatedUnderlineText({
     })
 
     return (
-        <span id={id} className="cursor-pointer" {...props}>
-            <span
+        <div id={id} className="cursor-pointer inline" {...props}>
+            <div
                 className={cn("relative inline-flex overflow-hidden group ", `text-${color}`, `hover:text-${hoverColor}`, classes)}
                 onMouseEnter={onHover} onMouseLeave={onLeave}>
                 {children}
                 <div
-                    className={cn("absolute bottom-0 h-[5%] w-full left-0", `bg-${color}`, `group-hover:bg-${hoverColor}`,)}/>
-            </span>
-        </span>
+                    className={cn("absolute bottom-0 h-[5%] w-full left-0", `bg-${color}`, `group-hover:bg-${hoverColor}`)}/>
+            </div>
+        </div>
     )
 }

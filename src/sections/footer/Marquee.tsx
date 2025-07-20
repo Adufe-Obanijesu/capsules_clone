@@ -1,10 +1,14 @@
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
+import {useRef, useState} from "react";
 
-export default function Marquee() {
+export default function Marquee({setIsOpen}: { setIsOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
 
-    useGSAP(() => {
-        const timeline = gsap.timeline({repeat: -1})
+    const timeline = useRef<gsap.core.Timeline>(null)
+    const [direction, setDirection] = useState<"left" | "right">("left")
+
+    const {contextSafe} = useGSAP(() => {
+        timeline.current = gsap.timeline({repeat: -1})
             .to("#footer-marquee-container", {
                 xPercent: -100,
                 duration: 12,
@@ -13,7 +17,7 @@ export default function Marquee() {
 
         let timeout: ReturnType<typeof setTimeout>;
 
-        timeline.totalTime(timeline.duration() * 1000)
+        timeline.current.totalTime(timeline.current.duration() * 1000)
 
         gsap.to(".footer-marquee-wrapper", {
             ease: "none",
@@ -27,47 +31,68 @@ export default function Marquee() {
                     // Scrub marquee when scrolled
                     const velocity = self.getVelocity();
                     const scale = gsap.utils.clamp(-5, 5, velocity / 300);
-                    timeline.timeScale(scale || 1);
+                    timeline.current?.timeScale(scale || 1);
 
                     clearTimeout(timeout);
                     timeout = setTimeout(() => {
-                        timeline.timeScale(self.direction);
+                        timeline.current?.timeScale(self.direction);
                     }, 5);
 
                     if (self.direction === 1) {
-                        timeline.timeScale(1)
+                        timeline.current?.timeScale(1)
+                        setDirection("left")
                     } else if (self.direction === -1) {
-                        timeline.timeScale(-1)
+                        timeline.current?.timeScale(-1)
+                        setDirection("right")
                     }
                 }
             }
         })
 
         return () => {
-            timeline.revert()
+            timeline.current?.revert()
         }
     });
 
+    const onHover = contextSafe(() => {
+        timeline.current?.pause()
+    })
+
+    const onLeave = contextSafe(() => {
+        timeline.current?.play()
+        if (direction === "left") {
+            timeline.current?.timeScale(1)
+        } else {
+            timeline.current?.timeScale(-1)
+        }
+    })
+
     return (
-        <div className="footer-marquee-wrapper overflow-x-hidden w-screen -mx-8 relative z-0 xl:-z-1 text-white">
+        <button
+            className="footer-marquee-wrapper overflow-x-hidden w-screen -mx-8 relative z-0 xl:-z-1 text-white hover:text-lightBrown"
+            onClick={() => setIsOpen(true)}
+            onMouseEnter={onHover} onMouseLeave={onLeave}>
             <div id="footer-marquee-container" className="flex xl:translate-x-[-100%]">
                 <div className="min-w-screen">
-                    <h1 className="w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
+                    <div
+                        className="heading-1 w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
                         Book your capsule
-                    </h1>
+                    </div>
                 </div>
                 <div className="min-w-screen">
-                    <h1 className="w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
+                    <div
+                        className="heading-1 w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
                         Book your capsule
-                    </h1>
+                    </div>
                 </div>
                 <div className="min-w-screen">
-                    <h1 className="w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
+                    <div
+                        className="heading-1 w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
 
                         Book your capsule
-                    </h1>
+                    </div>
                 </div>
             </div>
-        </div>
+        </button>
     )
 }

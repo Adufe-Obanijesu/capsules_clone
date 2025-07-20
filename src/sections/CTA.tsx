@@ -28,8 +28,8 @@ export default function CTA({setIsOpen}: Omit<IReserveProps, "isOpen">) {
             block
             cursor={<CursorButton text="Reserve" Icon={MdArrowOutward}/>}
         >
-            <section ref={scope} className="padding h-150 xl:h-screen w-full">
-
+            <section ref={scope} className="padding h-100 xl:h-screen w-full">
+                <h2 className="sr-only">Capsules</h2>
                 <div id="cta" className="h-full w-full rounded-[60px] overflow-hidden relative"
                      onClick={() => setIsOpen(true)}>
                     <picture>
@@ -44,13 +44,13 @@ export default function CTA({setIsOpen}: Omit<IReserveProps, "isOpen">) {
                              className="aspect-[4.28/1] logo-fluid-md md:logo-fluid-lg center-absolute"/>
 
                         <div className="xl:flex justify-between items-end hidden">
-                            <h1 className="font-medium mt-[20px] text-white md-text">
+                            <div className="heading-1 font-medium mt-[20px] text-white md-text">
                                 Closer to <br/> Nature-Closer<br/> to Yourself
-                            </h1>
+                            </div>
 
-                            <h6 className="font-semibold text-white text-sm">
+                            <p className="font-semibold text-white text-sm">
                                 Spend unforgettable and remarkable time <br/>in the Californian desert with-Capsules
-                            </h6>
+                            </p>
 
                         </div>
                     </div>

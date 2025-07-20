@@ -26,14 +26,15 @@ export default function Welcome() {
         <section id="welcome-section" ref={scope} className="padding-x-md padding-y-md">
             <div className="relative">
 
-                <h2 className="text-darkBrown fade-text">Welcome to a world of wild California desert with Capsule®,
+                <p className="heading-2 text-darkBrown fade-text">Welcome to a world of wild California desert with
+                    Capsule®,
                     where you
                     will discover exquisite nature observing it from capsule houses, nestled in the one of the most
                     breathtaking destination on the United States.
                     <span id="white-text" className="text-white absolute inset-0">
                 Welcome to a world of wild California desert with Capsule®, where you will discover exquisite nature observing it from capsule houses, nestled in the one of the most breathtaking destination on the United States.
             </span>
-                </h2>
+                </p>
             </div>
 
             <div className="flex flex-col xl:flex-row gap-x-24 items-center padding-y-md">
@@ -55,11 +56,11 @@ export default function Welcome() {
 
 
                 </div>
-                <h4
-                    className="flex-1 mt-[40px] hyphens-auto text-lightBrown"> A
+                <p
+                    className="heading-4 flex-1 mt-[40px] hyphens-auto text-lightBrown"> A
                     place where you can be with yourself and your loved ones. A place where you can experience
                     unforgettable desert things.
-                </h4>
+                </p>
             </div>
         </section>
     )

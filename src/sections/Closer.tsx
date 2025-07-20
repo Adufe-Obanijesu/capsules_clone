@@ -6,10 +6,10 @@ import CustomCursor from "../components/CustomCursor.tsx";
 export default function Closer({setIsOpenMap}: { setIsOpenMap: React.Dispatch<React.SetStateAction<boolean>> }) {
     return (
         <section className="text-white text-center py-28 padding-x flex justify-center">
-            <div className="xl:w-[750px] lg:w-3/5 md:w-2/3 space-y-4">
+            <div className="xl:w-[750px] lg:w-3/5 md:w-2/3 space-y-4 relative">
 
-                <p className="text-xs">Closer than you think</p>
-                <h1 className="leading-[1]">
+                <h2 className="sub-heading">Closer than you think</h2>
+                <h3 className="leading-[1]">
                     Our Capsules® are located near Los Angeles with easy <br/>
                     <CustomCursor
                         cursorHide={false}
@@ -21,7 +21,7 @@ export default function Closer({setIsOpenMap}: { setIsOpenMap: React.Dispatch<Re
                             access by road.
                         </AnimatedUnderlineText>
                     </CustomCursor>
-                </h1>
+                </h3>
             </div>
         </section>
     )

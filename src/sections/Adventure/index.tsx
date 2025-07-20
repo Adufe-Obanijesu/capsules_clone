@@ -14,7 +14,7 @@ export default function Adventure() {
 
     useGSAP(() => {
 
-        new SplitText("h1", {
+        new SplitText("#adventure h3", {
             type: "lines", mask: "lines", autoSplit: true, onSplit: (self) => {
 
                 gsap.set(self.lines, {
@@ -24,14 +24,14 @@ export default function Adventure() {
 
                 return gsap.timeline({
                     scrollTrigger: {
-                        trigger: "#adventure h6:nth-child(1)",
+                        trigger: "#adventure h2:nth-child(1)",
                         start: isDesktop ? "top: 80%" : "top 85%",
                         end: "top 30%",
                         scrub: true,
                     },
                     ease: "none"
                 })
-                    .from("#adventure h6:nth-child(1)", {
+                    .from("#adventure h2:nth-child(1)", {
                         opacity: 0,
                         duration: .2
                     })
@@ -56,20 +56,21 @@ export default function Adventure() {
         <section ref={scope} className="relative padding-x padding-y-md text-white">
             <div className="bg-gradient-dark absolute top-0 left-0 h-[300vh] w-full"/>
             <div id="adventure" className="space-y-12 z-1 relative padding-x">
-                <h6>Discover available Capsules®</h6>
-                <h1 className="xl:xl-text text-[60px]">
+                <h2 className="sub-heading">Discover available Capsules®</h2>
+                <h3 className="heading-1 xl:xl-text text-[60px]">
                     Discover the desert activities
-                </h1>
+                </h3>
 
                 <div className="flex flex-col xl:flex-row gap-x-24 gap-y-12 items-center">
 
-                    <h4
-                        className="xl:order-2 flex-1 xl:mt-[40px] hyphens-auto text-lightBrown leading-[1]">We want to
+                    <p
+                        className="heading-4 xl:order-2 flex-1 xl:mt-[40px] hyphens-auto text-lightBrown leading-[1]">We
+                        want to
                         make sure
                         your stay is exciting and enjoyable. That's why we offer a variety of activities with different
                         levels of engagement. Whether you seek thrills or tranquility, there's something for everyone to
                         make your desert stay truly memorable.
-                    </h4>
+                    </p>
 
                     <div className="xl:order-1 flex flex-col w-full xl:w-4/10">
                         <p
@@ -98,13 +99,13 @@ function Duration({details}: { details: IAdventure }) {
     return (
         <div className="flex flex-col relative">
             <div className="flex justify-between my-6">
-                <h6
-                    className="text-lightBrown font-normal">{details.difficulty}
-                </h6>
-                <p
-                    className="font-semibold text-xs text-lightBrown">
+                <span
+                    className="text-sm text-lightBrown font-normal">{details.difficulty}
+                </span>
+                <span
+                    className="text-sm font-semibold text-xs text-lightBrown">
                     {details.desc}
-                </p>
+                </span>
             </div>
             <div className="w-full relative">
                 <div className="absolute w-full h-[1px] bg-white opacity-[0.2]"/>

@@ -25,7 +25,7 @@ export default function DesktopVersion() {
     return (
         <div ref={scope} className="padding h-screen w-full">
 
-            <header className="hero-header h-full w-full rounded-[40px] overflow-hidden relative">
+            <div className="hero-header h-full w-full rounded-[40px] overflow-hidden relative">
                 <picture>
                     <source srcSet="/images/cap1.webp" media="(min-width: 1240px)"/>
                     <img id="hero-background" src="/images/cap1-mobile.webp" alt="capsule"
@@ -38,19 +38,19 @@ export default function DesktopVersion() {
                     <img src="/logo.svg" alt="logo" loading="eager" fetchPriority="high"
                          className="aspect-[4.28/1] logo-fluid-lg"/>
 
-                    <div className="flex justify-between items-center">
-                        <h1 className="font-medium mt-[20px] text-white">
+                    <div className="flex justify-between items-end">
+                        <div className="heading-3 font-medium mt-[20px] text-white">
                             Closer to <br/> Nature-Closer<br/> to Yourself
-                        </h1>
+                        </div>
 
-                        <h6 className="font-semibold text-white mb-[30px]">
+                        <p className="text-xs font-semibold text-white">
                             Spend unforgettable and remarkable time <br/>in the Californian desert with-Capsules
-                        </h6>
+                        </p>
 
                     </div>
                 </div>
 
-            </header>
+            </div>
 
         </div>
     )

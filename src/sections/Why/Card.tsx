@@ -9,15 +9,15 @@ interface Props {
 export default function Card({details, whys, multiple = false}: Props) {
     return (
         <div
-            className="card flex flex-col justify-between bg-darkBrown rounded-[30px] padding-x xl:px-6 pt-[30px] h-[580px] xl:h-[98vh]">
+            className="card relative flex flex-col justify-between bg-darkBrown rounded-[30px] padding-x xl:px-6 pt-[30px] h-[580px] xl:h-[98vh]">
             <div className="relative why-card-title">
-                <h1
-                    className="text-[23px] xl:md-text leading-[26px] tracking-[-0.2px] text-lightBrown font-medium mb-[140px] h-[80px] max-w-60 xl:max-w-80 xl:leading-[1.05]">{details.title}
-                </h1>
+                <h3
+                    className="heading-1 text-[23px] xl:md-text leading-[26px] tracking-[-0.2px] text-lightBrown font-medium mb-[140px] h-[80px] max-w-60 xl:max-w-80 xl:leading-[1.05]">{details.title}
+                </h3>
                 {(multiple && details.id !== whys[whys.length - 1].id) && (
-                    <h1
-                        className="absolute top-0 left-0 -z-1 text-[23px] xl:md-text leading-[26px] tracking-[-0.2px] text-lightBrown font-medium mb-[140px] h-[80px] max-w-60 xl:max-w-80 xl:leading-[1.05]">{whys[details.id].title}
-                    </h1>
+                    <h3
+                        className="heading-1 absolute top-0 left-0 -z-1 text-[23px] xl:md-text leading-[26px] tracking-[-0.2px] text-lightBrown font-medium mb-[140px] h-[80px] max-w-60 xl:max-w-80 xl:leading-[1.05]">{whys[details.id].title}
+                    </h3>
                 )}
             </div>
             <div className="flex items-end md:items-center mb-[30px]">

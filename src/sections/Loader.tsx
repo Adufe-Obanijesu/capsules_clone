@@ -11,13 +11,13 @@ export default function Loader({children}: { children: React.ReactNode }) {
     const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
     const [scaleTo, setScaleTo] = useState(.3)
 
-    const clip = isMobile ? "inset(calc(50vh - 40px) calc(50vw - 100px) round calc(50vw - 100px))" : "inset(calc(50vh - 40px) calc(50vw - 280px) round calc(50vw - 280px))"
+    const clip = isMobile ? "inset(calc(50vh - 30px) calc(50vw - 95px) round calc(50vw - 95px))" : "inset(calc(50vh - 30px) calc(50vw - 275px) round calc(50vw - 275px))"
 
     useGSAP(() => {
         gsap.set(window, {scrollTo: 0})
         if (!ready) {
             intervalRef.current = setInterval(() => {
-                gsap.to("#loader .bg-white", {
+                gsap.to("#loader .progress-overlay", {
                     transformOrigin: "center left",
                     scale: `+=${scaleTo}`
                 });
@@ -31,13 +31,13 @@ export default function Loader({children}: { children: React.ReactNode }) {
             intervalRef.current = null;
         }
 
-        const split = SplitText.create("#loader p", {
+        const split = SplitText.create("#loader-cta-text", {
             type: "lines",
             mask: "lines"
         })
 
         gsap.timeline({defaults: {ease: "sine"}})
-            .to("#loader .bg-white", {
+            .to("#loader .progress-overlay", {
                 transformOrigin: "center left",
                 scale: 1,
             })
@@ -76,16 +76,16 @@ export default function Loader({children}: { children: React.ReactNode }) {
                  className="flex absolute top-0 left-0 h-screen w-screen justify-center items-center">
                 <div
                     className="relative overflow-hidden bg-middleBrown text-white rounded-full xl:w-140 xl:h-40 w-50 h-20 flex justify-center items-center">
-                    <div className="absolute top-0 left-0 h-full w-full scale-x-0 bg-white"/>
-                    <h2 className="mix-blend-difference text-2xl xl:text-[clamp(2rem,4vw,3rem)]">Capsules®</h2>
+                    <div className="progress-overlay absolute top-0 left-0 h-full w-full scale-x-0 bg-white"/>
+                    <div className="mix-blend-difference text-2xl xl:text-[clamp(2rem,4vw,3rem)]">Capsules®</div>
                 </div>
             </div>
 
             <div
                 className="absolute top-0 left-0 h-screen w-screen flex justify-center items-end pb-6 pointer-events-none">
-                <p className="text-lightBrown text-xs text-center font-medium leading-[1.1]">
+                <div id="loader-cta-text" className="text-lightBrown text-xs text-center font-medium leading-[1.1]">
                     Meet Capsules®-modern and cozy <br/>houses, in the California desert.
-                </p>
+                </div>
             </div>
         </div>
     )

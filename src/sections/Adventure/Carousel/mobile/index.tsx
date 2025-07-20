@@ -19,9 +19,9 @@ function Card({activity}: { activity: TActivity }) {
                 src={activity.img} className="h-full w-full object-cover" alt="activity" loading="lazy"/>
                 <div
                     className="border-[2px] border-white px-[11px] py-[10px] h-[34px] rounded-full flex justify-center items-center absolute right-[20px] top-[20px]">
-                    <div
+                    <span
                         className="text-[14px] leading-[18px] tracking-[-0.2px]  font-semibold text-white">{activity.difficulty}
-                    </div>
+                    </span>
                 </div>
                 <div className="flex gap-[1px] h-[35px] absolute left-[20px] bottom-[20px]">
                     <div
@@ -38,13 +38,13 @@ function Card({activity}: { activity: TActivity }) {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col px-[10px] mt-[30px] mb-[25px] text-wrap">
-                <h4
+            <div className="flex flex-col px-[10px] mt-[30px] mb-[25px] text-wrap relative">
+                <h2
                     className="text-[23px] leading-[26px] tracking-[-0.2px] text-white font-medium w-6/10">{activity.title}
-                </h4>
-                <div
+                </h2>
+                <p
                     className="text-[14px] leading-[18px] tracking-[-0.2px] text-lightBrown font-semibold mt-[18px]">{activity.desc}
-                </div>
+                </p>
             </div>
         </div>
     )

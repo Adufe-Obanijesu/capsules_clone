@@ -14,7 +14,8 @@ export default function () {
     }, {scope})
 
     return (
-        <div ref={scope} className="absolute top-0 left-0 w-screen h-full -margin-x -z-1 flex items-center">
+        <div ref={scope} aria-hidden="true"
+             className="absolute top-0 left-0 w-screen h-full -margin-x -z-1 flex items-center">
             <div
                 className="capsule-marquee-overlay absolute bg-tertiary w-full h-full top-0 left-0 z-5 opacity-0 pointer-events-none"/>
             <div aria-hidden className="">

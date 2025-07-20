@@ -13,14 +13,13 @@ const moveLeft = {
 }
 
 export function animation() {
-
     const cardContainers: HTMLElement[] = gsap.utils.toArray(".card-container")
     const imageContainers: HTMLElement[] = gsap.utils.toArray(".why-desktop .right-side .image-container")
     const images: HTMLElement[] = gsap.utils.toArray(".why-desktop .right-side .image-container img")
     const firstImage = ".why-desktop .image-container:first-child img:first-child"
     const lastCardNumber = ".why-desktop .right-side .card-number:last-child"
 
-    const headingsToSplit: HTMLElement[] = gsap.utils.toArray(".why-desktop .card-container:nth-child(2) h1")
+    const headingsToSplit: HTMLElement[] = gsap.utils.toArray(".why-desktop .card-container:nth-child(2) h3")
     const paragraphsToSplit: HTMLElement[] = gsap.utils.toArray(".why-desktop .card-container:nth-child(2) p")
 
     if (cardContainers.length === 0 || imageContainers.length === 0 || images.length === 0 || headingsToSplit.length !== 2 || paragraphsToSplit.length !== 2) return;
@@ -54,6 +53,7 @@ export function animation() {
     })
 
     const st = {
+        markers: true,
         trigger: ".why-desktop",
         start: "top 1%",
         end: "bottom 1%",

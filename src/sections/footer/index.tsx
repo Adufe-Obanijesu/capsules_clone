@@ -10,17 +10,16 @@ import type {IReserveProps} from "../../types/Reserve.ts";
 export default function Footer({setIsOpen}: Omit<IReserveProps, "isOpen">) {
     return (
         <footer className="pb-1 relative">
-            {/*<div*/}
-            {/*    className="absolute top-0 left-0 z-0 bg-gradient-to-b from-tertiary to-middleBrown w-full h-full"/>*/}
+            <div
+                className="absolute top-0 left-0 z-0 bg-gradient-to-b from-tertiary to-middleBrown w-full h-full"/>
 
             <div className="px-8 space-y-8 relative z-1">
-                <SubTitle classes="text-lightBrown">
+                <h2 className="sub-heading text-lightBrown">
                     Interested in an amazing adventure?
                     <br/>Reserve one of our Capsules®
-                </SubTitle>
-                <div onClick={() => setIsOpen(true)}>
-                    <Marquee/>
-                </div>
+                </h2>
+
+                <Marquee setIsOpen={setIsOpen}/>
 
                 <div
                     className="md:flex md:flex-row-reverse md:justify-between md:items-center md:leading-[2.2vw] md:text-[1.9vw] text-[20px] leading-[22px]">

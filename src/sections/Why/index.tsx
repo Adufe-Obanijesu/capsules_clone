@@ -73,11 +73,6 @@ export default function Why() {
         <section ref={scope}>
             <div className="space-y-8 text-white">
 
-                <p className="text-xs padding-x">
-                    Want to learn more about <br/>
-                    the benefits of—Capsules®?
-                </p>
-
                 <Marquee/>
 
                 {isDesktop ? <DesktopVersion/> : <MobileVersion/>}

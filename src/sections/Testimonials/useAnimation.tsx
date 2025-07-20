@@ -22,7 +22,7 @@ export default function useAnimation() {
         const splits: SplitText[] = []
 
         testimonials.forEach((testimonial, i) => {
-            const split = new SplitText(testimonial.querySelector("h1"), {
+            const split = new SplitText(testimonial.querySelector("h3"), {
                 type: "lines", mask: "lines", autoSplit: true, onSplit: (self) => {
 
                     if (i !== 0) {
@@ -34,7 +34,7 @@ export default function useAnimation() {
                         gsap.set(testimonial.querySelector(".avatar"), {
                             scale: 0
                         })
-                        gsap.set(testimonial.querySelector("p"), {
+                        gsap.set(testimonial.querySelector(".testimonial-details"), {
                             x: 20,
                             opacity: 0
                         })
@@ -55,16 +55,20 @@ export default function useAnimation() {
 
     // Animate out when scrolling away
     useGSAP(() => {
-        gsap.to("#testimonials", {
-            opacity: 0,
-            duration: .3,
-            ease: "power1.in",
-            scrollTrigger: {
-                trigger: "#testimonials",
-                start: "bottom+=1% bottom",
-                end: "bottom 80%",
-                scrub: 1,
-            }
+        const mm = gsap.matchMedia()
+
+        mm.add("(min-width: 1280px)", () => {
+            gsap.to("#testimonials", {
+                opacity: 0,
+                duration: .3,
+                ease: "power1.in",
+                scrollTrigger: {
+                    trigger: "#testimonials",
+                    start: "bottom+=1% bottom",
+                    end: "bottom 80%",
+                    scrub: 1,
+                }
+            })
         })
     })
 
@@ -104,10 +108,10 @@ export default function useAnimation() {
 
         const currentHeading = splits[current]
         const currentImg = testimonialsRef.current[current].querySelector(".avatar")
-        const currentAbout = testimonialsRef.current[current].querySelector("p")
+        const currentAbout = testimonialsRef.current[current].querySelector(".testimonial-details")
         const nextHeading = splits[index]
         const nextImg = testimonialsRef.current[index].querySelector(".avatar")
-        const nextAbout = testimonialsRef.current[index].querySelector("p")
+        const nextAbout = testimonialsRef.current[index].querySelector(".testimonial-details")
 
         gsap.timeline({defaults: {duration: .3, ease: "power1.in"}})
             .add(animateInOut({

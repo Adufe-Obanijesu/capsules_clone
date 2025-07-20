@@ -49,39 +49,27 @@ body::-webkit-scrollbar {
     }
 
     h1 {
-        font-size: clamp(2.5rem, 4vw, 4rem);
-        line-height: .9;
-        letter-spacing: -0.2px;
+        @apply heading-1
     }
 
     h2 {
-        font-size: clamp(2rem, 4vw, 3rem);
-        line-height: .9;
-        letter-spacing: -0.2px;
+        @apply heading-2
     }
 
     h3 {
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
-        line-height: .9;
-        letter-spacing: -0.2px;
+        @apply heading-3
     }
 
     h4 {
-        font-size: clamp(1.5rem, 2.75vw, 70px);
-        line-height: .9;
-        letter-spacing: -0.2px;
+        @apply heading-4
     }
 
     h5 {
-        font-size: clamp(1.25rem, 4vw, 1.75rem);
-        line-height: .9;
-        letter-spacing: -0.2px;
+        @apply heading-5
     }
 
     h6 {
-        font-size: clamp(1rem, 4vw, 1.5rem);
-        line-height: .9;
-        letter-spacing: -0.2px;
+        @apply heading-6
     }
 
     p {
@@ -89,6 +77,42 @@ body::-webkit-scrollbar {
         line-height: .9;
         letter-spacing: -0.2px;
     }
+}
+
+@utility heading-1 {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: -0.2px;
+}
+
+@utility heading-2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 0.9;
+    letter-spacing: -0.2px;
+}
+
+@utility heading-3 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.2px;
+}
+
+@utility heading-4 {
+    font-size: clamp(1.5rem, 2.75vw, 70px);
+    line-height: 0.9;
+    letter-spacing: -0.2px;
+}
+
+@utility heading-5 {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+    line-height: 0.9;
+    letter-spacing: -0.2px;
+}
+
+@utility heading-6 {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.2px;
 }
 
 @utility padding-x {
@@ -162,6 +186,10 @@ body::-webkit-scrollbar {
 
 @utility center-absolute {
     @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
+@utility sub-heading {
+    @apply text-sm font-semibold
 }
 
 .circle-clip-path {

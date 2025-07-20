@@ -7,8 +7,8 @@ interface Props {
 
 export default function SubTitle({children, classes}: Props) {
     return (
-        <h6 className={cn("text-xs", classes)}>
+        <span className={cn("text-xs", classes)}>
             {children}
-        </h6>
+        </span>
     )
 }

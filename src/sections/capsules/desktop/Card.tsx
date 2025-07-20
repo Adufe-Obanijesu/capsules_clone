@@ -17,10 +17,10 @@ export default function Card({capsule}: { capsule: ICapsule }) {
                          className="object-cover object-center absolute w-full h-full scale-[1.4]"
                          src={capsule.img} loading="lazy"/>
                     <div className="left-8 flex justify-between items-center w-full absolute">
-                        <h1
-                            className="text-white lg-text invisible leading-[1.2]">
+                        <h2
+                            className="heading-1 capsule-heading text-white lg-text invisible leading-[1.2]">
                             {capsule.name}
-                        </h1>
+                        </h2>
                     </div>
                     <div className="capsule-action absolute bottom-6 left-4 flex gap-x-6 z-2 items-center">
                         <Button capsule={capsule}/>

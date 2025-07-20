@@ -14,7 +14,7 @@ export default function Discover() {
 
     useGSAP(() => {
 
-        new SplitText("#discover h1", {
+        new SplitText("#discover h3", {
             type: "lines", mask: "lines", autoSplit: true, onSplit: (self) => {
 
                 gsap.set(self.lines, {
@@ -24,7 +24,7 @@ export default function Discover() {
 
                 return gsap.timeline({
                     scrollTrigger: {
-                        trigger: "#discover h6:nth-child(1)",
+                        trigger: "#discover-sub-heading",
                         start: isDesktop ? "top: 80%" : "top 85%",
                         endTrigger: "#title",
                         end: "bottom bottom",
@@ -32,7 +32,7 @@ export default function Discover() {
                     },
                     ease: "none"
                 })
-                    .from("#discover h6:nth-child(1)", {
+                    .from("#discover-sub-heading", {
                         opacity: 0,
                         duration: .2
                     })
@@ -45,30 +45,34 @@ export default function Discover() {
     }, {scope, dependencies: [isDesktop]})
 
     return (
-        <section ref={scope} className="relative padding-x-md padding-y-md text-white">
+        <section ref={scope} className="relative padding-x-md text-white">
             <div id="discover" className="space-y-12 z-1 relative">
-                <h6>Discover available Capsules®</h6>
-                <h1 className="xl:xl-text text-[60px]">
+                <h2 id="discover-sub-heading" className="sub-heading">Discover available Capsules®</h2>
+                <h3 className="heading-1 xl:xl-text text-[60px]">
                     Choose the one you like best
-                </h1>
+                </h3>
 
                 <div className="flex flex-col xl:flex-row gap-x-24 gap-y-12 items-center">
 
-                    <h4
-                        className="flex-1 xl:mt-[40px] hyphens-auto text-lightBrown">You can choose one of three premium
+                    <p
+                        className="heading-4 flex-1 xl:mt-[40px] hyphens-auto text-lightBrown">You can choose one of
+                        three premium
                         capsule houses in our offer. Each of our capsules provides the highest quality and meets the
                         standards adjusted to your needs. Choose the one you like.
-                    </h4>
+                    </p>
 
                     <div className="flex-1 space-y-8">
-                        <h6 id="title">All Capsules® houses-has built<br/> based on the same rules:</h6>
+                        <h4 id="title" className="sub-heading">All Capsules® houses-has built<br/> based on the same
+                            rules:
+                        </h4>
 
                         <div className="flex flex-wrap gap-2">
                             {
                                 rules.map((rule, index) => {
                                     return <Pill key={rule}
                                                  className={clsx({"text-lightBrown border-lightBrown": index % 2 === 0})}>
-                                        <h5 className="text-[23px] xl:text-[34px]">{rule}</h5></Pill>
+                                        <div className="heading-5 text-[23px] xl:text-[34px]">{rule}</div>
+                                    </Pill>
                                 })
                             }
                         </div>
