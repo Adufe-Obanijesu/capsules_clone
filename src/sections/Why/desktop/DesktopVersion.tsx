@@ -11,7 +11,7 @@ export default function DesktopVersion() {
     useGSAP(() => animation, {})
 
     return (
-        <section ref={scope} className="bg-tertiary py-[1vh]">
+        <section ref={scope} className="bg-tertiary py-[1vh] z-1 relative">
             <div className="why-desktop grid grid-cols-2 gap-4 padding-x h-screen overflow-hidden">
                 <div className="card-container">
                     <Card whys={why} details={why[0]}/>

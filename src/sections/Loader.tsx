@@ -14,6 +14,7 @@ export default function Loader({children}: { children: React.ReactNode }) {
     const clip = isMobile ? "inset(calc(50vh - 40px) calc(50vw - 100px) round calc(50vw - 100px))" : "inset(calc(50vh - 40px) calc(50vw - 280px) round calc(50vw - 280px))"
 
     useGSAP(() => {
+        gsap.set(window, {scrollTo: 0})
         if (!ready) {
             intervalRef.current = setInterval(() => {
                 gsap.to("#loader .bg-white", {

@@ -6,9 +6,10 @@ import Marquee from "./Marquee.tsx";
 
 export default function Menu() {
     return (
-        <section id="menu-section" className="fixed inset-0 p-2.5 z-30 h-screen w-screen pointer-events-none">
+        <section id="menu-section"
+                 className="fixed overflow-y-auto inset-0 p-2.5 z-30 h-screen w-screen pointer-events-none">
             <div id="menu-container"
-                 className="relative z-40 h-full flex flex-col xl:flex-row bg-middleBrown xl:rounded-[1000px] xl:scale-x-0 scale-y-0">
+                 className="relative z-40 min-h-full flex flex-col xl:flex-row bg-middleBrown xl:rounded-[1000px] xl:scale-x-0 scale-y-0">
 
                 <div className="px-6 py-12 flex-1 flex flex-col gap-4 justify-between">
                     <ul>
@@ -49,17 +50,19 @@ export default function Menu() {
                     </div>
                 </div>
 
-                <div
-                    id="menu-image"
-                    className="invisible xl:translate-x-full relative overflow-hidden max-h-[300px] h-full xl:w-[400px] mt-2 mr-2 xl:max-h-[calc(100vh-36px)] rounded-[40px]">
-                    <picture>
-                        <source srcSet="/images/cap1.webp" media="(min-width: 1240px)"/>
-                        <img src="/images/cap1-mobile.webp" alt="menu" loading="lazy"
-                             className="scale-140 w-full h-full object-cover object-center"/>
-                    </picture>
+                <div>
                     <div
-                        className="flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <Marquee/>
+                        id="menu-image"
+                        className="invisible xl:translate-x-full relative overflow-hidden h-[300px] xl:h-full w-full xl:w-[400px] mt-2 mr-2 xl:max-h-[calc(100vh-36px)] rounded-[40px]">
+                        <picture>
+                            <source srcSet="/images/cap1.webp" media="(min-width: 1240px)"/>
+                            <img src="/images/cap1-mobile.webp" alt="menu" loading="lazy"
+                                 className="scale-140 w-full h-full object-cover object-center"/>
+                        </picture>
+                        <div
+                            className="flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <Marquee/>
+                        </div>
                     </div>
                 </div>
             </div>

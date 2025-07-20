@@ -20,7 +20,7 @@ export default function FirstStep({next, selectedCapsule, setSelectedCapsule}: P
     return (
         <div
             id="first-step"
-            className="mt-10 rounded-4xl overflow-y-scroll scrollbar-hide relative h-full px-2 overflow-auto overscroll-contain flex flex-col gap-1">
+            className="mt-10 rounded-4xl overflow-y-scroll scrollbar-hide relative h-full px-2 overflow-auto overscroll-contain flex flex-col gap-4">
 
             <div className="px-6 content xl:invisible space-y-6">
 

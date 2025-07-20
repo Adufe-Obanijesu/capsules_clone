@@ -7,7 +7,7 @@ export default function SecondStep({selectedCapsule}: { selectedCapsule: ICapsul
     return (
         <div
             id="second-step"
-            className="hidden mt-10 rounded-4xl overflow-y-scroll scrollbar-hide relative h-full px-2 overflow-auto overscroll-contain flex-col gap-1">
+            className="hidden mt-10 rounded-4xl overflow-y-scroll scrollbar-hide relative h-full px-2 overflow-auto overscroll-contain flex-col gap-4">
 
             <div className="px-6 content xl:invisible space-y-4">
 

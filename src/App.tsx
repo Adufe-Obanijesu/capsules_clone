@@ -2,6 +2,7 @@ import Hero from "./sections/Hero/Hero.tsx";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger"
 import SplitText from "gsap/SplitText"
+import ScrollToPlugin from "gsap/ScrollToPlugin"
 import GSDevTools from "gsap/GSDevTools"
 import TextPlugin from "gsap/TextPlugin"
 import {useGSAP} from "@gsap/react";
@@ -36,7 +37,7 @@ const Footer = lazy(() => import("./sections/footer"));
 const Map = lazy(() => import("./sections/map"));
 
 
-gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP, GSDevTools, TextPlugin)
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText, useGSAP, GSDevTools, TextPlugin)
 
 export const ReserveCtx = createContext<IReserveContext>({
     isOpenReserve: false,
@@ -87,11 +88,15 @@ export default function App() {
                     <Loader>
                         <Hero/>
                     </Loader>
-                    <div className="bg-gradient-brown">
+                    <div className="">
                         <Welcome/>
                         <Suspense fallback={null}>
-                            <LazySectionWrapper><Discover/></LazySectionWrapper>
-                            <LazySectionWrapper pinning><Capsules/></LazySectionWrapper>
+                            <div className="relative">
+                                <div
+                                    className="absolute top-0 left-0 w-full h-[350vh] bg-gradient-to-b from-tertiary via-middleBrown to-tertiary"/>
+                                <LazySectionWrapper><Discover/></LazySectionWrapper>
+                                <LazySectionWrapper pinning><Capsules/></LazySectionWrapper>
+                            </div>
                             <LazySectionWrapper><Closer setIsOpenMap={setIsOpenMap}/></LazySectionWrapper>
                         </Suspense>
                     </div>

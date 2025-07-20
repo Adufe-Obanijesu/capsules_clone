@@ -17,7 +17,7 @@ export default function Details({capsule, cancel}: Props) {
     useGSAP(() => {
         gsap.to("#details_wrapper", {
             opacity: capsule ? 1 : 0,
-            zIndex: capsule ? 10 : -10,
+            zIndex: capsule ? 100 : -10,
         })
     }, {scope, dependencies: [capsule]})
 
@@ -29,7 +29,7 @@ export default function Details({capsule, cancel}: Props) {
                 <div
                     className="rounded-4xl overflow-y-scroll scrollbar-hide relative h-full px-5 pt-[70px] pb-[160px] bg-darkBrown touch-auto overflow-auto overscroll-contain">
                     <button id="closeReservation" aria-label="Close Reservation"
-                            className="w-[52px] h-[52px] bg-black/50 absolute rounded-full flex z-[10] top-[25px] justify-center items-center overflow-hidden cursor-pointer"
+                            className="w-[52px] h-[52px] bg-tertiary fixed rounded-full flex z-[10] top-[25px] justify-center items-center overflow-hidden cursor-pointer"
                             onClick={cancel}>
                         <LiaTimesSolid color="white" fontSize={20}/>
                     </button>

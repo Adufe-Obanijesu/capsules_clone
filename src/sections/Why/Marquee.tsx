@@ -3,7 +3,7 @@ import {FaAsterisk} from "react-icons/fa6";
 export default function Marquee() {
 
     return (
-        <div className="why-marquee-wrapper overflow-x-hidden w-screen -margin-x relative z-0 xl:-z-1">
+        <div className="why-marquee-wrapper overflow-x-hidden w-screen -margin-x relative z-0">
             <div id="why-marquee-container" className="flex xl:translate-x-[-100%] ">
                 <div className="min-w-screen">
                     <h1 className="w-full text-center whitespace-nowrap text-[clamp(2rem,12.5vw,12rem)] flex items-start justify-center leading-[1.2]">

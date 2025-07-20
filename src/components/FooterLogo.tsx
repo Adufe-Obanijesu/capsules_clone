@@ -16,7 +16,7 @@ export default function FooterLogo() {
         })
 
         gsap.timeline({
-            ease: "power2.in", scrollTrigger: {
+            ease: "power3.in", scrollTrigger: {
                 trigger: "#footer-logo g",
                 start: "top 95%",
                 toggleActions: "play none none reverse",

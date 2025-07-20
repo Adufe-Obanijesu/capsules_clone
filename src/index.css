@@ -116,7 +116,7 @@ body::-webkit-scrollbar {
 }
 
 @utility bg-gradient-dark {
-    @apply bg-radial-[at_25%_50%] from-lightBrown/20 via-middleBrown via-70% to-black/20;
+    @apply bg-gradient-to-b from-tertiary via-middleBrown to-tertiary;
 }
 
 @utility bg-gradient-brown {
