@@ -1,11 +1,12 @@
 import Marquee from "./Marquee.tsx";
 import SubTitle from "../../components/SubTitle.tsx";
-import {footerLinks, socials} from "../../data/footer.ts";
+import {socials} from "../../data/footer.ts";
 import Link from "./Link.tsx";
 import AnimatedUnderlineText from "../../components/AnimatedUnderlineText.tsx";
 import AnimatedButton from "../../components/Button.tsx";
 import FooterLogo from "../../components/FooterLogo.tsx";
 import type {IReserveProps} from "../../types/Reserve.ts";
+import {menus} from "../../data/menu.ts";
 
 export default function Footer({setIsOpen}: Omit<IReserveProps, "isOpen">) {
     return (
@@ -25,7 +26,7 @@ export default function Footer({setIsOpen}: Omit<IReserveProps, "isOpen">) {
                     className="md:flex md:flex-row-reverse md:justify-between md:items-center md:leading-[2.2vw] md:text-[1.9vw] text-[20px] leading-[22px]">
                     <div className="mt-[50px] md:mt-0 flex flex-col -space-y-">
                         {
-                            footerLinks.map(link => <Link link={link} key={link.id}/>)
+                            menus.slice(0, menus.length - 1).map(link => <Link link={link} key={link.id}/>)
                         }
                     </div>
                     <div className="text-lightBrown py-[30px] md:py-0 md:w-[28ch]"><p
@@ -83,6 +84,9 @@ export default function Footer({setIsOpen}: Omit<IReserveProps, "isOpen">) {
 
                 <FooterLogo/>
             </div>
+
+            <div id="footer-link-overlay"
+                 className="fixed top-0 left-0 h-screen w-screen bg-tertiary z-101 pointer-events-none opacity-0"/>
         </footer>
     )
 }

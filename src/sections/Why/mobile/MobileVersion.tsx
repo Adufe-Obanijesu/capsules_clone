@@ -7,7 +7,7 @@ export default function MobileVersion() {
     useGSAP()
 
     return (
-        <div className="padding-x">
+        <div id="why" className="padding-x">
             <div className="space-y-4">
                 {
                     why.map((item) => <Card key={item.id} whys={why} details={item}/>)

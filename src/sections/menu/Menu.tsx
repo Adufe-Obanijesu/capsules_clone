@@ -3,8 +3,37 @@ import {socials} from "../../data/footer.ts";
 import AnimatedButton from "../../components/Button.tsx";
 import {cn} from "../../utils/tailwind.ts";
 import Marquee from "./Marquee.tsx";
+import gsap from "gsap"
+import {type RefObject, useContext} from "react";
+import {ReserveCtx} from "../../App.tsx";
+import {scrollTo} from "../../utils/scroll.ts";
 
-export default function Menu() {
+interface Props {
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+    menuTimeline: RefObject<gsap.core.Timeline | null>
+}
+
+export default function Menu({setIsOpen, menuTimeline}: Props) {
+
+    const {setIsOpenReserve} = useContext(ReserveCtx)
+
+    function handleScroll(id: string | number, offset: number = 0) {
+
+        if (id === "reserve") {
+            setIsOpen(false)
+            if (menuTimeline.current) {
+                gsap.delayedCall(menuTimeline.current.totalDuration(), () => {
+                    setIsOpenReserve(true)
+                })
+            }
+
+            return
+        }
+
+        scrollTo(id, offset)
+        setIsOpen(false)
+    }
+
     return (
         <section id="menu-section"
                  className="fixed overflow-y-auto inset-0 p-2.5 z-30 h-screen w-screen pointer-events-none">
@@ -16,7 +45,16 @@ export default function Menu() {
                         {
                             menus.map((menu, index) => (
                                 <li key={menu.id}
-                                    className={cn("w-fit cursor-pointer text-[clamp(40px,2vw,100px)] xl:text-[clamp(60px,3vw,100px)] leading-[1] text-lightBrown hover:text-white transition-item", {"xl:hidden": index === menus.length - 1}, "duration-300")}>{menu.name}</li>
+                                    className={cn("w-fit cursor-pointer text-[clamp(40px,2vw,100px)] xl:text-[clamp(60px,3vw,100px)] leading-[1] text-lightBrown hover:text-white transition-item", {"xl:hidden": index === menus.length - 1}, "duration-300")}>
+                                    <a href=""
+                                       onClick={e => {
+                                           e.preventDefault()
+                                           handleScroll(menu.href, menu.offset)
+                                       }}
+                                       aria-label={`Go to ${menu.name} section`}>
+                                        {menu.name}
+                                    </a>
+                                </li>
                             ))
                         }
                     </ul>

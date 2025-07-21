@@ -53,7 +53,7 @@ export default function Adventure() {
     }, {scope, dependencies: [isDesktop]})
 
     return (
-        <section ref={scope} className="relative padding-x padding-y-md text-white">
+        <section id="activities" ref={scope} className="relative padding-x padding-y-md text-white">
             <div className="bg-gradient-dark absolute top-0 left-0 h-[300vh] w-full"/>
             <div id="adventure" className="space-y-12 z-1 relative padding-x">
                 <h2 className="sub-heading">Discover available Capsules®</h2>
