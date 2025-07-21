@@ -21,10 +21,12 @@ export default function Testimonials() {
                 <div className="flex items-center justify-between gap-8">
                     <div className="flex gap-1">
                         <AnimatedButton
-                            onClick={() => actions.setIndex(prev => (prev - 1 + testimonials.length) % testimonials.length)}>
+                            onClick={() => actions.setIndex(prev => (prev - 1 + testimonials.length) % testimonials.length)}
+                            aria-label="Previous testimonial">
                             <IoArrowBackSharp/>
                         </AnimatedButton>
                         <AnimatedButton
+                            aria-label="Next testimonial"
                             onClick={() => actions.setIndex(prev => (prev + 1) % testimonials.length)}>
                             <IoArrowForwardSharp/>
                         </AnimatedButton>

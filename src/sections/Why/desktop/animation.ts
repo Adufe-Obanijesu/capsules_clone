@@ -53,7 +53,6 @@ export function animation() {
     })
 
     const st = {
-        markers: true,
         trigger: ".why-desktop",
         start: "top 1%",
         end: "bottom 1%",

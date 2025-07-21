@@ -26,7 +26,7 @@ export default function Details({capsule, reserve}: Props) {
                                 </div>
                             </div>
                             <div className="w-[114px] h-[58px] relative rounded-[23px] overflow-hidden"><img
-                                alt={capsule?.name}
+                                alt={capsule?.ariaName}
                                 className="object-cover object-center absolute w-full h-full"
                                 src={capsule?.img} loading="lazy"/></div>
                         </div>

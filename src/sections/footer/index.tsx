@@ -52,7 +52,7 @@ export default function Footer({setIsOpen}: Omit<IReserveProps, "isOpen">) {
                             socials.map(({id, Icon, href, name}) => (
                                     <a href={href} key={id} aria-label={name} target="_blank" rel="noopener noreferrer">
                                         <AnimatedButton variant="white-outline"
-                                                        className="h-14 w-14 xl:h-10 xl:w-10"><Icon
+                                                        className="h-14 w-14 xl:h-10 xl:w-10" aria-label={name}><Icon
                                             className="xl:text-xl text-2xl"/></AnimatedButton>
                                     </a>
                                 )
@@ -68,7 +68,7 @@ export default function Footer({setIsOpen}: Omit<IReserveProps, "isOpen">) {
 
                 <hr className="border-white -mx-8"/>
 
-                <div className="flex flex-col gap-0.5 justify-between text-sm xl:flex-row">
+                <div className="flex flex-col gap-0.5 justify-between xl:text-sm xl:flex-row">
                 <span
                     className="text-lightBrown">Website made by-<a href="https://moyra.co/"
                                                                    aria-label="Visit Moyra.co website" target="_blank"
@@ -78,8 +78,8 @@ export default function Footer({setIsOpen}: Omit<IReserveProps, "isOpen">) {
                     <span
                         className="hidden md:block text-lightBrown">This website is using <span
                         className="text-white">cookies.</span></span><span
-                    className="text-lightBrown">All rights reserved © <a
-                    className="text-white" href="/"> 2025</a></span></div>
+                    className="text-lightBrown">All rights reserved © <span
+                    className="text-white"> 2025</span></span></div>
 
                 <FooterLogo/>
             </div>

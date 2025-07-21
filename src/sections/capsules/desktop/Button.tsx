@@ -76,7 +76,7 @@ export default function Button({capsule}: Props) {
             <div id={`capsule-button-${capsule.id}`} className="relative flex items-center">
                 <AnimatedButton isActive={isOpen} variant="white-overlay" id={`terraceCapsuleDetails${capsule.id}`}
                                 className="z-100 invisible scale-0"
-                                aria-label="Terrace Capsule Details"
+                                aria-label={`${capsule.ariaName} details`}
                                 onClick={() => setIsOpen(prev => !prev)}>
                     <GoPlus fontSize={24}
                             className={cn("text-darkBrown z-5 transition-item")}/>

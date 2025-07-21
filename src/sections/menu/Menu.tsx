@@ -40,7 +40,8 @@ export default function Menu() {
                                 socials.map(({id, Icon, href, name}) => (
                                         <a href={href} key={id} aria-label={name}>
                                             <AnimatedButton variant="white-outline"
-                                                            className="invisible social xl:scale-0 h-14 w-14 xl:h-12 xl:w-12"><Icon
+                                                            className="invisible social xl:scale-0 h-14 w-14 xl:h-12 xl:w-12"
+                                                            aria-label={name}><Icon
                                                 className="xl:text-xl text-2xl"/></AnimatedButton>
                                         </a>
                                     )

@@ -151,7 +151,7 @@ export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
             <div id="reserve-wrapper"
                  className={cn("pointer-events-none xl:pointer-events-auto fixed z-50 bottom-1/100 top-1/100 rounded-[40px] right-2.5 xl:w-95 flex flex-col pt-6 pb-2 bg-darkBrown xl:scale-x-0", {"opacity-0 left-2.5": isMobile})}>
                 <div id="close-btn" className="fixed xl:opacity-0 px-6">
-                    <AnimatedButton variant="dark" onClick={() => setIsOpen(false)}>
+                    <AnimatedButton variant="dark" onClick={() => setIsOpen(false)} aria-label="Close reservation">
                         <FaTimes/>
                     </AnimatedButton>
                 </div>
