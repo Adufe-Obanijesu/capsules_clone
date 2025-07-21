@@ -78,7 +78,7 @@ export default function FirstStep({next, selectedCapsule, setSelectedCapsule}: P
                         </div>
 
                         <IconButton text="Next" Icon={MdOutlineArrowForward} onClick={next}
-                                    minimizeOnMobile={isMobile}/>
+                                    minimizeOnMobile={isMobile} aria-label="Proceed reservation"/>
                     </div>
                 </div>
             </div>

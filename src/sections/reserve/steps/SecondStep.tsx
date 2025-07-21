@@ -30,11 +30,11 @@ export default function SecondStep({selectedCapsule}: { selectedCapsule: ICapsul
                 <div className="flex gap-2">
                     <a href="https://moyra.co/inquiry" target="_blank" aria-label="Make inquiry"
                        rel="noopener noreferrer">
-                        <IconButton text="Inquiry" Icon={MdArrowOutward}/>
+                        <IconButton text="Inquiry" Icon={MdArrowOutward} aria-label="Make inquiry"/>
                     </a>
                     <a href="https://moyra.co" aria-label="Visit Moyra.co website" target="_blank"
                        rel="noopener noreferrer">
-                        <IconButton text="Moyra" Icon={MdArrowOutward}/>
+                        <IconButton text="Moyra" Icon={MdArrowOutward} aria-label="Visit Moyra.co website"/>
                     </a>
                 </div>
 

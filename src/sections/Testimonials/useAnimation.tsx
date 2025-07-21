@@ -64,7 +64,7 @@ export default function useAnimation() {
                 ease: "power1.in",
                 scrollTrigger: {
                     trigger: "#testimonials",
-                    start: "bottom+=1% bottom",
+                    start: "bottom+=5% bottom",
                     end: "bottom 80%",
                     scrub: 1,
                 }

@@ -60,7 +60,7 @@ export default function Navbar({setIsOpen}: Omit<IReserveProps, "isOpen">) {
                         <img src="/mini_logo.svg" className="h-6.5 pointer-events-auto" alt="logo"/>
                     </div>
                     <IconButton text="Reserve" Icon={MdArrowOutward} className="pointer-events-auto"
-                                onClick={() => setIsOpen(true)}/>
+                                onClick={() => setIsOpen(true)} aria-label="Make reservation"/>
 
                 </div>
             </nav>
