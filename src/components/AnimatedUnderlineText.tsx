@@ -3,7 +3,7 @@ import {type HTMLAttributes, useRef} from "react";
 import gsap from "gsap";
 import {useGSAP} from "@gsap/react";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface Props extends HTMLAttributes<HTMLButtonElement> {
     id: string
     children: React.ReactNode;
     color?: "white" | "lightBrown";
@@ -40,7 +40,7 @@ export default function AnimatedUnderlineText({
     })
 
     return (
-        <div id={id} className="cursor-pointer inline" {...props}>
+        <button id={id} className="cursor-pointer inline" {...props}>
             <div
                 className={cn("relative inline-flex overflow-hidden group ", `text-${color}`, `hover:text-${hoverColor}`, classes)}
                 onMouseEnter={onHover} onMouseLeave={onLeave}>
@@ -48,6 +48,6 @@ export default function AnimatedUnderlineText({
                 <div
                     className={cn("absolute bottom-0 h-[5%] w-full left-0", `bg-${color}`, `group-hover:bg-${hoverColor}`)}/>
             </div>
-        </div>
+        </button>
     )
 }

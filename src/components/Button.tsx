@@ -94,8 +94,8 @@ interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
 
 export function IconButton({text, Icon, className, minimizeOnMobile = false, ...props}: IconButtonProps) {
     return (
-        <button type="button"
-                className={cn("bg-gray-100 h-11 rounded-full p-[3px] flex justify-center items-center cursor-pointer group text-sm", className, {"xl:bg-transparent xl:p-0": minimizeOnMobile})} {...props}>
+        <button
+            className={cn("bg-gray-100 h-11 rounded-full p-[3px] flex justify-center items-center cursor-pointer group text-sm", className, {"xl:bg-transparent xl:p-0": minimizeOnMobile})} {...props}>
             <div
                 className={cn("ml-4 mr-2 text-darkBrown text-sm overflow-hidden relative w-full", {"hidden xl:block": minimizeOnMobile})}>
                 <div

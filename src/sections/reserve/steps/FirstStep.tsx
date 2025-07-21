@@ -53,9 +53,9 @@ export default function FirstStep({next, selectedCapsule, setSelectedCapsule}: P
                     when?</p>
 
                 <div className="flex items-center justify-between gap-2 text-lightBrown">
-                    <DateInput/>
+                    <DateInput id="check-in" name="Check-in date"/>
                     -
-                    <DateInput/>
+                    <DateInput id="check-out" name="Check-out date"/>
                 </div>
 
             </div>

@@ -16,7 +16,7 @@ export default function Closer({setIsOpenMap}: { setIsOpenMap: React.Dispatch<Re
                         cursor={<CursorButton text="Show the Map" Icon={MdArrowOutward}/>}
                     >
                         <AnimatedUnderlineText id="closer-underlined" color="lightBrown" hoverColor="white"
-                                               onClick={() => setIsOpenMap(true)}
+                                               onClick={() => setIsOpenMap(true)} aria-label="Open map"
                         >
                             access by road.
                         </AnimatedUnderlineText>

@@ -1,5 +1,4 @@
 import type {ICapsule} from "../../../data/capsules.ts";
-import {useRef} from "react";
 import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText.tsx";
 
 interface Props {
@@ -9,10 +8,8 @@ interface Props {
 
 export default function Details({capsule, reserve}: Props) {
 
-    const scope = useRef<HTMLDivElement>(null)
-
     return (
-        <div ref={scope} className="padding relative">
+        <div className="padding relative">
 
             <div
                 className="details_wrapper scale-0 fixed z-500 bottom-20 rounded-[40px] left-4 w-95 h-[calc(100vh-110px)] flex flex-col padding bg-darkBrown">
@@ -105,7 +102,8 @@ export default function Details({capsule, reserve}: Props) {
                         <div
                             className="text-[14px] leading-[18px] tracking-[-0.2px] text-lightBrown text-left mt-[18px] underline">
 
-                            <AnimatedUnderlineText id={`capsule-details-${capsule.id}`} onClick={reserve}>
+                            <AnimatedUnderlineText id={`capsule-details-${capsule.id}`} aria-label="Reserve"
+                                                   onClick={reserve}>
                                 Ready to reserve?
                             </AnimatedUnderlineText>
                         </div>

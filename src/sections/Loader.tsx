@@ -33,7 +33,8 @@ export default function Loader({children}: { children: React.ReactNode }) {
 
         const split = SplitText.create("#loader-cta-text", {
             type: "lines",
-            mask: "lines"
+            mask: "lines",
+            aria: "none"
         })
 
         gsap.timeline({defaults: {ease: "sine"}})
@@ -83,7 +84,8 @@ export default function Loader({children}: { children: React.ReactNode }) {
 
             <div
                 className="absolute top-0 left-0 h-screen w-screen flex justify-center items-end pb-6 pointer-events-none">
-                <div id="loader-cta-text" className="text-lightBrown text-xs text-center font-medium leading-[1.1]">
+                <div id="loader-cta-text" className="text-lightBrown text-xs text-center font-medium leading-[1.1]"
+                     aria-label="Meet Capsules-modern and cozy <br/>houses, in the California desert.">
                     Meet Capsules®-modern and cozy <br/>houses, in the California desert.
                 </div>
             </div>

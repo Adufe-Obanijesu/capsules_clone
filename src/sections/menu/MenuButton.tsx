@@ -72,9 +72,10 @@ export default function MenuButton({isOpenMap, setIsOpenMap}: Props) {
     return (
         <div>
             <div id="menu" className="fixed left-1/2 -translate-x-1/2 bottom-8 z-50 opacity-0">
-                <button type="button"
-                        className="bg-white h-11 rounded-[50px] p-[3px] flex justify-center items-center cursor-pointer group"
-                        onClick={click} onMouseEnter={onHover} onMouseLeave={onLeave}>
+                <button
+                    className="bg-white h-11 rounded-[50px] p-[3px] flex justify-center items-center cursor-pointer group"
+                    onClick={click} onMouseEnter={onHover} onMouseLeave={onLeave}
+                    aria-label={isOpen ? "Close menu" : "Open menu"}>
                     <div
                         className="overflow-hidden ml-[15px] text-darkBrown text-xs  mr-[10px] font-medium relative h-4">
 

@@ -14,7 +14,7 @@ export default function Card({capsule, setSelectedCapsule}: Props) {
                                                                                             loading="lazy"/>
             <button
                 className="w-[52px] h-[52px] hover:opacity-[0.9] right-[10px] bottom-[10px] absolute rounded-full bg-lightBrown flex justify-center items-center z-1 cursor-pointer"
-                onClick={() => setSelectedCapsule(capsule)}>
+                onClick={() => setSelectedCapsule(capsule)} aria-label={`Open ${capsule.ariaName} details`}>
                 <GoPlus fontSize={30}/>
             </button>
         </div>

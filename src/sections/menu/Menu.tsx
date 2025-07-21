@@ -37,8 +37,8 @@ export default function Menu() {
 
                         <div className="flex items-center order-2 xl:order-1">
                             {
-                                socials.map(({id, Icon, href}) => (
-                                        <a href={href} key={id}>
+                                socials.map(({id, Icon, href, name}) => (
+                                        <a href={href} key={id} aria-label={name}>
                                             <AnimatedButton variant="white-outline"
                                                             className="invisible social xl:scale-0 h-14 w-14 xl:h-12 xl:w-12"><Icon
                                                 className="xl:text-xl text-2xl"/></AnimatedButton>

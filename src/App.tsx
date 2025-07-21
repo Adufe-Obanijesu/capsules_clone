@@ -1,4 +1,3 @@
-import Hero from "./sections/Hero/Hero.tsx";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger"
 import SplitText from "gsap/SplitText"
@@ -21,6 +20,7 @@ import useEscapeKey from "./hooks/useEscapeKey.tsx";
 
 
 // Sections
+import Hero from "./sections/Hero/Hero.tsx";
 import Welcome from "./sections/Welcome.tsx";
 import {LazySectionWrapper} from "./components/LazySectionWrapper";
 import Navbar from "./sections/navigation/Navbar.tsx";

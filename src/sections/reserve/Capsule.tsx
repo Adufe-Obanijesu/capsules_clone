@@ -11,7 +11,7 @@ export default function Capsule({capsule, isSelected, setSelectedCapsule}: Props
     return (
         <button type="button"
                 className="group cursor-pointer bg-[#181717] flex rounded-[14px] items-center p-1 transition relative overflow-hidden w-full md:flex-col md:h-[8.3vw] md:rounded-[1.4vw] md:flex md:items-center"
-                onClick={() => setSelectedCapsule(capsule)}>
+                onClick={() => setSelectedCapsule(capsule)} aria-label={`Select ${capsule.ariaName}`}>
             <div
                 className="w-full h-full rounded-xl overflow-hidden xl:pt-0.5 xl:px-0.5 xl:pb-2 md:w-full md:h-full flex xl:flex-col flex-row items-center xl:items-start gap-2 text-white">
                 <div

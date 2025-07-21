@@ -10,10 +10,10 @@ export default function Info() {
                     <br/>
                     United States
                 </p>
-                <AnimatedUnderlineText id="map-info">
-                    <p className="text-xs">
+                <AnimatedUnderlineText id="map-info" aria-label="Reserve">
+                    <span className="text-xs">
                         Ready to reserve
-                    </p>
+                    </span>
                 </AnimatedUnderlineText>
                 <div className="flex gap-2">
 

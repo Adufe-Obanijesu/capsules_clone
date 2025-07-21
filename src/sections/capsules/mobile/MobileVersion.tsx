@@ -49,7 +49,7 @@ export default function MobileVersion() {
                 }
             </div>
 
-            <Details capsule={selectedCapsule} cancel={cancel}/>
+            <Details capsule={selectedCapsule} setSelectedCap={setSelectedCapsule} cancel={cancel}/>
         </div>
     )
 }
