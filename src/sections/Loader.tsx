@@ -3,9 +3,14 @@ import gsap from "gsap"
 import SplitText from "gsap/SplitText"
 import {useMediaQuery} from "react-responsive";
 import {usePageReady} from "../hooks/usePageReady.tsx";
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
-export default function Loader({children}: { children: React.ReactNode }) {
+interface Props {
+    children: React.ReactNode
+    setHasLoaded: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function Loader({children, setHasLoaded}: Props) {
     const ready = usePageReady();
     const isMobile = useMediaQuery({maxWidth: 1279});
     const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
@@ -13,19 +18,29 @@ export default function Loader({children}: { children: React.ReactNode }) {
 
     const clip = isMobile ? "inset(calc(50vh - 30px) calc(50vw - 95px) round calc(50vw - 95px))" : "inset(calc(50vh - 30px) calc(50vw - 275px) round calc(50vw - 275px))"
 
-    useGSAP(() => {
-        gsap.set(window, {scrollTo: 0})
+    useEffect(() => {
         if (!ready) {
             intervalRef.current = setInterval(() => {
                 gsap.to("#loader .progress-overlay", {
                     transformOrigin: "center left",
                     scale: `+=${scaleTo}`
                 });
-                setScaleTo(prev => prev * .5)
+                setScaleTo(prev => prev * 0.5);
             }, 2000);
-            return
         }
 
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+                intervalRef.current = null;
+            }
+        };
+    }, [ready]);
+
+    useGSAP(() => {
+        if (!ready) return;
+
+        gsap.killTweensOf("#loader .progress-overlay");
         if (intervalRef.current) {
             clearInterval(intervalRef.current);
             intervalRef.current = null;
@@ -35,9 +50,12 @@ export default function Loader({children}: { children: React.ReactNode }) {
             type: "lines",
             mask: "lines",
             aria: "none"
-        })
+        });
 
         gsap.timeline({defaults: {ease: "sine"}})
+            .call(() => {
+                gsap.set("#loader-clip-path", {willChange: "clip-path"})
+            })
             .to("#loader .progress-overlay", {
                 transformOrigin: "center left",
                 scale: 1,
@@ -45,26 +63,24 @@ export default function Loader({children}: { children: React.ReactNode }) {
             .to("#loader-clip-path", {
                 transformOrigin: "center center",
                 clipPath: "inset(0px 0px round 0px)",
-                ease: "none"
+                ease: "none",
+                onComplete: () => {
+                    setHasLoaded(true)
+                    gsap.set("#loader-clip-path", {willChange: "auto"})
+                }
             })
             .to(split.lines, {
                 yPercent: -110,
-                duration: .3
+                duration: 0.3
             }, "<")
             .to("#loader-content", {
                 opacity: 0,
                 pointerEvents: "none",
-                duration: .25
+                duration: 0.25
             }, "<")
-            .set("body", {overflow: "auto"})
-            .to("#menu, #navbar", {
-                opacity: 1
-            })
+            .to("#menu, #navbar", {opacity: 1});
+    }, [ready]);
 
-        return () => {
-            if (intervalRef.current) clearInterval(intervalRef.current);
-        }
-    }, [ready])
 
     return (
         <div id="loader" className="">

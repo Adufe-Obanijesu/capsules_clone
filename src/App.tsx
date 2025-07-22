@@ -52,10 +52,12 @@ export const ReserveCtx = createContext<IReserveContext>({
 })
 
 export default function App() {
-    useLenis()
     const [isOpenReserve, setIsOpenReserve] = useState(false)
     const [isOpenMap, setIsOpenMap] = useState(false)
     const [selectedCapsule, setSelectedCapsule] = useState(capsules[0])
+    const [hasLoaded, setHasLoaded] = useState(false)
+
+    useLenis(hasLoaded)
 
     useEscapeKey(() => {
         setIsOpenMap(false)
@@ -88,28 +90,31 @@ export default function App() {
                     <Map isOpenMap={isOpenMap} setIsOpenMap={setIsOpenMap}/>
                 </LazySectionWrapper>
                 <div className="bg-dark min-h-screen">
-                    <Loader>
+                    <Loader setHasLoaded={setHasLoaded}>
                         <Hero/>
                     </Loader>
-                    <div className="">
-                        <Welcome/>
+
+                    <>
+                        <div className="">
+                            <Welcome/>
+                            <Suspense fallback={null}>
+                                <div className="relative">
+                                    <div
+                                        className="absolute top-0 left-0 w-full h-[350vh] bg-gradient-to-b from-tertiary via-middleBrown to-tertiary"/>
+                                    <LazySectionWrapper><Discover/></LazySectionWrapper>
+                                    <LazySectionWrapper pinning><Capsules/></LazySectionWrapper>
+                                </div>
+                                <LazySectionWrapper><Closer setIsOpenMap={setIsOpenMap}/></LazySectionWrapper>
+                            </Suspense>
+                        </div>
                         <Suspense fallback={null}>
-                            <div className="relative">
-                                <div
-                                    className="absolute top-0 left-0 w-full h-[350vh] bg-gradient-to-b from-tertiary via-middleBrown to-tertiary"/>
-                                <LazySectionWrapper><Discover/></LazySectionWrapper>
-                                <LazySectionWrapper pinning><Capsules/></LazySectionWrapper>
-                            </div>
-                            <LazySectionWrapper><Closer setIsOpenMap={setIsOpenMap}/></LazySectionWrapper>
+                            <LazySectionWrapper pinning><Why/></LazySectionWrapper>
+                            <LazySectionWrapper pinning><Adventure/></LazySectionWrapper>
+                            <LazySectionWrapper><Testimonials/></LazySectionWrapper>
+                            <LazySectionWrapper><CTA setIsOpen={setIsOpenReserve}/></LazySectionWrapper>
+                            <LazySectionWrapper><Footer setIsOpen={setIsOpenReserve}/></LazySectionWrapper>
                         </Suspense>
-                    </div>
-                    <Suspense fallback={null}>
-                        <LazySectionWrapper pinning><Why/></LazySectionWrapper>
-                        <LazySectionWrapper pinning><Adventure/></LazySectionWrapper>
-                        <LazySectionWrapper><Testimonials/></LazySectionWrapper>
-                        <LazySectionWrapper><CTA setIsOpen={setIsOpenReserve}/></LazySectionWrapper>
-                        <LazySectionWrapper><Footer setIsOpen={setIsOpenReserve}/></LazySectionWrapper>
-                    </Suspense>
+                    </>
                 </div>
             </main>
         </ReserveCtx.Provider>

@@ -19,7 +19,7 @@ export default function AnimatedButton({
                                            isActive = false,
                                            ...props
                                        }: AnimatedButtonProps) {
-    const btnRef = useRef<HTMLButtonElement>(null)
+    const btnRef = useRef<HTMLDivElement>(null)
     const timeline = useRef<gsap.core.Timeline | null>(null)
 
     useGSAP(() => {

@@ -10,7 +10,7 @@ export default function () {
         gsap.effects.infiniteSlide("#wrapper", {
             duration: 15,
             xPercent: -100
-        });
+        })
     }, {scope})
 
     return (

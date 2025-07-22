@@ -3,7 +3,7 @@ import Lenis from '@studio-freight/lenis'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
-export default function useLenis(options = {}) {
+export default function useLenis(hasLoaded: boolean, options = {}) {
     const lenisRef = useRef<Lenis>(null)
 
     const defaultOptions = {
@@ -35,6 +35,12 @@ export default function useLenis(options = {}) {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill())
         }
     }, [])
+
+    useEffect(() => {
+        if (!lenisRef.current) return
+        if (hasLoaded) lenisRef.current.start()
+        else lenisRef.current.stop()
+    }, [hasLoaded]);
 
     return lenisRef.current
 }
