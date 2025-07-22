@@ -23,18 +23,17 @@ export default function () {
                     <div id="wrapper" className="flex">
 
                         <div className="min-w-1/2">
-
-                            <img src="/logo.svg" alt="logo" className="aspect-[4.28/1]"/>
+                            <img src="/logo.svg" alt="logo" className="aspect-[4.28/1]" tabIndex={-1}/>
                         </div>
 
                         <div className="min-w-1/2">
-                            <img src="/logo.svg" alt="logo" className="aspect-[4.28/1]"/>
+                            <img src="/logo.svg" alt="logo" className="aspect-[4.28/1]" tabIndex={-1}/>
                         </div>
                         <div className="min-w-1/2">
-                            <img src="/logo.svg" alt="logo" className="aspect-[4.28/1]"/>
+                            <img src="/logo.svg" alt="logo" className="aspect-[4.28/1]" tabIndex={-1}/>
                         </div>
                         <div className="min-w-1/2">
-                            <img src="/logo.svg" alt="logo" className="aspect-[4.28/1]"/>
+                            <img src="/logo.svg" alt="logo" className="aspect-[4.28/1]" tabIndex={-1}/>
                         </div>
                     </div>
                 </div>

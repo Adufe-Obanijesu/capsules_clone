@@ -36,7 +36,7 @@ export default function animation({
 
     if (listItems.length > 0) {
         listItems.forEach(item => {
-            const split = new SplitText(item, {type: "lines", mask: "lines"})
+            const split = new SplitText(item, {type: "lines", mask: "lines", aria: "none"})
             gsap.set(split.lines, {yPercent: -115})
             splits.push(split)
         })

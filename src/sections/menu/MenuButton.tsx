@@ -121,7 +121,7 @@ export default function MenuButton({isOpenMap, setIsOpenMap}: Props) {
                 </button>
             </div>
 
-            <Menu setIsOpen={setIsOpen} menuTimeline={moveWrapperTimeline}/>
+            <Menu isOpen={isOpen} setIsOpen={setIsOpen} menuTimeline={moveWrapperTimeline}/>
         </div>
     )
 }

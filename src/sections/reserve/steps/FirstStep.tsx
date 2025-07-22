@@ -53,9 +53,9 @@ export default function FirstStep({next, selectedCapsule, setSelectedCapsule}: P
                     when?</p>
 
                 <div className="flex items-center justify-between gap-2 text-lightBrown">
-                    <DateInput id="check-in" name="Check-in date"/>
+                    <DateInput id="check-in" name="Check-in"/>
                     -
-                    <DateInput id="check-out" name="Check-out date"/>
+                    <DateInput id="check-out" name="Check-out"/>
                 </div>
 
             </div>
@@ -77,8 +77,10 @@ export default function FirstStep({next, selectedCapsule, setSelectedCapsule}: P
                             <p className=" text-white text-xs">15.07 - 20.07</p>
                         </div>
 
-                        <IconButton text="Next" Icon={MdOutlineArrowForward} onClick={next}
-                                    minimizeOnMobile={isMobile} aria-label="Proceed reservation"/>
+                        <button onClick={next} aria-label="Proceed reservation">
+                            <IconButton text="Next" Icon={MdOutlineArrowForward}
+                                        minimizeOnMobile={isMobile}/>
+                        </button>
                     </div>
                 </div>
             </div>

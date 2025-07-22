@@ -2,14 +2,15 @@ import type {ICapsule} from "../../../data/capsules.ts";
 import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText.tsx";
 
 interface Props {
+    isOpen: boolean
     capsule: ICapsule;
     reserve: () => void
 }
 
-export default function Details({capsule, reserve}: Props) {
+export default function Details({isOpen, capsule, reserve}: Props) {
 
     return (
-        <div className="padding relative">
+        <div className="padding relative" aria-modal="true" role="dialog">
 
             <div
                 className="details_wrapper scale-0 fixed z-500 bottom-20 rounded-[40px] left-4 w-95 h-[calc(100vh-110px)] flex flex-col padding bg-darkBrown">
@@ -102,10 +103,12 @@ export default function Details({capsule, reserve}: Props) {
                         <div
                             className="text-[14px] leading-[18px] tracking-[-0.2px] text-lightBrown text-left mt-[18px] underline">
 
-                            <AnimatedUnderlineText id={`capsule-details-${capsule.id}`} aria-label="Reserve"
-                                                   onClick={reserve}>
-                                Ready to reserve?
-                            </AnimatedUnderlineText>
+                            <button aria-hidden={!isOpen} tabIndex={isOpen ? 0 : -1} aria-label="Reserve"
+                                    onClick={reserve}>
+                                <AnimatedUnderlineText id={`capsule-details-${capsule.id}`}>
+                                    Ready to reserve?
+                                </AnimatedUnderlineText>
+                            </button>
                         </div>
 
                     </div>

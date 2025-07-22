@@ -39,15 +39,18 @@ export default function Link({link}: { link: IMenuLink }) {
     }
 
     return (
-        <button id={`link-${link.id}`} className="relative xl:text-end text-start overflow-hidden"
-                onMouseEnter={onHover}
-                onMouseLeave={onLeave}
-                onClick={() => handleLink(link.href, link.offset)}
+        <a href="#" id={`link-${link.id}`} className="relative xl:text-end text-start overflow-hidden"
+           onMouseEnter={onHover}
+           onMouseLeave={onLeave}
+           onClick={e => {
+               e.preventDefault();
+               handleLink(link.href, link.offset)
+           }}
         >
             <div
                 className="xl:sm-text md-text text-white leading-[1]">{link.name}</div>
             <div aria-hidden="true"
                  className="xl:sm-text md-text absolute top-0 xl:right-0 left-0 text-lightBrown translate-y-[110%] leading-[1]">{link.name}</div>
-        </button>
+        </a>
     )
 }

@@ -9,11 +9,12 @@ import {ReserveCtx} from "../../App.tsx";
 import {scrollTo} from "../../utils/scroll.ts";
 
 interface Props {
+    isOpen: boolean,
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
     menuTimeline: RefObject<gsap.core.Timeline | null>
 }
 
-export default function Menu({setIsOpen, menuTimeline}: Props) {
+export default function Menu({isOpen, setIsOpen, menuTimeline}: Props) {
 
     const {setIsOpenReserve} = useContext(ReserveCtx)
 
@@ -35,7 +36,8 @@ export default function Menu({setIsOpen, menuTimeline}: Props) {
     }
 
     return (
-        <section id="menu-section"
+        <section aria-modal="true" role="dialog" id="menu-section"
+                 aria-hidden={!isOpen}
                  className="fixed overflow-y-auto inset-0 p-2.5 z-30 h-screen w-screen pointer-events-none">
             <div id="menu-container"
                  className="relative z-40 min-h-full flex flex-col xl:flex-row bg-middleBrown xl:rounded-[1000px] xl:scale-x-0 scale-y-0">
@@ -47,6 +49,7 @@ export default function Menu({setIsOpen, menuTimeline}: Props) {
                                 <li key={menu.id}
                                     className={cn("w-fit cursor-pointer text-[clamp(40px,2vw,100px)] xl:text-[clamp(60px,3vw,100px)] leading-[1] text-lightBrown hover:text-white transition-item", {"xl:hidden": index === menus.length - 1}, "duration-300")}>
                                     <a href=""
+                                       tabIndex={isOpen ? 0 : -1}
                                        onClick={e => {
                                            e.preventDefault()
                                            handleScroll(menu.href, menu.offset)
@@ -76,10 +79,12 @@ export default function Menu({setIsOpen, menuTimeline}: Props) {
                         <div className="flex items-center order-2 xl:order-1">
                             {
                                 socials.map(({id, Icon, href, name}) => (
-                                        <a href={href} key={id} aria-label={name}>
+                                        <a href={href} key={id} aria-label={name}
+                                           tabIndex={isOpen ? 0 : -1}>
                                             <AnimatedButton variant="white-outline"
                                                             className="invisible social xl:scale-0 h-14 w-14 xl:h-12 xl:w-12"
-                                                            aria-label={name}><Icon
+                                                            aria-label={name}
+                                                            tabIndex={isOpen ? 0 : -1}><Icon
                                                 className="xl:text-xl text-2xl"/></AnimatedButton>
                                         </a>
                                     )

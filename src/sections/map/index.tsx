@@ -8,9 +8,10 @@ const MapSection = lazy(() => import('./Map.tsx'));
 
 interface Props {
     isOpenMap: boolean
+    setIsOpenMap: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function Map({isOpenMap}: Props) {
+export default function Map({isOpenMap, setIsOpenMap}: Props) {
 
     const tl = useRef<gsap.core.Timeline>(null)
     const openDebounced = useDebounce(isOpenMap, 2000)
@@ -49,7 +50,7 @@ export default function Map({isOpenMap}: Props) {
                     (isOpenMap || openDebounced) && <MapSection/>
                 }
                 <div className="p-4">
-                    <Info/>
+                    <Info setIsOpenMap={setIsOpenMap} openMapTimeline={tl}/>
                 </div>
             </div>
         </section>

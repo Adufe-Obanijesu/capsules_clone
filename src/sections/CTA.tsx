@@ -2,7 +2,7 @@ import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import {useRef} from "react";
 import type {IReserveProps} from "../types/Reserve.ts";
-import {CursorButton} from "../components/Button.tsx";
+import {Cursor} from "../components/Button.tsx";
 import {MdArrowOutward} from "react-icons/md";
 import CustomCursor from "../components/CustomCursor.tsx";
 
@@ -26,7 +26,7 @@ export default function CTA({setIsOpen}: Omit<IReserveProps, "isOpen">) {
     return (
         <CustomCursor
             block
-            cursor={<CursorButton text="Reserve" Icon={MdArrowOutward}/>}
+            cursor={<Cursor text="Reserve" Icon={MdArrowOutward}/>}
         >
             <section ref={scope} className="padding h-100 xl:h-screen w-full">
                 <h2 className="sr-only">Capsules</h2>

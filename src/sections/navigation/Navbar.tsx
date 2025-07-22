@@ -4,12 +4,15 @@ import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 import {IconButton} from "../../components/Button.tsx";
 import type {IReserveProps} from "../../types/Reserve.ts";
+import {useRef} from "react";
 
 export default function Navbar({setIsOpen}: Omit<IReserveProps, "isOpen">) {
 
+    const navbarTl = useRef<gsap.core.Timeline>(null)
+
     useGSAP(() => {
 
-        const tl = gsap.timeline({paused: true}).to("#navbar nav > div", {
+        navbarTl.current = gsap.timeline({paused: true}).to("#navbar nav > div", {
             y: -80,
         })
 
@@ -18,9 +21,9 @@ export default function Navbar({setIsOpen}: Omit<IReserveProps, "isOpen">) {
             start: "top top",
             onUpdate: self => {
                 if (self.direction === 1) {
-                    tl.play()
+                    navbarTl.current?.play()
                 } else {
-                    tl.reverse()
+                    navbarTl.current?.reverse()
                 }
             }
         })
@@ -50,17 +53,24 @@ export default function Navbar({setIsOpen}: Omit<IReserveProps, "isOpen">) {
         })
     })
 
+    const showNavbar = () => {
+        if (navbarTl.current) navbarTl.current.reverse()
+    }
+
     return (
         <div id="navbar" className="opacity-0">
             <nav className="fixed xl:top-8 top-4 left-0 w-full px-4 xl:px-8 z-20 pointer-events-none"
+                 onFocus={showNavbar}
             >
                 <div className="flex justify-between items-center">
 
                     <div>
                         <img src="/mini_logo.svg" className="h-6.5 pointer-events-auto" alt="logo"/>
                     </div>
-                    <IconButton text="Reserve" Icon={MdArrowOutward} className="pointer-events-auto"
-                                onClick={() => setIsOpen(true)} aria-label="Make reservation"/>
+                    <button aria-label="Make reservation" className="pointer-events-auto"
+                            onClick={() => setIsOpen(true)}>
+                        <IconButton text="Reserve" Icon={MdArrowOutward}/>
+                    </button>
 
                 </div>
             </nav>

@@ -65,7 +65,7 @@ export default function useAnimation() {
                 scrollTrigger: {
                     trigger: "#testimonials",
                     start: "bottom+=5% bottom",
-                    end: "bottom 80%",
+                    end: "bottom 50%",
                     scrub: 1,
                 }
             })

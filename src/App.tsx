@@ -85,7 +85,7 @@ export default function App() {
                 <Reserve isOpen={isOpenReserve} setIsOpen={setIsOpenReserve}/>
                 <MenuButton isOpenMap={isOpenMap} setIsOpenMap={setIsOpenMap}/>
                 <LazySectionWrapper>
-                    <Map isOpenMap={isOpenMap}/>
+                    <Map isOpenMap={isOpenMap} setIsOpenMap={setIsOpenMap}/>
                 </LazySectionWrapper>
                 <div className="bg-dark min-h-screen">
                     <Loader>

@@ -74,16 +74,19 @@ export default function Button({capsule}: Props) {
     return (
         <div ref={scope}>
             <div id={`capsule-button-${capsule.id}`} className="relative flex items-center">
-                <AnimatedButton isActive={isOpen} variant="white-overlay" id={`terraceCapsuleDetails${capsule.id}`}
-                                className="z-100 invisible scale-0"
-                                aria-label={`${capsule.ariaName} details`}
-                                onClick={() => setIsOpen(prev => !prev)}>
-                    <GoPlus fontSize={24}
-                            className={cn("text-darkBrown z-5 transition-item")}/>
-                </AnimatedButton>
+                <button
+                    id={`terraceCapsuleDetails${capsule.id}`}
+                    className="z-100 invisible scale-0"
+                    aria-label={`${capsule.ariaName} details`}
+                    onClick={() => setIsOpen(prev => !prev)}>
+                    <AnimatedButton isActive={isOpen} variant="white-overlay">
+                        <GoPlus fontSize={24}
+                                className={cn("text-darkBrown z-5 transition-item")}/>
+                    </AnimatedButton>
+                </button>
 
 
-                <Details capsule={capsule} reserve={reserve}/>
+                <Details isOpen={isOpen} capsule={capsule} reserve={reserve}/>
 
                 <div
                     className={`details-overlay${capsule.id} fixed bg-tertiary z-60 w-full h-full top-0 left-0 opacity-0 pointer-events-none`}

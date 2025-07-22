@@ -39,7 +39,8 @@ export default function DesktopVersion() {
                          className="aspect-[4.28/1] logo-fluid-lg"/>
 
                     <div className="flex justify-between items-end">
-                        <div className="heading-3 font-medium mt-[20px] text-white">
+                        <div className="heading-3 font-medium mt-[20px] text-white"
+                             aria-label="Closer to Nature-Closer to Yourself">
                             Closer to <br/> Nature-Closer<br/> to Yourself
                         </div>
 

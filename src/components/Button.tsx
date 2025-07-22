@@ -6,7 +6,7 @@ import type {IconType} from "react-icons";
 
 type Variant = "light-overlay" | "white-overlay" | "white-outline" | "dark"
 
-interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface AnimatedButtonProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode
     variant?: Variant
     isActive?: boolean
@@ -61,7 +61,7 @@ export default function AnimatedButton({
     }
 
     return (
-        <button
+        <div
             ref={btnRef}
             {...props}
             onMouseEnter={(e) => {
@@ -81,11 +81,11 @@ export default function AnimatedButton({
                 )}
             />
             <div className="content relative z-10">{children}</div>
-        </button>
+        </div>
     )
 }
 
-interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface IconButtonProps extends React.HTMLAttributes<HTMLDivElement> {
     text: string,
     className?: string,
     Icon: IconType,
@@ -94,7 +94,7 @@ interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
 
 export function IconButton({text, Icon, className, minimizeOnMobile = false, ...props}: IconButtonProps) {
     return (
-        <button
+        <div
             className={cn("bg-gray-100 h-11 rounded-full p-[3px] flex justify-center items-center cursor-pointer group text-sm", className, {"xl:bg-transparent xl:p-0": minimizeOnMobile})} {...props}>
             <div
                 className={cn("ml-4 mr-2 text-darkBrown text-sm overflow-hidden relative w-full", {"hidden xl:block": minimizeOnMobile})}>
@@ -109,14 +109,14 @@ export function IconButton({text, Icon, className, minimizeOnMobile = false, ...
                 className={cn("h-full aspect-square bg-darkBrown rounded-full w-11 flex justify-center items-center text-lightBrown", {"bg-white text-tertiary": minimizeOnMobile})}>
                 <Icon fontSize={24}/>
             </div>
-        </button>
+        </div>
     )
 }
 
-export function CursorButton({text, Icon, ...props}: IconButtonProps) {
+export function Cursor({text, Icon, ...props}: IconButtonProps) {
     return (
-        <button type="button"
-                className="bg-gray-100/90  rounded-full p-3 flex justify-center items-center cursor-pointer text-sm" {...props}>
+        <div
+            className="bg-gray-100/90  rounded-full p-3 flex justify-center items-center cursor-pointer text-sm" {...props}>
             <div
                 className="ml-2 mr-1 text-darkBrown text-sm w-full">
                 <div
@@ -127,6 +127,6 @@ export function CursorButton({text, Icon, ...props}: IconButtonProps) {
                 className="h-full aspect-square bg-gray-50 rounded-full w-20 flex justify-center items-center text-tertiary">
                 <Icon fontSize={24}/>
             </div>
-        </button>
+        </div>
     )
 }

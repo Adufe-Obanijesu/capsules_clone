@@ -40,7 +40,7 @@ export default function Details({capsule, setSelectedCap, cancel}: Props) {
 
     // reserve
     return (
-        <div ref={scope}>
+        <div ref={scope} aria-modal="true" role="dialog">
 
             <div id="details_wrapper"
                  className="opacity-0 fixed top-0 left-0 w-full h-[100vh] z-50 flex flex-col padding bg-tertiary">
@@ -120,10 +120,12 @@ export default function Details({capsule, setSelectedCap, cancel}: Props) {
                             className="text-[14px] leading-[18px] tracking-[-0.2px] font-normal text-white">{capsule?.details.terrace ? "Available" : "None"}
                         </div>
                     </div>
-                    <AnimatedUnderlineText id={`capsule-details-${capsule?.id}`} aria-label="Reserve" onClick={reserve}
-                                           className="text-sm" color="lightBrown" hoverColor="white">
-                        Ready to reserve?
-                    </AnimatedUnderlineText>
+                    <button onClick={reserve} aria-label="Reserve">
+                        <AnimatedUnderlineText id={`capsule-details-${capsule?.id}`}
+                                               className="text-sm" color="lightBrown" hoverColor="white">
+                            Ready to reserve?
+                        </AnimatedUnderlineText>
+                    </button>
                     <div
                         className="bg-darkBrown overflow-hidden w-[calc(100%-40px)] h-[72px] rounded-[24px] flex justify-between items-center px-[24px] fixed bottom-[20px] left-[20px]">
                         <div className="absolute top-0 left-0 bg-black/50 w-full h-full -z-1"></div>
