@@ -76,7 +76,7 @@ export default function Button({capsule}: Props) {
             <div id={`capsule-button-${capsule.id}`} className="relative flex items-center">
                 <button
                     id={`terraceCapsuleDetails${capsule.id}`}
-                    className="z-100 invisible scale-0"
+                    className="z-100 invisible scale-0 rounded-full"
                     aria-label={`${capsule.ariaName} details`}
                     onClick={() => setIsOpen(prev => !prev)}>
                     <AnimatedButton isActive={isOpen} variant="white-overlay">

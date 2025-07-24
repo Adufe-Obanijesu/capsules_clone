@@ -24,7 +24,7 @@ export default function DesktopCarousel() {
                 scrub: 1,
                 pin: true,
                 refreshPriority: 1
-            }
+            },
         })
             .to(container.current, {
                 x: -distance,
@@ -34,7 +34,6 @@ export default function DesktopCarousel() {
             }, {
                 objectPosition: "-120px 0px",
             }, "<")
-
     }, {scope})
 
     return (
@@ -42,7 +41,7 @@ export default function DesktopCarousel() {
             <div id="activities">
 
                 <div ref={container}
-                     className="flex gap-2.5 w-max overflow-x-scroll xl:overflow-x-hidden px-2.5">
+                     className="flex gap-2.5 w-max overflow-x-scroll xl:overflow-x-hidden px-2.5 will-change-transform">
                     {
                         activities.map((activity) => <Card key={activity.id} activity={activity}/>)
                     }

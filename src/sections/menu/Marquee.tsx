@@ -1,10 +1,9 @@
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 
-export default function Marquee() {
+export default function Marquee({isOpen}: { isOpen: boolean }) {
 
     useGSAP(() => {
-
         const mm = gsap.matchMedia()
         mm.add({
             isDesktop: "(min-width: 1028px)",
@@ -15,14 +14,21 @@ export default function Marquee() {
 
             const xValue = headings[0].clientWidth * -1;
 
-            gsap.effects.infiniteSlide("#menu-marquee-wrapper", {
+            const tl = gsap.effects.infiniteSlide("#menu-marquee-wrapper", {
                 duration: isDesktop ? 25 : 15,
                 x: () => xValue,
                 xPercent: 0
             })
+
+            if (isOpen) {
+                tl.play();
+            } else {
+                tl.pause();
+            }
         })
 
-    })
+    }, [isOpen])
+
 
     return (
         <div className="overflow-hidden w-[calc(100vw-28px)]">

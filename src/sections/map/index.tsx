@@ -19,7 +19,8 @@ export default function Map({isOpenMap, setIsOpenMap}: Props) {
     useGSAP(() => {
         tl.current = gsap.timeline({paused: true, defaults: {ease: "sine"}})
             .to("#map", {
-                clipPath: "circle(100% at 50% 50%)",
+                transformOrigin: "center center",
+                clipPath: "circle(100%)",
                 duration: 1,
                 pointerEvents: "auto"
             })
@@ -38,8 +39,12 @@ export default function Map({isOpenMap, setIsOpenMap}: Props) {
 
     useEffect(() => {
         if (!tl.current) return
-        if (isOpenMap) tl.current.play()
-        else tl.current.reverse()
+        if (isOpenMap) {
+            gsap.set("#map", {willChange: "clip-path"})
+            tl.current.play()
+        } else {
+            tl.current.reverse().set("#map", {willChange: "auto"})
+        }
     }, [isOpenMap]);
 
     return (
