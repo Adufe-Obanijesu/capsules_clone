@@ -2,16 +2,39 @@ import Card from "../Card.tsx";
 import {why} from "../../../data/why.ts";
 import {useGSAP} from "@gsap/react";
 import {animation} from "./animation.ts";
-import {useRef} from "react";
+import {useContext, useRef, useState} from "react";
+import {Ctx} from "../../../App.tsx";
+import useScrollDirection from "../../../hooks/useScrollDirection.tsx";
+import {useScrollLock} from "../../../hooks/useScrollLock.tsx";
 
 export default function DesktopVersion() {
+    const {lenis} = useContext(Ctx)
 
-    const scope = useRef<HTMLDivElement>(null)
+    const timeline = useRef<gsap.core.Timeline>(null)
+    const [isScrollLocked, setIsScrollLocked] = useState(false)
+    const scrollLock = useScrollLock()
 
-    useGSAP(() => animation)
+    useScrollDirection({
+        onScrollDown: () => {
+            if (!isScrollLocked) return
+            timeline.current?.play()
+        },
+        onScrollUp: () => {
+            if (!isScrollLocked) return
+            timeline.current?.reverse()
+        },
+    })
+
+    useGSAP(() => () => {
+        const tl = animation(lenis, scrollLock, setIsScrollLocked)
+        if (tl) {
+            timeline.current = tl
+        }
+    })
+
 
     return (
-        <section id="why" ref={scope} className="bg-tertiary py-[1vh] z-1 relative">
+        <section id="why" className="bg-tertiary py-[1vh] z-1 relative">
             <div className="why-desktop grid grid-cols-2 gap-4 padding-x h-screen overflow-hidden">
                 <div className="card-container">
                     <Card whys={why} details={why[0]}/>

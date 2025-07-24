@@ -7,14 +7,14 @@ import {cn} from "../../../utils/tailwind.ts";
 import {useGSAP} from "@gsap/react";
 import AnimatedButton from "../../../components/Button.tsx";
 import useEscapeKey from "../../../hooks/useEscapeKey.tsx";
-import {ReserveCtx} from "../../../App.tsx";
+import {Ctx} from "../../../App.tsx";
 
 interface Props {
     capsule: ICapsule,
 }
 
 export default function Button({capsule}: Props) {
-    const {setIsOpenReserve, setSelectedCapsule} = useContext(ReserveCtx)
+    const {setIsOpenReserve, setSelectedCapsule} = useContext(Ctx)
     const [isOpen, setIsOpen] = useState(false)
 
     useEscapeKey(() => {

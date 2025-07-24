@@ -1,7 +1,7 @@
 import AnimatedUnderlineText from "../../components/AnimatedUnderlineText.tsx";
 import {type RefObject, useContext} from "react";
 import gsap from "gsap";
-import {ReserveCtx} from "../../App.tsx";
+import {Ctx} from "../../App.tsx";
 
 interface Props {
     openMapTimeline: RefObject<gsap.core.Timeline | null>,
@@ -10,7 +10,7 @@ interface Props {
 
 export default function Info({openMapTimeline, setIsOpenMap}: Props) {
 
-    const {setIsOpenReserve} = useContext(ReserveCtx)
+    const {setIsOpenReserve} = useContext(Ctx)
 
     const reserve = () => {
         if (openMapTimeline.current) {

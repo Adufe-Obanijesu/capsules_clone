@@ -1,10 +1,11 @@
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import Lenis from '@studio-freight/lenis'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 export default function useLenis(hasLoaded: boolean, options = {}) {
     const lenisRef = useRef<Lenis>(null)
+    const [lenis, setLenis] = useState<Lenis | null>(null)
 
     const defaultOptions = {
         duration: 1.2,
@@ -18,6 +19,7 @@ export default function useLenis(hasLoaded: boolean, options = {}) {
 
         const lenis = new Lenis(defaultOptions)
         lenisRef.current = lenis
+        setLenis(lenis)
 
         lenis.on('scroll', ScrollTrigger.update)
 
@@ -42,5 +44,5 @@ export default function useLenis(hasLoaded: boolean, options = {}) {
         else lenisRef.current.stop()
     }, [hasLoaded]);
 
-    return lenisRef.current
+    return lenis
 }

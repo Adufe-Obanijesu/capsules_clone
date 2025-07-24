@@ -19,7 +19,7 @@ export default function () {
             <div
                 className="capsule-marquee-overlay absolute bg-tertiary w-full h-full top-0 left-0 z-5 opacity-0 pointer-events-none"/>
             <div aria-hidden className="">
-                <div className="overflow-x-hidden w-screen">
+                <div className="overflow-hidden w-screen">
                     <div id="wrapper" className="flex">
 
                         <div className="min-w-1/2">

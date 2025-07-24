@@ -19,10 +19,6 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-:root {
-    --inset: 50%
-}
-
 @font-face {
     font-family: "Host_Grotesk";
     src: url("/fonts/Host_Grotesk/Host_Grotesk-normal-400-latin.wBCQJesg.woff2");
@@ -197,9 +193,10 @@ body::-webkit-scrollbar {
 }
 
 body {
-    overflow: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    overflow-y: hidden
 }
 
 button {

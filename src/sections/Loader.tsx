@@ -66,6 +66,7 @@ export default function Loader({children, setHasLoaded}: Props) {
                 ease: "none",
                 onComplete: () => {
                     setHasLoaded(true)
+                    gsap.set("body", {overflowY: "auto"})
                     gsap.set("#loader-clip-path", {willChange: "auto"})
                 }
             })
@@ -84,7 +85,7 @@ export default function Loader({children, setHasLoaded}: Props) {
 
     return (
         <div id="loader" className="">
-            <div id="loader-clip-path" className="h-screen w-screen z-200" style={{
+            <div id="loader-clip-path" className="h-screen z-200" style={{
                 clipPath: clip,
             }}>
                 {children}

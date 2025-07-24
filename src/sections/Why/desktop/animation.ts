@@ -1,6 +1,7 @@
 import SplitText from "gsap/SplitText";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import type Lenis from "@studio-freight/lenis";
 
 const fadeOut = {
     opacity: .1,
@@ -12,7 +13,13 @@ const moveLeft = {
     x: -16
 }
 
-export function animation() {
+export function animation(
+    lenis: Lenis | null,
+    scrollLock: {
+        disableScroll: () => void
+        enableScroll: () => void
+    },
+    setIsScrollLocked: React.Dispatch<React.SetStateAction<boolean>>) {
     const cardContainers: HTMLElement[] = gsap.utils.toArray(".card-container")
     const imageContainers: HTMLElement[] = gsap.utils.toArray(".why-desktop .right-side .image-container")
     const images: HTMLElement[] = gsap.utils.toArray(".why-desktop .right-side .image-container img")
@@ -52,25 +59,51 @@ export function animation() {
         clipPath: "inset(0% 0 0 0)"
     })
 
-    const st = {
-        trigger: ".why-desktop",
-        start: "top 1%",
-        end: "bottom 1%",
-        pin: true,
-        refreshPriority: 1,
-        onUpdate: (self: ScrollTrigger) => {
-
-            if (self.direction === -1) {
-                timeline.reverse()
-            } else {
-                timeline.play()
-            }
-        }
-    }
-
     const timeline = gsap.timeline({
-        scrollTrigger: st,
-        defaults: {duration: 1, ease: "power2.inOut"}
+        scrollTrigger: {
+            markers: true,
+            trigger: "#why",
+            start: "top top",
+            end: "+=200px",
+            pin: true,
+            refreshPriority: 1,
+            onUpdate: (self: ScrollTrigger) => {
+                if (self.direction === -1) {
+                    timeline.reverse()
+                } else {
+                    timeline.play()
+                }
+            },
+            onEnter: () => {
+                scrollLock.disableScroll()
+                setIsScrollLocked(true)
+                lenis?.stop();
+            },
+            onEnterBack: () => {
+                scrollLock.disableScroll()
+                setIsScrollLocked(true)
+                lenis?.stop();
+            },
+            onLeave: () => {
+                timeline.progress(1).pause()
+            },
+            onLeaveBack: () => {
+                timeline.progress(0).pause()
+            }
+        },
+        defaults: {duration: 1, ease: "power2.inOut"},
+        onComplete: function () {
+            scrollLock.enableScroll()
+            lenis?.start()
+            setIsScrollLocked(false);
+            (this.scrollTrigger as ScrollTrigger).scroll((this.scrollTrigger as ScrollTrigger).end)
+        },
+        onReverseComplete: function () {
+            scrollLock.enableScroll()
+            lenis?.start()
+            setIsScrollLocked(false);
+            (this.scrollTrigger as ScrollTrigger).scroll((this.scrollTrigger as ScrollTrigger).start)
+        }
     })
         .addPause()
         .to(cardContainers[0], fadeOut
@@ -117,4 +150,6 @@ export function animation() {
         }, "<")
         .set(".image-with-clip", {visibility: "hidden"})
         .addPause()
+
+    return timeline
 }

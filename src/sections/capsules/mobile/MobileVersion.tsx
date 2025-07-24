@@ -25,7 +25,7 @@ export default function MobileVersion() {
         <div ref={scope} className="relative padding-x padding-y-md">
 
             <div aria-hidden className="mb-16 -margin-x">
-                <div className="overflow-x-hidden w-screen">
+                <div className="overflow-hidden w-screen">
                     <div id="wrapper" className="flex">
 
                         <div className="min-w-screen padding-x">

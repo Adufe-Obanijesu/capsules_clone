@@ -3,7 +3,7 @@ import {LiaTimesSolid} from "react-icons/lia";
 import {useContext, useRef} from "react";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
-import {ReserveCtx} from "../../../App.tsx";
+import {Ctx} from "../../../App.tsx";
 import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText.tsx";
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
 
 export default function Details({capsule, setSelectedCap, cancel}: Props) {
     const scope = useRef<HTMLDivElement>(null)
-    const {setIsOpenReserve, setSelectedCapsule} = useContext(ReserveCtx)
+    const {setIsOpenReserve, setSelectedCapsule} = useContext(Ctx)
 
     const tween = useRef<gsap.core.Tween>(null)
 

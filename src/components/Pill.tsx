@@ -6,7 +6,7 @@ interface PillProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export default function Pill({children, ...props}: PillProps) {
     return (
-        <div className={cn("border-[2px] border-lightBrown px-[20px] py-[12px] rounded-full", props.className)}>
+        <div className={cn("border-[2px] border-lightBrown px-4 py-3 rounded-full", props.className)}>
             {children}
         </div>
     )

@@ -9,7 +9,7 @@ import FirstStep from "./steps/FirstStep.tsx";
 import SecondStep from "./steps/SecondStep.tsx";
 import {useMediaQuery} from "react-responsive";
 import {cn} from "../../utils/tailwind.ts";
-import {ReserveCtx} from "../../App.tsx";
+import {Ctx} from "../../App.tsx";
 
 export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
     const scope = useRef<HTMLDivElement>(null)
@@ -20,7 +20,7 @@ export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
         maxWidth: 1279
     })
 
-    const {selectedCapsule, setSelectedCapsule} = useContext(ReserveCtx)
+    const {selectedCapsule, setSelectedCapsule} = useContext(Ctx)
 
     const duration = .5
 

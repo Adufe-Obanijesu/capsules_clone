@@ -3,7 +3,7 @@ import {FaAsterisk} from "react-icons/fa6";
 export default function Marquee() {
 
     return (
-        <div className="why-marquee-wrapper overflow-x-hidden w-screen -margin-x relative z-0">
+        <div className="why-marquee-wrapper overflow-hidden w-screen -margin-x relative z-0">
             <h2 className="sub-heading padding-x-md mb-4 xl:mb-0">
                 Want to learn more about <br/>
                 the benefits of—Capsules®?

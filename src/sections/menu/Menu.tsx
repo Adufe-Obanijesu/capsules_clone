@@ -5,7 +5,7 @@ import {cn} from "../../utils/tailwind.ts";
 import Marquee from "./Marquee.tsx";
 import gsap from "gsap"
 import {type RefObject, useContext} from "react";
-import {ReserveCtx} from "../../App.tsx";
+import {Ctx} from "../../App.tsx";
 import {scrollTo} from "../../utils/scroll.ts";
 
 interface Props {
@@ -16,7 +16,7 @@ interface Props {
 
 export default function Menu({isOpen, setIsOpen, menuTimeline}: Props) {
 
-    const {setIsOpenReserve} = useContext(ReserveCtx)
+    const {setIsOpenReserve} = useContext(Ctx)
 
     function handleScroll(id: string | number, offset: number = 0) {
 

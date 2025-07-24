@@ -69,7 +69,7 @@ export default function Marquee({setIsOpen}: { setIsOpen: React.Dispatch<React.S
 
     return (
         <button
-            className="footer-marquee-wrapper overflow-x-hidden w-screen -mx-8 relative z-0 xl:-z-1 text-white hover:text-lightBrown"
+            className="footer-marquee-wrapper overflow-hidden w-screen -mx-8 relative z-0 xl:-z-1 text-white hover:text-lightBrown"
             onClick={() => setIsOpen(true)}
             onMouseEnter={onHover} onMouseLeave={onLeave}
             aria-label="Open reservation">

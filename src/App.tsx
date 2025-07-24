@@ -8,7 +8,7 @@ import {useGSAP} from "@gsap/react";
 import {createContext, useEffect, useRef, useState} from "react";
 import {useMediaQuery} from "react-responsive";
 import {lazy, Suspense} from "react";
-import type {IReserveContext} from "./types/Reserve.ts";
+import type {IContext} from "./types/Reserve.ts";
 import {capsules} from "./data/capsules.ts";
 
 // Effects
@@ -42,13 +42,14 @@ const Map = lazy(() => import("./sections/map"));
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText, useGSAP, GSDevTools, TextPlugin)
 
-export const ReserveCtx = createContext<IReserveContext>({
+export const Ctx = createContext<IContext>({
     isOpenReserve: false,
     setIsOpenReserve: () => {
     },
     selectedCapsule: capsules[0],
     setSelectedCapsule: () => {
     },
+    lenis: null
 })
 
 export default function App() {
@@ -57,7 +58,7 @@ export default function App() {
     const [selectedCapsule, setSelectedCapsule] = useState(capsules[0])
     const [hasLoaded, setHasLoaded] = useState(false)
 
-    useLenis(hasLoaded)
+    const lenis = useLenis(hasLoaded)
 
     useEscapeKey(() => {
         setIsOpenMap(false)
@@ -76,11 +77,12 @@ export default function App() {
 
 
     return (
-        <ReserveCtx.Provider value={{
+        <Ctx.Provider value={{
             isOpenReserve,
             setIsOpenReserve,
             selectedCapsule,
-            setSelectedCapsule
+            setSelectedCapsule,
+            lenis,
         }}>
             <main className="bg-darkBrown relative antialiased">
                 <Navbar setIsOpen={setIsOpenReserve}/>
@@ -117,6 +119,6 @@ export default function App() {
                     </>
                 </div>
             </main>
-        </ReserveCtx.Provider>
+        </Ctx.Provider>
     )
 }
