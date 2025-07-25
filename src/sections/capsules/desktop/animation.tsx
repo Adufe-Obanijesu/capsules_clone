@@ -134,11 +134,14 @@ export function animate(capsules: HTMLElement[]) {
         scrollTrigger: {
             trigger: "#capsule-wrapper",
             start: "top top",
-            end: `${(capsules.length + 4) * 100}% bottom`,
+            end: `${(capsules.length + 5) * 100}% bottom`,
             scrub: 1,
             pin: true,
             pinSpacing: true,
             refreshPriority: 1
+        },
+        defaults: {
+            ease: "sine.inOut"
         }
     })
         .to(SELECTORS.firstCapsuleDiv, {

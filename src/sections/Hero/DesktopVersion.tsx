@@ -27,8 +27,8 @@ export default function DesktopVersion() {
 
             <div className="hero-header h-full w-full rounded-[40px] overflow-hidden relative">
                 <picture>
-                    <source srcSet="/images/cap1.webp" media="(min-width: 1240px)"/>
-                    <img id="hero-background" src="/images/cap1-mobile.webp" alt="capsule"
+                    <source srcSet="/images/cap3.webp" media="(min-width: 1240px)"/>
+                    <img id="hero-background" src="/images/cap3-mobile.webp" alt="capsule"
                          className="object-cover object-center w-full h-full" fetchPriority="high"
                          loading="eager"/>
                 </picture>
