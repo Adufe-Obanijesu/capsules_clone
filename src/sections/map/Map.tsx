@@ -1,4 +1,5 @@
-import {JSX, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
+import type {JSX} from "react"
 
 export default function MapSection({open}: { open: boolean }) {
     const [MapComponent, setMapComponent] = useState<JSX.Element | null>(null);

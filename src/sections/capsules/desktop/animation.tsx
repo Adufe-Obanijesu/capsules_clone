@@ -36,7 +36,6 @@ function createFadeOutTimeline(
     capsule: HTMLElement,
     overlay: HTMLElement
 ): gsap.core.Timeline {
-    console.log(overlay)
     return gsap.timeline()
         .to(capsule, {scale: 0.9})
         .set(overlay, {autoAlpha: 1}, "<")

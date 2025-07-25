@@ -25,7 +25,7 @@ export default function DesktopVersion() {
         },
     })
 
-    useGSAP(() => () => {
+    useGSAP(() => {
         const tl = animation(lenis, scrollLock, setIsScrollLocked)
         if (tl) {
             timeline.current = tl
