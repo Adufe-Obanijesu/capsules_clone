@@ -133,11 +133,10 @@ export function animate(capsules: HTMLElement[]) {
     const masterTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#capsule-wrapper",
-            start: "top 1%",
+            start: "top top",
             end: `${(capsules.length + 4) * 100}% bottom`,
             scrub: 1,
             pin: true,
-            anticipatePin: 1,
             pinSpacing: true,
             refreshPriority: 1
         }

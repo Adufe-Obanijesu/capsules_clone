@@ -22,7 +22,7 @@ export default function DesktopVersion() {
     return (
         <section ref={scope} className="space-y-16 pl-2 pr-4">
 
-            <div id="capsule-wrapper" className="relative w-full h-[98vh] rounded-[30px] pb-[1%]">
+            <div id="capsule-wrapper" className="relative w-full h-screen py-[1vh] rounded-[30px]">
 
                 {
                     capsulesData.map(capsule => <Card key={capsule.id} capsule={capsule}/>)

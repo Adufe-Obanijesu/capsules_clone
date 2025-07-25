@@ -61,7 +61,6 @@ export function animation(
 
     const timeline = gsap.timeline({
         scrollTrigger: {
-            markers: true,
             trigger: "#why",
             start: "top top",
             end: "+=20px",
