@@ -85,7 +85,7 @@ export default function Loader({children, setHasLoaded}: Props) {
                 pointerEvents: "none",
                 duration: 0.25
             }, "<")
-            .to("#menu, #navbar", {opacity: 1});
+            .to("#menu, #navbar, #awwwards", {autoAlpha: 1});
     }, [ready]);
 
 

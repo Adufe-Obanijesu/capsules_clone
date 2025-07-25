@@ -59,7 +59,7 @@ export default function Navbar({setIsOpen}: Omit<IReserveProps, "isOpen">) {
     }
 
     return (
-        <div id="navbar" className="opacity-0">
+        <div id="navbar" className="invisible">
             <nav className="fixed xl:top-8 top-4 left-0 w-full px-4 xl:px-8 z-20 pointer-events-none"
                  onFocus={showNavbar}
             >
