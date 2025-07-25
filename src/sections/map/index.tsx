@@ -3,6 +3,7 @@ import {lazy, useEffect, useRef} from "react";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
 import useDebounce from "../../hooks/useDebounce.tsx";
+import {FiLoader} from "react-icons/fi";
 
 const MapSection = lazy(() => import('./Map.tsx'));
 
@@ -19,7 +20,6 @@ export default function Map({isOpenMap, setIsOpenMap}: Props) {
     useGSAP(() => {
         tl.current = gsap.timeline({paused: true, defaults: {ease: "sine"}})
             .to("#map", {
-                transformOrigin: "center center",
                 clipPath: "circle(100%)",
                 duration: 1,
                 pointerEvents: "auto"
@@ -40,20 +40,23 @@ export default function Map({isOpenMap, setIsOpenMap}: Props) {
     useEffect(() => {
         if (!tl.current) return
         if (isOpenMap) {
-            gsap.set("#map", {willChange: "clip-path"})
-            tl.current.play()
+            tl.current.play();
         } else {
-            tl.current.reverse().set("#map", {willChange: "auto"})
+            tl.current.reverse()
         }
     }, [isOpenMap]);
 
     return (
         <section>
-            <div id="map" className="circle-clip-path w-screen h-screen fixed top-0 left-0 pointer-events-none z-40">
-                <div className="absolute top-0 left-0 w-screen h-screen bg-lightBrown"/>
-                {
-                    (isOpenMap || openDebounced) && <MapSection/>
-                }
+            <div id="map" className="circle-clip-path w-screen h-screen fixed top-0 left-0 pointer-events-none z-40"
+                 style={{willChange: "clip-path"}}>
+                <div
+                    className="absolute top-0 left-0 w-screen h-screen bg-lightBrown flex justify-center items-center">
+                    <FiLoader fontSize={32} className="animate-spin text-dark"/>
+                </div>
+                <div className="absolute top-0 left-0 w-screen h-screen">
+                    <MapSection open={openDebounced}/>
+                </div>
                 <div className="p-4">
                     <Info setIsOpenMap={setIsOpenMap} openMapTimeline={tl}/>
                 </div>
