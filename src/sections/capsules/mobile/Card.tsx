@@ -1,4 +1,4 @@
-import type {ICapsule} from "../../../data/capsules.ts";
+import type {ICapsule} from "../../../data/capsules";
 import {GoPlus} from "react-icons/go";
 
 interface Props {
@@ -18,7 +18,7 @@ export default function Card({capsule, setSelectedCapsule}: Props) {
                 <GoPlus fontSize={30}/>
             </button>
         </div>
- 
+
         <div className="px-[10px]">
             <h2
                 className="text-[35px] font-semibold leading-[38px] tracking-[-0.2px] text-lightBrown mt-[20px] mb-[15px]">{capsule.name}

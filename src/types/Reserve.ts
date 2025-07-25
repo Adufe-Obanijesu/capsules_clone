@@ -1,4 +1,4 @@
-import type {ICapsule} from "../data/capsules.ts";
+import type {ICapsule} from "../data/capsules";
 import type Lenis from "@studio-freight/lenis";
 
 export interface IReserveProps {

@@ -1,5 +1,5 @@
 import {useRef} from "react";
-import {adventures, type IAdventure} from "../../data/adventure.tsx";
+import {adventures, type IAdventure} from "../../data/adventure";
 import {useMediaQuery} from "react-responsive";
 import {useGSAP} from "@gsap/react";
 import SplitText from "gsap/SplitText";

@@ -1,15 +1,15 @@
 import {useContext, useEffect, useRef, useState} from "react";
-import AnimatedButton from "../../components/Button.tsx";
+import AnimatedButton from "../../components/Button";
 
 import {FaTimes} from "react-icons/fa";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
-import type {IReserveProps} from "../../types/Reserve.ts";
-import FirstStep from "./steps/FirstStep.tsx";
-import SecondStep from "./steps/SecondStep.tsx";
+import type {IReserveProps} from "../../types/Reserve";
+import FirstStep from "./steps/FirstStep";
+import SecondStep from "./steps/SecondStep";
 import {useMediaQuery} from "react-responsive";
-import {cn} from "../../utils/tailwind.ts";
-import {Ctx} from "../../App.tsx";
+import {cn} from "../../utils/tailwind";
+import {Ctx} from "../../App";
 
 export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
     const scope = useRef<HTMLDivElement>(null)

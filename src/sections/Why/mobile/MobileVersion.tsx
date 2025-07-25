@@ -1,6 +1,6 @@
 import {useGSAP} from "@gsap/react";
-import {why} from "../../../data/why.ts";
-import Card from "../Card.tsx";
+import {why} from "../../../data/why";
+import Card from "../Card";
 
 export default function MobileVersion() {
 

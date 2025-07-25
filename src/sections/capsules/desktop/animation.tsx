@@ -36,16 +36,18 @@ function createFadeOutTimeline(
     capsule: HTMLElement,
     overlay: HTMLElement
 ): gsap.core.Timeline {
+    console.log(overlay)
     return gsap.timeline()
         .to(capsule, {scale: 0.9})
-        .to(overlay, {opacity: 0.75}, "<");
+        .set(overlay, {autoAlpha: 1}, "<")
+        .fromTo(overlay, {opacity: 0}, {opacity: 0.75}, "<");
 }
 
 function prepareCapsuleElements(capsule: HTMLElement) {
     const heading = capsule.querySelector("#capsule-wrapper .capsule-heading") as HTMLElement;
     const paragraph = capsule.querySelector("p") as HTMLElement;
     const button = capsule.querySelector("button") as HTMLElement;
-    const overlay = capsule.querySelector(".overlay") as HTMLElement;
+    const overlay = capsule.querySelector(".capsule-card-overlay") as HTMLElement;
     const image = capsule.querySelector("img") as HTMLElement;
 
     const headingSplit = new SplitText(heading, {

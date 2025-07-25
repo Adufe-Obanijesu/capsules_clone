@@ -1,10 +1,10 @@
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import {useRef} from "react";
-import type {IReserveProps} from "../types/Reserve.ts";
-import {Cursor} from "../components/Button.tsx";
+import type {IReserveProps} from "../types/Reserve";
+import {Cursor} from "../components/Button";
 import {MdArrowOutward} from "react-icons/md";
-import CustomCursor from "../components/CustomCursor.tsx";
+import CustomCursor from "../components/CustomCursor";
 
 export default function CTA({setIsOpen}: Omit<IReserveProps, "isOpen">) {
 

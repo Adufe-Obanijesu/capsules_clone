@@ -1,8 +1,8 @@
 import {testimonials} from "../../data/testimonials";
 import {IoArrowBackSharp, IoArrowForwardSharp} from "react-icons/io5";
-import AnimatedButton from "../../components/Button.tsx";
-import Testimonial from "./Testimonial.tsx";
-import useAnimation from "./useAnimation.tsx";
+import AnimatedButton from "../../components/Button";
+import Testimonial from "./Testimonial";
+import useAnimation from "./useAnimation";
 
 export default function Testimonials() {
 

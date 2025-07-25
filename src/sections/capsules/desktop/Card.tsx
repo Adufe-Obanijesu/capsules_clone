@@ -1,6 +1,6 @@
-import type {ICapsule} from "../../../data/capsules.ts";
-import {cn} from "../../../utils/tailwind.ts";
-import Button from "./Button.tsx";
+import type {ICapsule} from "../../../data/capsules";
+import {cn} from "../../../utils/tailwind";
+import Button from "./Button";
 
 export default function Card({capsule}: { capsule: ICapsule }) {
 
@@ -29,10 +29,12 @@ export default function Card({capsule}: { capsule: ICapsule }) {
                      font-semibold text-white translate-x-[10%] max-w-[400px] invisible">{capsule.description}
                         </p>
                     </div>
-                    <div className="absolute bg-black w-full h-full invisible z-[20] pointer-events-none"/>
+                    <div
+                        className="absolute bg-black w-full h-full invisible z-[20] pointer-events-none"/>
                 </div>
 
-                <div className="overlay absolute top-0 left-0 w-full h-full bg-black opacity-0 pointer-events-none"/>
+                <div
+                    className="capsule-card-overlay absolute top-0 left-0 w-full h-full bg-black opacity-0 pointer-events-none"/>
             </div>
         </div>
     )

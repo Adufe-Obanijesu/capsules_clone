@@ -1,7 +1,7 @@
 import {useRef} from "react"
 import {useGSAP} from "@gsap/react"
 import gsap from "gsap"
-import {cn} from "../utils/tailwind.ts";
+import {cn} from "../utils/tailwind";
 import type {IconType} from "react-icons";
 
 type Variant = "light-overlay" | "white-overlay" | "white-outline" | "dark"
@@ -20,6 +20,7 @@ export default function AnimatedButton({
                                            ...props
                                        }: AnimatedButtonProps) {
     const btnRef = useRef<HTMLDivElement>(null)
+    const scope = useRef<HTMLDivElement>(null)
     const timeline = useRef<gsap.core.Timeline | null>(null)
 
     useGSAP(() => {
@@ -32,13 +33,13 @@ export default function AnimatedButton({
         if (!overlay || !content) return
 
         timeline.current = gsap.timeline({paused: true, defaults: {duration: 0.25}})
-            .fromTo(overlay, {scale: 0}, {scale: 1, ease: "power2.in"})
+            .fromTo(overlay, {scale: 0}, {scale: 1.1, ease: "power2.in"})
 
         if (variant !== "white-overlay") {
-            timeline.current.to(content, {color: "var(--color-tertiary)"}, "<")
+            timeline.current.to(content, {color: "var(--color-tertiary)"})
                 .to(button, {borderColor: "var(--color-lightBrown)"}, "<")
         }
-    }, [])
+    }, {scope})
 
     const onHover = () => timeline.current?.play()
     const onLeave = () => timeline.current?.reverse(0)
@@ -61,26 +62,28 @@ export default function AnimatedButton({
     }
 
     return (
-        <div
-            ref={btnRef}
-            {...props}
-            onMouseEnter={(e) => {
-                onHover()
-                props.onMouseEnter?.(e)
-            }}
-            onMouseLeave={(e) => {
-                onLeave()
-                props.onMouseLeave?.(e)
-            }}
-            className={cn(baseStyles, variantStyles[variant], className)}
-        >
+        <div ref={scope} className="inline">
             <div
-                className={cn(
-                    "overlay absolute h-full w-full scale-0 rounded-full",
-                    overlayStyles[variant], {"scale-100": isActive}
-                )}
-            />
-            <div className="content relative z-10">{children}</div>
+                ref={btnRef}
+                {...props}
+                onMouseEnter={(e) => {
+                    onHover()
+                    props.onMouseEnter?.(e)
+                }}
+                onMouseLeave={(e) => {
+                    onLeave()
+                    props.onMouseLeave?.(e)
+                }}
+                className={cn(baseStyles, variantStyles[variant], className, {"bg-white": isActive})}
+            >
+                <div
+                    className={cn(
+                        "overlay absolute h-full w-full scale-0 rounded-full",
+                        overlayStyles[variant], {"scale-100": isActive}
+                    )}
+                />
+                <div className="content relative z-10">{children}</div>
+            </div>
         </div>
     )
 }
@@ -120,7 +123,7 @@ export function Cursor({text, Icon, ...props}: IconButtonProps) {
             <div
                 className="ml-2 mr-1 text-darkBrown text-sm w-full">
                 <div
-                    className="w-full">{text}
+                    className="w-full text-center">{text}
                 </div>
             </div>
             <div

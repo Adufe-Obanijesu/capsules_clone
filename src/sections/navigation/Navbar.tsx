@@ -2,8 +2,8 @@ import {MdArrowOutward} from "react-icons/md";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
-import {IconButton} from "../../components/Button.tsx";
-import type {IReserveProps} from "../../types/Reserve.ts";
+import {IconButton} from "../../components/Button";
+import type {IReserveProps} from "../../types/Reserve";
 import {useRef} from "react";
 
 export default function Navbar({setIsOpen}: Omit<IReserveProps, "isOpen">) {
@@ -14,6 +14,7 @@ export default function Navbar({setIsOpen}: Omit<IReserveProps, "isOpen">) {
 
         navbarTl.current = gsap.timeline({paused: true}).to("#navbar nav > div", {
             y: -80,
+            ease: "sine.inOut"
         })
 
         ScrollTrigger.create({

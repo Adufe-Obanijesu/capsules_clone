@@ -1,11 +1,11 @@
-import {capsules as capsulesData} from "../../../data/capsules.ts";
+import {capsules as capsulesData} from "../../../data/capsules";
 import {useRef} from "react";
 import gsap from "gsap";
 import {useGSAP} from "@gsap/react";
 import {animate} from "./animation";
-import Card from "./Card.tsx";
-import Marquee from "./Marquee.tsx";
-import {usePageReady} from "../../../hooks/usePageReady.tsx";
+import Card from "./Card";
+import Marquee from "./Marquee";
+import {usePageReady} from "../../../hooks/usePageReady";
 
 export default function DesktopVersion() {
     const scope = useRef<HTMLDivElement>(null)

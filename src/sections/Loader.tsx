@@ -2,7 +2,7 @@ import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
 import SplitText from "gsap/SplitText"
 import {useMediaQuery} from "react-responsive";
-import {usePageReady} from "../hooks/usePageReady.tsx";
+import {usePageReady} from "../hooks/usePageReady";
 import {useEffect, useRef, useState} from "react";
 
 interface Props {
@@ -17,6 +17,12 @@ export default function Loader({children, setHasLoaded}: Props) {
     const [scaleTo, setScaleTo] = useState(.3)
 
     const clip = isMobile ? "inset(calc(50vh - 30px) calc(50vw - 95px) round calc(50vw - 95px))" : "inset(calc(50vh - 30px) calc(50vw - 275px) round calc(50vw - 275px))"
+
+    useEffect(() => {
+        if (window.scrollY !== 0) {
+            window.scrollTo(0, 0);
+        }
+    }, []);
 
     useEffect(() => {
         if (!ready) {

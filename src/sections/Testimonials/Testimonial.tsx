@@ -1,4 +1,4 @@
-import type {ITestimonial} from "../../data/testimonials.ts";
+import type {ITestimonial} from "../../data/testimonials";
 
 export default function Testimonial({testimonial}: { testimonial: ITestimonial }) {
     return (

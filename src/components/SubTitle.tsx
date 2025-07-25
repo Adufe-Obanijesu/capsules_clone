@@ -1,4 +1,4 @@
-import {cn} from "../utils/tailwind.ts";
+import {cn} from "../utils/tailwind";
 
 interface Props {
     children: React.ReactNode;

@@ -1,11 +1,11 @@
-import Card from "../Card.tsx";
-import {why} from "../../../data/why.ts";
+import Card from "../Card";
+import {why} from "../../../data/why";
 import {useGSAP} from "@gsap/react";
-import {animation} from "./animation.ts";
+import {animation} from "./animation";
 import {useContext, useRef, useState} from "react";
-import {Ctx} from "../../../App.tsx";
-import useScrollDirection from "../../../hooks/useScrollDirection.tsx";
-import {useScrollLock} from "../../../hooks/useScrollLock.tsx";
+import {Ctx} from "../../../App";
+import useScrollDirection from "../../../hooks/useScrollDirection";
+import {useScrollLock} from "../../../hooks/useScrollLock";
 
 export default function DesktopVersion() {
     const {lenis} = useContext(Ctx)

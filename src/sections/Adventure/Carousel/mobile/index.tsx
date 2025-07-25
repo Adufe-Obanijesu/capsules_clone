@@ -1,4 +1,4 @@
-import {activities, type TActivity} from "../../../../data/adventure.tsx";
+import {activities, type TActivity} from "../../../../data/adventure";
 
 export default function MobileCarousel() {
     return (

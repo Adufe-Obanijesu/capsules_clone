@@ -1,9 +1,9 @@
-import {capsules, type ICapsule} from "../../../data/capsules.ts";
+import {capsules, type ICapsule} from "../../../data/capsules";
 import {useRef, useState} from "react";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
-import Details from "./Details.tsx";
-import Card from "./Card.tsx";
+import Details from "./Details";
+import Card from "./Card";
 
 export default function MobileVersion() {
 

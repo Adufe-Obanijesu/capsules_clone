@@ -1,8 +1,8 @@
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import {useRef} from "react";
-import {scrollTo} from "../../utils/scroll.ts";
-import type {IMenuLink} from "../../data/menu.ts";
+import {scrollTo} from "../../utils/scroll";
+import type {IMenuLink} from "../../data/menu";
 
 export default function Link({link}: { link: IMenuLink }) {
 

@@ -1,13 +1,13 @@
-import Pill from "../components/Pill.tsx";
-import {rules} from "../data/rules.ts";
+import Pill from "../components/Pill";
+import {rules} from "../data/rules";
 import {clsx} from "clsx";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
 import SplitText from "gsap/SplitText"
-import {useRef} from "react";
+import {memo, useRef} from "react";
 import {useMediaQuery} from "react-responsive";
 
-export default function Discover() {
+function Discover() {
     const scope = useRef<HTMLDivElement>(null)
 
     const isDesktop = useMediaQuery({minWidth: 1280})
@@ -82,3 +82,5 @@ export default function Discover() {
         </section>
     )
 }
+
+export default memo(Discover)

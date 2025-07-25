@@ -1,7 +1,7 @@
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import {useRef} from "react";
-import {usePageReady} from "../../hooks/usePageReady.tsx";
+import {usePageReady} from "../../hooks/usePageReady";
 
 export default function DesktopVersion() {
 

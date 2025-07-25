@@ -1,13 +1,13 @@
 import {GoPlus} from "react-icons/go";
-import type {ICapsule} from "../../../data/capsules.ts";
-import Details from "./Details.tsx";
+import type {ICapsule} from "../../../data/capsules";
+import Details from "./Details";
 import {useContext, useEffect, useRef, useState} from "react";
 import gsap from "gsap";
-import {cn} from "../../../utils/tailwind.ts";
+import {cn} from "../../../utils/tailwind";
 import {useGSAP} from "@gsap/react";
-import AnimatedButton from "../../../components/Button.tsx";
-import useEscapeKey from "../../../hooks/useEscapeKey.tsx";
-import {Ctx} from "../../../App.tsx";
+import AnimatedButton from "../../../components/Button";
+import useEscapeKey from "../../../hooks/useEscapeKey";
+import {Ctx} from "../../../App";
 
 interface Props {
     capsule: ICapsule,
@@ -35,7 +35,7 @@ export default function Button({capsule}: Props) {
             .to(`#capsule-button-${capsule.id} .details_wrapper`, {
                 scale: 1
             })
-            .to(`#capsule-button-${capsule.id} #terraceCapsuleDetails${capsule.id}`, {
+            .to(`#capsule-button-${capsule.id} #capsuleDetails${capsule.id}`, {
                 rotate: 135,
             }, "<")
             .to(`#capsule-button-${capsule.id} .details-overlay${capsule.id}`, {
@@ -43,7 +43,7 @@ export default function Button({capsule}: Props) {
                 pointerEvents: "auto",
                 duration: .3,
             }, "<")
-            .to(`#capsule-button-${capsule.id} #terraceCapsuleDetails${capsule.id}`, {
+            .to(`#capsule-button-${capsule.id} #capsuleDetails${capsule.id}`, {
                 backgroundColor: "white",
             }, "<")
             .to(`#capsule-button-${capsule.id} .details_wrapper .details-pricing .absolute`, {
@@ -75,7 +75,7 @@ export default function Button({capsule}: Props) {
         <div ref={scope}>
             <div id={`capsule-button-${capsule.id}`} className="relative flex items-center">
                 <button
-                    id={`terraceCapsuleDetails${capsule.id}`}
+                    id={`capsuleDetails${capsule.id}`}
                     className="z-100 invisible scale-0 rounded-full"
                     aria-label={`${capsule.ariaName} details`}
                     onClick={() => setIsOpen(prev => !prev)}>

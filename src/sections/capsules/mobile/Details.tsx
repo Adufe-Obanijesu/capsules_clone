@@ -1,10 +1,10 @@
-import type {ICapsule} from "../../../data/capsules.ts";
+import type {ICapsule} from "../../../data/capsules";
 import {LiaTimesSolid} from "react-icons/lia";
 import {useContext, useRef} from "react";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
-import {Ctx} from "../../../App.tsx";
-import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText.tsx";
+import {Ctx} from "../../../App";
+import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText";
 
 interface Props {
     capsule: ICapsule | null;

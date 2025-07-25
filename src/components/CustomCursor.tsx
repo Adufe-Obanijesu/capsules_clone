@@ -1,7 +1,7 @@
 import {gsap} from 'gsap';
 import {useGSAP} from '@gsap/react';
 import {useRef} from "react";
-import {cn} from "../utils/tailwind.ts";
+import {cn} from "../utils/tailwind";
 
 interface CustomCursorProps {
     children: React.ReactNode;
@@ -26,11 +26,17 @@ export default function CustomCursor({
 
         if (!container || !cursorElement) return;
 
+        function killTween() {
+            gsap.killTweensOf(cursorElement);
+        }
+
         gsap.set(cursorElement, {
             opacity: 0,
             scale: 0.5,
             xPercent: -50,
             yPercent: -50,
+            rotationZ: 20,
+            transformOrigin: 'center center',
             x: -300,
             pointerEvents: 'none'
         });
@@ -52,16 +58,19 @@ export default function CustomCursor({
                 opacity: 1,
                 scale: 1,
                 duration: 0.3,
+                rotationZ: 0,
                 ease: "back.out(1.7)"
             });
         };
 
         const handleMouseLeave = () => {
+            killTween()
             isHovering.current = false;
             gsap.to(cursorElement, {
                 opacity: 0,
                 scale: 0.5,
                 duration: 0.2,
+                rotationZ: 20,
                 ease: "power2.in"
             });
         };

@@ -1,12 +1,12 @@
-import Marquee from "./Marquee.tsx";
-import SubTitle from "../../components/SubTitle.tsx";
-import {socials} from "../../data/footer.ts";
-import Link from "./Link.tsx";
-import AnimatedUnderlineText from "../../components/AnimatedUnderlineText.tsx";
-import AnimatedButton from "../../components/Button.tsx";
-import FooterLogo from "../../components/FooterLogo.tsx";
-import type {IReserveProps} from "../../types/Reserve.ts";
-import {menus} from "../../data/menu.ts";
+import Marquee from "./Marquee";
+import SubTitle from "../../components/SubTitle";
+import {socials} from "../../data/footer";
+import Link from "./Link";
+import AnimatedUnderlineText from "../../components/AnimatedUnderlineText";
+import AnimatedButton from "../../components/Button";
+import FooterLogo from "../../components/FooterLogo";
+import type {IReserveProps} from "../../types/Reserve";
+import {menus} from "../../data/menu";
 
 export default function Footer({setIsOpen}: Omit<IReserveProps, "isOpen">) {
     return (

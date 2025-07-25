@@ -7,7 +7,7 @@ interface IAnimation {
 }
 
 export function animateSVG() {
-    return gsap.timeline()
+    return gsap.timeline({paused: true})
         .to("#text-wrapper", {y: 0, yPercent: -100})
         .set("#menu .close-text:first-child", {zIndex: 1})
         .set("#menu .menu-text:nth-child(2)", {zIndex: 0}, "<")

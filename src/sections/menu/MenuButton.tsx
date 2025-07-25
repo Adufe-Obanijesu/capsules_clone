@@ -1,9 +1,9 @@
 import {useEffect, useRef, useState} from "react";
 import {useGSAP} from "@gsap/react";
-import Menu from "./Menu.tsx";
-import animation, {animateSVG} from "./animation.ts";
-import {usePageReady} from "../../hooks/usePageReady.tsx";
-import useEscapeKey from "../../hooks/useEscapeKey.tsx";
+import animation, {animateSVG} from "./animation";
+import {usePageReady} from "../../hooks/usePageReady";
+import useEscapeKey from "../../hooks/useEscapeKey";
+import Menu from "./Menu";
 
 interface Props {
     isOpenMap: boolean
@@ -42,8 +42,10 @@ export default function MenuButton({isOpenMap, setIsOpenMap}: Props) {
     useEffect(() => {
         if (isOpen) {
             moveWrapperTimeline.current?.play()
+            svgTimeline.current?.restart()
         } else {
             moveWrapperTimeline.current?.reverse()
+            svgTimeline.current?.reverse()
         }
     }, [isOpen]);
 

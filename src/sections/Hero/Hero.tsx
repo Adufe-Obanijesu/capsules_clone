@@ -1,6 +1,6 @@
 import {useMediaQuery} from "react-responsive";
-import DesktopVersion from "./DesktopVersion.tsx";
-import MobileVersion from "./MobileVersion.tsx";
+import DesktopVersion from "./DesktopVersion";
+import MobileVersion from "./MobileVersion";
 
 export default function Hero() {
 

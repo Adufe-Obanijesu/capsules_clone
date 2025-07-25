@@ -8,37 +8,33 @@ import {useGSAP} from "@gsap/react";
 import {createContext, useEffect, useRef, useState} from "react";
 import {useMediaQuery} from "react-responsive";
 import {lazy, Suspense} from "react";
-import type {IContext} from "./types/Reserve.ts";
-import {capsules} from "./data/capsules.ts";
+import type {IContext} from "./types/Reserve";
+import {capsules} from "./data/capsules";
 
 // Effects
 import "./effects"
 
 // Hooks
-import useLenis from "./hooks/useLenis.tsx";
-import useEscapeKey from "./hooks/useEscapeKey.tsx";
-
+import useLenis from "./hooks/useLenis";
+import useEscapeKey from "./hooks/useEscapeKey";
 
 // Sections
-import Hero from "./sections/Hero/Hero.tsx";
-import Welcome from "./sections/Welcome.tsx";
+import Hero from "./sections/Hero/Hero";
+import Welcome from "./sections/Welcome";
 import {LazySectionWrapper} from "./components/LazySectionWrapper";
-import Navbar from "./sections/navigation/Navbar.tsx";
-import MenuButton from "./sections/menu/MenuButton.tsx";
+import Navbar from "./sections/navigation/Navbar";
 import Reserve from "./sections/reserve";
-import Loader from "./sections/Loader.tsx";
+import Loader from "./sections/Loader";
+import Closer from "./sections/Closer.tsx";
 
 // Lazy loaded sections
 const Discover = lazy(() => import("./sections/Discover"));
 const Capsules = lazy(() => import("./sections/capsules"));
-const Closer = lazy(() => import("./sections/Closer"));
 const Why = lazy(() => import("./sections/Why"));
 const Adventure = lazy(() => import("./sections/Adventure"));
 const Testimonials = lazy(() => import("./sections/Testimonials/Testimonials"));
 const CTA = lazy(() => import("./sections/CTA"));
 const Footer = lazy(() => import("./sections/footer"));
-const Map = lazy(() => import("./sections/map"));
-
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText, useGSAP, GSDevTools, TextPlugin)
 
@@ -54,14 +50,12 @@ export const Ctx = createContext<IContext>({
 
 export default function App() {
     const [isOpenReserve, setIsOpenReserve] = useState(false)
-    const [isOpenMap, setIsOpenMap] = useState(false)
     const [selectedCapsule, setSelectedCapsule] = useState(capsules[0])
     const [hasLoaded, setHasLoaded] = useState(false)
 
     const lenis = useLenis(hasLoaded)
 
     useEscapeKey(() => {
-        setIsOpenMap(false)
         setIsOpenReserve(false)
     })
 
@@ -87,10 +81,6 @@ export default function App() {
             <main className="bg-darkBrown relative antialiased">
                 <Navbar setIsOpen={setIsOpenReserve}/>
                 <Reserve isOpen={isOpenReserve} setIsOpen={setIsOpenReserve}/>
-                <MenuButton isOpenMap={isOpenMap} setIsOpenMap={setIsOpenMap}/>
-                <LazySectionWrapper>
-                    <Map isOpenMap={isOpenMap} setIsOpenMap={setIsOpenMap}/>
-                </LazySectionWrapper>
                 <div className="bg-dark min-h-screen">
                     <Loader setHasLoaded={setHasLoaded}>
                         <Hero/>
@@ -106,8 +96,8 @@ export default function App() {
                                     <LazySectionWrapper><Discover/></LazySectionWrapper>
                                     <LazySectionWrapper pinning><Capsules/></LazySectionWrapper>
                                 </div>
-                                <LazySectionWrapper><Closer setIsOpenMap={setIsOpenMap}/></LazySectionWrapper>
                             </Suspense>
+                            <Closer/>
                         </div>
                         <Suspense fallback={null}>
                             <LazySectionWrapper pinning><Why/></LazySectionWrapper>

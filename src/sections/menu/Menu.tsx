@@ -1,12 +1,12 @@
-import {menus} from "../../data/menu.ts";
-import {socials} from "../../data/footer.ts";
-import AnimatedButton from "../../components/Button.tsx";
-import {cn} from "../../utils/tailwind.ts";
-import Marquee from "./Marquee.tsx";
+import {menus} from "../../data/menu";
+import {socials} from "../../data/footer";
+import AnimatedButton from "../../components/Button";
+import {cn} from "../../utils/tailwind";
+import Marquee from "./Marquee";
 import gsap from "gsap"
-import {type RefObject, useContext} from "react";
-import {Ctx} from "../../App.tsx";
-import {scrollTo} from "../../utils/scroll.ts";
+import {type RefObject, useCallback, useContext} from "react";
+import {Ctx} from "../../App";
+import {scrollTo} from "../../utils/scroll";
 
 interface Props {
     isOpen: boolean,
@@ -18,7 +18,7 @@ export default function Menu({isOpen, setIsOpen, menuTimeline}: Props) {
 
     const {setIsOpenReserve} = useContext(Ctx)
 
-    function handleScroll(id: string | number, offset: number = 0) {
+    const handleScroll = useCallback(function handleScroll(id: string | number, offset: number = 0) {
 
         if (id === "reserve") {
             setIsOpen(false)
@@ -33,7 +33,8 @@ export default function Menu({isOpen, setIsOpen, menuTimeline}: Props) {
 
         scrollTo(id, offset)
         setIsOpen(false)
-    }
+    }, [setIsOpen, menuTimeline.current])
+
 
     return (
         <section aria-modal="true" role="dialog" id="menu-section"

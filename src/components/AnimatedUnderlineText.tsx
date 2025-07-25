@@ -1,4 +1,4 @@
-import {cn} from "../utils/tailwind.ts";
+import {cn} from "../utils/tailwind";
 import {type HTMLAttributes, useRef} from "react";
 import gsap from "gsap";
 import {useGSAP} from "@gsap/react";

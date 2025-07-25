@@ -1,4 +1,4 @@
-import {activities, type TActivity} from "../../../../data/adventure.tsx";
+import {activities, type TActivity} from "../../../../data/adventure";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
 import {useRef} from "react";
@@ -30,9 +30,9 @@ export default function DesktopCarousel() {
                 x: -distance,
             })
             .fromTo("#activities img", {
-                objectPosition: "0px 0px",
+                x: 0
             }, {
-                objectPosition: "-120px 0px",
+                x: -120,
             }, "<")
     }, {scope})
 

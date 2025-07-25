@@ -64,7 +64,7 @@ export function animation(
             markers: true,
             trigger: "#why",
             start: "top top",
-            end: "+=200px",
+            end: "+=20px",
             pin: true,
             refreshPriority: 1,
             onUpdate: (self: ScrollTrigger) => {

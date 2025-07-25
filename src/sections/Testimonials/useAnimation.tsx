@@ -2,7 +2,7 @@ import {useEffect, useRef, useState} from "react";
 import SplitText from "gsap/SplitText";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
-import type {IAnimateInOut} from "../../types/Testimonials.ts";
+import type {IAnimateInOut} from "../../types/Testimonials";
 
 export default function useAnimation() {
     const isMounted = useRef(false)

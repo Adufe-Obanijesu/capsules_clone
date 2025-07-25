@@ -1,10 +1,10 @@
-import Capsule from "../Capsule.tsx";
+import Capsule from "../Capsule";
 import {MdOutlineArrowForward} from "react-icons/md";
-import {capsules, type ICapsule} from "../../../data/capsules.ts";
+import {capsules, type ICapsule} from "../../../data/capsules";
 
-import {IconButton} from "../../../components/Button.tsx";
+import {IconButton} from "../../../components/Button";
 import {useMediaQuery} from "react-responsive";
-import DateInput from "../../../components/DateInput.tsx";
+import DateInput from "../../../components/DateInput";
 
 interface Props {
     next: () => void

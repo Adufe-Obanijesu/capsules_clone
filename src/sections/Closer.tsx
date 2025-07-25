@@ -1,11 +1,11 @@
-import AnimatedUnderlineText from "../components/AnimatedUnderlineText.tsx";
-import {Cursor} from "../components/Button.tsx";
+import AnimatedUnderlineText from "../components/AnimatedUnderlineText";
+import {Cursor} from "../components/Button";
 import {MdArrowOutward} from "react-icons/md";
-import CustomCursor from "../components/CustomCursor.tsx";
-import MenuButton from "./menu/MenuButton.tsx";
-import {LazySectionWrapper} from "../components/LazySectionWrapper.tsx";
+import CustomCursor from "../components/CustomCursor";
+import MenuButton from "./menu/MenuButton";
+import {LazySectionWrapper} from "../components/LazySectionWrapper";
 import Map from "./map";
-import useEscapeKey from "../hooks/useEscapeKey.tsx";
+import useEscapeKey from "../hooks/useEscapeKey";
 import {useState} from "react";
 
 export default function Closer() {

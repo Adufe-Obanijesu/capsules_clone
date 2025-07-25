@@ -1,7 +1,7 @@
-import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText.tsx";
-import {IconButton} from "../../../components/Button.tsx";
+import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText";
+import {IconButton} from "../../../components/Button";
 import {MdArrowOutward} from "react-icons/md";
-import type {ICapsule} from "../../../data/capsules.ts";
+import type {ICapsule} from "../../../data/capsules";
 
 export default function SecondStep({selectedCapsule}: { selectedCapsule: ICapsule }) {
     return (

@@ -1,6 +1,6 @@
 import {useMediaQuery} from "react-responsive";
-import DesktopVersion from "./desktop/DesktopVersion.tsx";
-import MobileVersion from "./mobile/MobileVersion.tsx";
+import DesktopVersion from "./desktop/DesktopVersion";
+import MobileVersion from "./mobile/MobileVersion";
 
 export default function Capsules() {
 

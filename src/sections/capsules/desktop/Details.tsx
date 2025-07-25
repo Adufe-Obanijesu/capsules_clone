@@ -1,5 +1,5 @@
-import type {ICapsule} from "../../../data/capsules.ts";
-import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText.tsx";
+import type {ICapsule} from "../../../data/capsules";
+import AnimatedUnderlineText from "../../../components/AnimatedUnderlineText";
 
 interface Props {
     isOpen: boolean

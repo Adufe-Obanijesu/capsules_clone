@@ -1,7 +1,7 @@
-import AnimatedUnderlineText from "../../components/AnimatedUnderlineText.tsx";
+import AnimatedUnderlineText from "../../components/AnimatedUnderlineText";
 import {type RefObject, useContext} from "react";
 import gsap from "gsap";
-import {Ctx} from "../../App.tsx";
+import {Ctx} from "../../App";
 
 interface Props {
     openMapTimeline: RefObject<gsap.core.Timeline | null>,

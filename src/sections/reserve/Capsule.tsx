@@ -1,5 +1,5 @@
-import type {ICapsule} from "../../data/capsules.ts";
-import {cn} from "../../utils/tailwind.ts";
+import type {ICapsule} from "../../data/capsules";
+import {cn} from "../../utils/tailwind";
 
 interface Props {
     capsule: ICapsule,

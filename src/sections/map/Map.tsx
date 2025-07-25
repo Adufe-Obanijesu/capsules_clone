@@ -12,7 +12,7 @@ export default function MapSection({open}: { open: boolean }) {
                 {default: MapController},
             ] = await Promise.all([
                 import("react-azure-maps"),
-                import("./MapController.tsx"),
+                import("./MapController"),
             ]);
 
             await import("azure-maps-control/dist/atlas.min.css");

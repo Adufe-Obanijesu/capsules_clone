@@ -1,4 +1,4 @@
-import {cn} from "../utils/tailwind.ts";
+import {cn} from "../utils/tailwind";
 
 interface PillProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;

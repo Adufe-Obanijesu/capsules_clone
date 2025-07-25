@@ -1,1 +1,1 @@
-import "./marquee.ts"
+import "./marquee"

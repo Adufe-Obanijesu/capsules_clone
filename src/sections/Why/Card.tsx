@@ -1,4 +1,4 @@
-import type {IWhy} from "../../data/why.ts";
+import type {IWhy} from "../../data/why";
 
 interface Props {
     details: IWhy,

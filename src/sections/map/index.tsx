@@ -1,11 +1,11 @@
-import Info from "./Info.tsx";
+import Info from "./Info";
 import {lazy, useEffect, useRef} from "react";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
-import useDebounce from "../../hooks/useDebounce.tsx";
+import useDebounce from "../../hooks/useDebounce";
 import {FiLoader} from "react-icons/fi";
 
-const MapSection = lazy(() => import('./Map.tsx'));
+const MapSection = lazy(() => import('./Map'));
 
 interface Props {
     isOpenMap: boolean
