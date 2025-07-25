@@ -12,7 +12,15 @@ export default function Why() {
 
     useGSAP(() => {
         const mm = gsap.matchMedia()
-        const timeline = gsap.timeline({repeat: -1})
+        const timeline = gsap.timeline({
+            repeat: -1,
+            scrollTrigger: {
+                trigger: ".why-marquee-wrapper",
+                start: "top bottom",
+                end: "bottom top",
+                toggleActions: "play pause play pause",
+            }
+        })
             .to("#why-marquee-container", {
                 xPercent: -100,
                 duration: 12,
@@ -26,42 +34,43 @@ export default function Why() {
 
             let direction: "up" | "down" = "down"
 
-            gsap.to(".why-marquee-wrapper", {
-                y: "200px",
-                ease: "none",
-                scrollTrigger: {
-                    trigger: ".why-desktop",
-                    start: "top bottom",
-                    end: "top 25%",
-                    scrub: 1,
-                    onUpdate: self => {
+            gsap.timeline()
+                .to(".why-marquee-wrapper", {
+                    y: "200px",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".why-desktop",
+                        start: "top bottom",
+                        end: "top 25%",
+                        scrub: 1,
+                        onUpdate: self => {
 
-                        // Scrub marquee when scrolled
-                        const velocity = self.getVelocity();
-                        const scale = gsap.utils.clamp(-5, 5, velocity / 300);
-                        timeline.timeScale(scale || 1);
+                            // Scrub marquee when scrolled
+                            const velocity = self.getVelocity();
+                            const scale = gsap.utils.clamp(-5, 5, velocity / 300);
+                            timeline.timeScale(scale || 1);
 
-                        clearTimeout(timeout);
-                        timeout = setTimeout(() => {
-                            timeline.timeScale(self.direction);
-                        }, 5);
+                            clearTimeout(timeout);
+                            timeout = setTimeout(() => {
+                                timeline.timeScale(self.direction);
+                            }, 5);
 
-                        // Rotate * when scrolled
-                        gsap.set(".why-marquee-wrapper svg", {
-                            transformOrigin: "center center",
-                            rotation: self.progress * 90
-                        })
+                            // Rotate * when scrolled
+                            gsap.set(".why-marquee-wrapper svg", {
+                                transformOrigin: "center center",
+                                rotation: self.progress * 90
+                            })
 
-                        if (self.direction === 1 && direction !== "down") {
-                            timeline.timeScale(1)
-                            direction = "down"
-                        } else if (self.direction === -1 && direction !== "up") {
-                            timeline.timeScale(-1)
-                            direction = "up"
+                            if (self.direction === 1 && direction !== "down") {
+                                timeline.timeScale(1)
+                                direction = "down"
+                            } else if (self.direction === -1 && direction !== "up") {
+                                timeline.timeScale(-1)
+                                direction = "up"
+                            }
                         }
                     }
-                }
-            })
+                })
         })
 
         return () => {

@@ -8,7 +8,15 @@ export default function Marquee({setIsOpen}: { setIsOpen: React.Dispatch<React.S
     const [direction, setDirection] = useState<"left" | "right">("left")
 
     const {contextSafe} = useGSAP(() => {
-        timeline.current = gsap.timeline({repeat: -1})
+        timeline.current = gsap.timeline({
+            repeat: -1,
+            scrollTrigger: {
+                trigger: ".footer-marquee-wrapper",
+                start: "top bottom",
+                end: "bottom top",
+                toggleActions: "play pause play pause",
+            }
+        })
             .to("#footer-marquee-container", {
                 xPercent: -100,
                 duration: 12,
@@ -69,26 +77,26 @@ export default function Marquee({setIsOpen}: { setIsOpen: React.Dispatch<React.S
 
     return (
         <button
-            className="footer-marquee-wrapper overflow-hidden w-screen -mx-8 relative z-0 xl:-z-1 text-white hover:text-lightBrown"
+            className="footer-marquee-wrapper overflow-hidden w-screen -mx-8 relative z-0 z-1 text-white hover:text-lightBrown"
             onClick={() => setIsOpen(true)}
             onMouseEnter={onHover} onMouseLeave={onLeave}
             aria-label="Open reservation">
             <div id="footer-marquee-container" className="flex xl:translate-x-[-100%]">
                 <div className="min-w-screen">
                     <div
-                        className="heading-1 w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
+                        className="heading-1 w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center">
                         Book your capsule
                     </div>
                 </div>
                 <div className="min-w-screen">
                     <div
-                        className="heading-1 w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
+                        className="heading-1 w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center">
                         Book your capsule
                     </div>
                 </div>
                 <div className="min-w-screen">
                     <div
-                        className="heading-1 w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center leading-[1.2]">
+                        className="heading-1 w-full text-center whitespace-nowrap text-[11.5vw] flex items-start justify-center">
 
                         Book your capsule
                     </div>

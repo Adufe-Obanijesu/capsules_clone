@@ -7,10 +7,18 @@ export default function () {
     const scope = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        gsap.effects.infiniteSlide("#wrapper", {
-            duration: 15,
-            xPercent: -100
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: "#wrapper",
+                start: "top bottom",
+                end: "+=200%",
+                toggleActions: "play pause play pause",
+            }
         })
+            .add(gsap.effects.infiniteSlide("#wrapper", {
+                duration: 15,
+                xPercent: -100
+            }))
     }, {scope})
 
     return (

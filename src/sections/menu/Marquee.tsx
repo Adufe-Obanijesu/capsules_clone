@@ -1,9 +1,15 @@
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
+import {useEffect, useRef} from "react";
 
 export default function Marquee({isOpen}: { isOpen: boolean }) {
 
+    const timeline = useRef<gsap.core.Timeline>(null)
+
     useGSAP(() => {
+
+        gsap.killTweensOf("#menu-marquee-wrapper")
+
         const mm = gsap.matchMedia()
         mm.add({
             isDesktop: "(min-width: 1028px)",
@@ -14,20 +20,26 @@ export default function Marquee({isOpen}: { isOpen: boolean }) {
 
             const xValue = headings[0].clientWidth * -1;
 
-            const tl = gsap.effects.infiniteSlide("#menu-marquee-wrapper", {
-                duration: isDesktop ? 25 : 15,
-                x: () => xValue,
-                xPercent: 0
-            })
+            timeline.current = gsap.timeline({paused: true})
+                .add(gsap.effects.infiniteSlide("#menu-marquee-wrapper", {
+                    duration: isDesktop ? 25 : 15,
+                    x: () => xValue,
+                    xPercent: 0
+                }))
 
-            if (isOpen) {
-                tl.play();
-            } else {
-                tl.pause();
-            }
         })
 
     }, [isOpen])
+
+    useEffect(() => {
+        if (timeline.current) {
+            if (isOpen) {
+                timeline.current.play();
+            } else {
+                timeline.current.pause();
+            }
+        }
+    }, [isOpen]);
 
 
     return (
