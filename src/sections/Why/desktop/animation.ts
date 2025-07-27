@@ -63,7 +63,7 @@ export function animation(
         scrollTrigger: {
             trigger: "#why",
             start: "top top",
-            end: "+=20px",
+            end: "+=30px",
             pin: true,
             refreshPriority: 1,
             onUpdate: (self: ScrollTrigger) => {
@@ -91,17 +91,15 @@ export function animation(
             }
         },
         defaults: {duration: 1, ease: "power2.inOut"},
-        onComplete: function () {
+        onComplete: () => {
             scrollLock.enableScroll()
             lenis?.start()
             setIsScrollLocked(false);
-            (this.scrollTrigger as ScrollTrigger).scroll((this.scrollTrigger as ScrollTrigger).end)
         },
-        onReverseComplete: function () {
+        onReverseComplete: () => {
             scrollLock.enableScroll()
             lenis?.start()
             setIsScrollLocked(false);
-            (this.scrollTrigger as ScrollTrigger).scroll((this.scrollTrigger as ScrollTrigger).start)
         }
     })
         .addPause()

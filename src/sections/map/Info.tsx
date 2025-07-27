@@ -23,9 +23,9 @@ export default function Info({openMapTimeline, setIsOpenMap}: Props) {
 
     return (
         <div id="map-info" className="scale-0 text-white bg-darkBrown rounded-[40px] px-6 py-8 xl:w-fit">
-            <div className="flex flex-col gap-3 invisible">
+            <div className="flex flex-col items-start gap-3 invisible">
                 <h6>Capsules®</h6>
-                <p className="text-xs text-lightBrown">
+                <p className="text-xs text-lightBrown text-start">
                     Maricopa, CA 93253
                     <br/>
                     United States
