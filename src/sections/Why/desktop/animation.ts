@@ -63,7 +63,7 @@ export function animation(
         scrollTrigger: {
             trigger: "#why",
             start: "top top",
-            end: "+=30px",
+            end: "+=100px",
             pin: true,
             refreshPriority: 1,
             onUpdate: (self: ScrollTrigger) => {

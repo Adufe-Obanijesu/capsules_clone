@@ -1,74 +1,87 @@
-# React + TypeScript + Vite
+# Capsule Landing Page Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive landing page clone of an award winning site [Capsule by Moyra](https://capsule.moyra.co), built with React,
+TypeScript, GSAP, and Vite. This project showcases modern web development techniques including smooth animations,
+responsive design, and interactive elements.
 
-Currently, two official plugins are available:
+🔗 **Live Demo**: [https://capsule-clone.netlify.app](https://capsule-clone.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react)
-  uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc)
-  uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 📱 Fully responsive design that works on all device sizes
+- ✨ Smooth animations and transitions using GSAP
+- 🔄 Lazy-loaded sections for improved performance
+- 🗺️ Interactive map integration with Azure Maps
+- 🖱️ Custom scrolling experience with Lenis
+- 🎨 Modern UI with Tailwind CSS
+- 📦 Component-based architecture with React
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technologies Used
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool
+- **GSAP** - Animation library
+- **Tailwind CSS** - Styling
+- **Lenis** - Smooth scrolling
+- **Azure Maps** - Map integration
 
-      // Remove tseslint.configs.recommended and replace with this
-      ..eslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ..eslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ..eslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/Adufe-Obanijesu/capsules_clone.git
+   cd capsules_clone
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+3. Create a `.env` file in the root directory with your Azure Maps API key:
+   ```
+   VITE_PRIMARY_KEY=your_azure_maps_api_key
+   ```
+
+4. Start the development server
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+## Building for Production
+
+```bash
+npm run build
+# or
+yarn build
 ```
 
-You can also
-install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x)
-and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom)
-for React-specific lint rules:
+The built files will be in the `dist` directory.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `src/` - Source code
+    - `components/` - Reusable UI components
+    - `sections/` - Main page sections
+    - `hooks/` - Custom React hooks
+    - `data/` - Static data
+    - `effects/` - Animation effects
+    - `types/` - TypeScript type definitions
+
+## License
+
+This project is for educational purposes only. The original design belongs to [Moyra](https://capsule.moyra.co).
