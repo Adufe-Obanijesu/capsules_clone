@@ -1,10 +1,12 @@
 # Capsule Landing Page Clone
 
-A responsive landing page clone of an award winning site [Capsule by Moyra](https://capsule.moyra.co), built with React,
+A landing page clone of an award winning site [Capsules by Moyra](https://capsules.moyra.co), built with React,
 TypeScript, GSAP, and Vite. This project showcases modern web development techniques including smooth animations,
 responsive design, and interactive elements.
 
 🔗 **Live Demo**: [https://capsule-clone.netlify.app](https://capsule-clone.netlify.app)
+
+![Capsule Landing Page Screenshot](./public/screenshots/capsule.png)
 
 ## Features
 
@@ -82,6 +84,16 @@ The built files will be in the `dist` directory.
     - `effects/` - Animation effects
     - `types/` - TypeScript type definitions
 
+## Performance
+
+The website has been optimized for performance on both mobile and desktop devices:
+
+### Mobile Performance
+![Page Speed Insights - Mobile](./public/screenshots/psi_mobile.png)
+
+### Desktop Performance
+![Page Speed Insights - Desktop](./public/screenshots/psi_desktop.png)
+
 ## License
 
-This project is for educational purposes only. The original design belongs to [Moyra](https://capsule.moyra.co).
+This project is for educational purposes only. The original design belongs to [Moyra](https://moyra.co/).
