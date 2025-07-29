@@ -8,6 +8,18 @@ responsive design, and interactive elements.
 
 ![Capsule Landing Page Screenshot](./public/screenshots/capsule.png)
 
+## Performance
+
+The website has been optimized for performance on both mobile and desktop devices:
+
+### Mobile Performance
+
+![Page Speed Insights - Mobile](./public/screenshots/psi_mobile.png)
+
+### Desktop Performance
+
+![Page Speed Insights - Desktop](./public/screenshots/psi_desktop.png)
+
 ## Features
 
 - 📱 Fully responsive design that works on all device sizes
@@ -83,16 +95,6 @@ The built files will be in the `dist` directory.
     - `data/` - Static data
     - `effects/` - Animation effects
     - `types/` - TypeScript type definitions
-
-## Performance
-
-The website has been optimized for performance on both mobile and desktop devices:
-
-### Mobile Performance
-![Page Speed Insights - Mobile](./public/screenshots/psi_mobile.png)
-
-### Desktop Performance
-![Page Speed Insights - Desktop](./public/screenshots/psi_desktop.png)
 
 ## License
 
