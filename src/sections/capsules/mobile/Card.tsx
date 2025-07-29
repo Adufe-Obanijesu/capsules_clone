@@ -2,11 +2,12 @@ import type {ICapsule} from "../../../data/capsules";
 import {GoPlus} from "react-icons/go";
 
 interface Props {
+    isOpen: boolean
     capsule: ICapsule,
     setSelectedCapsule: React.Dispatch<React.SetStateAction<ICapsule | null>>
 }
 
-export default function Card({capsule, setSelectedCapsule}: Props) {
+export default function Card({isOpen, capsule, setSelectedCapsule}: Props) {
     return <div>
         <div className="relative overflow-hidden w-full aspect-[1.4/1] rounded-[30px]"><img alt={capsule.name}
                                                                                             className="object-cover object-center absolute w-full h-full"
@@ -14,7 +15,9 @@ export default function Card({capsule, setSelectedCapsule}: Props) {
                                                                                             loading="lazy"/>
             <button
                 className="w-[52px] h-[52px] hover:opacity-[0.9] right-[10px] bottom-[10px] absolute rounded-full bg-lightBrown flex justify-center items-center z-1 cursor-pointer"
-                onClick={() => setSelectedCapsule(capsule)} aria-label={`${capsule.ariaName} details`}>
+                onClick={() => setSelectedCapsule(capsule)} aria-label={`${capsule.ariaName} details`}
+                aria-controls={`${capsule.ariaName}_details`}
+                aria-expanded={isOpen}>
                 <GoPlus fontSize={30}/>
             </button>
         </div>

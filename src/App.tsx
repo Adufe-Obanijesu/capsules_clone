@@ -81,8 +81,8 @@ export default function App() {
             <main className="bg-darkBrown relative antialiased">
                 <img id="awwwards" src="/images/awwwards.svg"
                      className="fixed right-0 top-1/2 -translate-y-1/2 z-1000 invisible hidden md:block"
-                     alt="Awwwards site of the day"/>
-                <Navbar setIsOpen={setIsOpenReserve}/>
+                     alt="Award site of the day"/>
+                <Navbar isOpen={isOpenReserve} setIsOpen={setIsOpenReserve}/>
                 <Reserve isOpen={isOpenReserve} setIsOpen={setIsOpenReserve}/>
                 <div className="bg-dark min-h-screen">
                     <Loader setHasLoaded={setHasLoaded}>

@@ -44,7 +44,8 @@ export default function MobileVersion() {
             <div className="space-y-16">
 
                 {
-                    capsules.map(capsule => <Card key={capsule.id} capsule={capsule}
+                    capsules.map(capsule => <Card isOpen={capsule.id === selectedCapsule?.id} key={capsule.id}
+                                                  capsule={capsule}
                                                   setSelectedCapsule={setSelectedCapsule}/>)
                 }
             </div>

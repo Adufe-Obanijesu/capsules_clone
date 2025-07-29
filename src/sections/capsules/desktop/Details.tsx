@@ -10,8 +10,8 @@ interface Props {
 export default function Details({isOpen, capsule, reserve}: Props) {
 
     return (
-        <div className="padding relative" aria-modal="true" role="dialog">
-
+        <div id={`${capsule.ariaName}_details`} className="padding relative" role="dialog"
+             aria-label={`${capsule.ariaName} details`} aria-modal={isOpen}>
             <div
                 className="details_wrapper scale-0 fixed z-500 bottom-20 rounded-[40px] left-4 w-95 h-[calc(100vh-110px)] flex flex-col padding bg-darkBrown">
                 <div

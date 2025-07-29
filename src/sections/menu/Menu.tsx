@@ -37,7 +37,7 @@ export default function Menu({isOpen, setIsOpen, menuTimeline}: Props) {
 
 
     return (
-        <section aria-modal="true" role="dialog" id="menu-section"
+        <section role="dialog" aria-modal={isOpen} aria-label="Menu" id="menu-section"
                  aria-hidden={!isOpen}
                  className="fixed overflow-y-auto inset-0 p-2.5 z-30 h-screen w-screen pointer-events-none">
             <div id="menu-container"

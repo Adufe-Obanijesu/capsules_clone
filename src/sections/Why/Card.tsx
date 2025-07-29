@@ -29,7 +29,7 @@ export default function Card({details, whys, multiple = false}: Props) {
                         </div>
                     </div>
                     <div
-                        className="border-[2px] xl:border-[1px] border-lightBrown px-[11px] py-[4px] flex justify-center items-center rounded-full opacity-[0.2] xl:w-9 xl:h-9">
+                        className="border-[2px] xl:border-[1px] border-lightBrown px-[11px] py-[4px] flex justify-center items-center rounded-full opacity-[0.5] xl:w-9 xl:h-9">
                         <div
                             className="text-[14px] xl:text-xs leading-[18px] tracking-[-0.2px] font-semibold text-white">{whys.length.toString().padStart(2, "0")}
                         </div>

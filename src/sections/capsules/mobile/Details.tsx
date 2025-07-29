@@ -38,9 +38,9 @@ export default function Details({capsule, setSelectedCap, cancel}: Props) {
         }
     }
 
-    // reserve
     return (
-        <div ref={scope} aria-modal="true" role="dialog">
+        <div id={`${capsule?.ariaName}_details`} aria-label={`${capsule?.ariaName} details`} ref={scope}
+             aria-modal={!!capsule} role="dialog">
 
             <div id="details_wrapper"
                  className="opacity-0 fixed top-0 left-0 w-full h-[100vh] z-50 flex flex-col padding bg-tertiary">
@@ -57,10 +57,16 @@ export default function Details({capsule, setSelectedCap, cancel}: Props) {
                             className="text-[14px] font-semibold leading-[18px] tracking-[-0.2px] text-white">({capsule?.name})
                         </div>
                     </div>
-                    <div className="w-full h-[160px] relative mt-[30px] rounded-[23px] overflow-hidden"><img
-                        alt={capsule?.ariaName}
-                        className="object-cover object-center absolute w-full h-full"
-                        src={capsule?.img} loading="lazy"/></div>
+                    <div className="w-full h-[160px] relative mt-[30px] rounded-[23px] overflow-hidden">
+                        {
+                            capsule && (
+                                <img
+                                    alt={capsule?.ariaName}
+                                    className="object-cover object-center absolute w-full h-full"
+                                    src={capsule?.img} loading="lazy"/>
+                            )
+                        }
+                    </div>
                     <div
                         className="text-[14px] font-semibold leading-[18px] tracking-[-0.2px] text-lightBrown mt-[30px]">{capsule?.description}
                     </div>

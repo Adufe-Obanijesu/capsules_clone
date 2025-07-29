@@ -77,7 +77,9 @@ export default function MenuButton({isOpenMap, setIsOpenMap}: Props) {
                 <button
                     className="bg-white h-11 rounded-[50px] p-[3px] flex justify-center items-center cursor-pointer group"
                     onClick={click} onMouseEnter={onHover} onMouseLeave={onLeave}
-                    aria-label={isOpenMap ? "Close Map" : isOpen ? "Close menu" : "Open menu"}>
+                    aria-label={isOpenMap ? "Close Map" : isOpen ? "Close menu" : "Open menu"}
+                    aria-controls="menu-section"
+                    aria-expanded={isOpen}>
                     <div
                         className="overflow-hidden ml-[15px] text-darkBrown text-xs  mr-[10px] font-medium relative h-4">
 

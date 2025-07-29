@@ -6,7 +6,7 @@ import {IconButton} from "../../components/Button";
 import type {IReserveProps} from "../../types/Reserve";
 import {useRef} from "react";
 
-export default function Navbar({setIsOpen}: Omit<IReserveProps, "isOpen">) {
+export default function Navbar({setIsOpen, isOpen}: IReserveProps) {
 
     const navbarTl = useRef<gsap.core.Timeline>(null)
 
@@ -68,7 +68,8 @@ export default function Navbar({setIsOpen}: Omit<IReserveProps, "isOpen">) {
                     <div>
                         <img src="/mini_logo.svg" className="h-6.5 pointer-events-auto" alt="logo"/>
                     </div>
-                    <button aria-label="Make reservation" className="pointer-events-auto"
+                    <button aria-label="Make reservation" aria-controls="reserve_dialog" aria-expanded={isOpen}
+                            className="pointer-events-auto"
                             onClick={() => setIsOpen(true)}>
                         <IconButton text="Reserve" Icon={MdArrowOutward}/>
                     </button>

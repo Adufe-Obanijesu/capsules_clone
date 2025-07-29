@@ -142,7 +142,8 @@ export default function Reserve({isOpen, setIsOpen}: IReserveProps) {
     })
 
     return (
-        <div ref={scope} aria-modal="true" role="dialog" className="padding fixed top-0 left-0 z-100">
+        <div ref={scope} role="dialog" id="reserve_dialog" aria-modal={isOpen} aria-label="Reservation"
+             className="padding fixed top-0 left-0 z-100">
 
             <div id="reserve-overlay"
                  className="opacity-0 pointer-events-none bg-tertiary fixed top-0 left-0 h-screen w-screen z-30"

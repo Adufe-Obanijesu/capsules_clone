@@ -78,7 +78,9 @@ export default function Button({capsule}: Props) {
                     id={`capsuleDetails${capsule.id}`}
                     className="z-100 invisible scale-0 rounded-full"
                     aria-label={`${capsule.ariaName} details`}
-                    onClick={() => setIsOpen(prev => !prev)}>
+                    onClick={() => setIsOpen(prev => !prev)}
+                    aria-controls={`${capsule.ariaName}_details`}
+                    aria-expanded={isOpen}>
                     <AnimatedButton isActive={isOpen} variant="white-overlay">
                         <GoPlus fontSize={24}
                                 className={cn("text-darkBrown z-5 transition-item")}/>
